@@ -32,13 +32,13 @@
 			</view>
 			<view class="my-dl-wrap">
 				<ul>
-					<li style="width: 30%;"><span>申请代理商</span></li>
-					<li style="width: 40%;"><span>商家经办加入代理</span></li>
-					<li style="width: 30%;"><span>申请业务员</span></li>
+					<li style="width: 30%;margin-left: 35%;"><span>申请代理商</span></li>
+					<!-- <li style="width: 40%;"><span>商家经办加入代理</span></li>
+					<li style="width: 30%;"><span>申请业务员</span></li> -->
 				</ul>
 			</view>
 		</view>
-		<view class="my-cont-wrap">
+		<!-- <view class="my-cont-wrap">
 			<view class="my-cont-title">
 				<label></label>
 				<span>我的待审事项</span>
@@ -60,7 +60,7 @@
 					</li>
 				</ul>
 			</view>
-		</view>
+		</view> -->
 		<view class="my-cont-wrap">
 			<view class="my-cont-title">
 				<label></label>
@@ -99,25 +99,6 @@
 					<li>
 						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
 						<label>我的商区</label>
-					</li>
-				</ul>
-			</view>
-		</view>
-		<view class="my-cont-wrap">
-			<view class="my-cont-title">
-				<label></label>
-				<span>我的消息处理</span>
-				<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
-			</view>
-			<view class="my-dl-three">
-				<ul class="my-two-ul">
-					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>未读消息</label>
-					</li>
-					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>全部消息</label>
 					</li>
 				</ul>
 			</view>
