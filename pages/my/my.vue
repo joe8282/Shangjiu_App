@@ -87,7 +87,7 @@
 		<view class="my-cont-wrap">
 			<view class="my-cont-title">
 				<label></label>
-				<span>我的会员专区</span>
+				<span>我的会员主页</span>
 				<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
 			</view>
 			<view class="my-dl-three">
@@ -125,46 +125,26 @@
 		<view class="my-cont-wrap">
 			<view class="my-cont-title">
 				<label></label>
-				<span>我的分享拓客</span>
+				<span>我的推广拓客</span>
+				
 				<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
+				<i class="my-cont-title-i">205</i>
+				<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
 			</view>
-			<view class="my-dl-three">
-				<ul class="my-three-ul">
-					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>我的客户</label>
-					</li>
-					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>拓客提成</label>
-					</li>
-					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>拓客奖励</label>
-					</li>
-				</ul>
-			</view>
+			
 		</view>
 		<view class="my-cont-wrap">
 			<view class="my-cont-title">
 				<label></label>
-				<span>我的发布内容</span>
+				<span>我的商讯收藏</span>
+				
 				<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
+				<i class="my-cont-title-i">205</i>
+				<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
 			</view>
-			<view class="my-dl-three">
-				<ul class="my-two-ul">
-					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>我的内容</label>
-					</li>
-					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>我的投稿</label>
-					</li>
-				</ul>
-			</view>
+			
 		</view>
-		<view class="my-cont-wrap">
+		<!-- <view class="my-cont-wrap">
 			<view class="my-cont-title">
 				<label></label>
 				<span>我管理的商区</span>
@@ -228,7 +208,7 @@
 					</li>
 				</ul>
 			</view>
-		</view>
+		</view> -->
 		<view class="my-sj-lx">
 			<view class="my-sj-lx-wrap">
 				<view class="my-cont-title">
