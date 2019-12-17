@@ -66,20 +66,21 @@
 				<label></label>
 				<span>我的账号管理</span>
 				<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
+				<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
 			</view>
 			<view class="my-dl-three">
 				<ul class="my-three-ul">
 					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>我的余额</label>
+						<span>205</span>
+						<label>充值余额</label>
 					</li>
 					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>我的支出</label>
+						<span>205</span>
+						<label>我的收入</label>
 					</li>
 					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>我的收益</label>
+						<span>205</span>
+						<label>应结余额</label>
 					</li>
 				</ul>
 			</view>
@@ -89,16 +90,13 @@
 				<label></label>
 				<span>我的会员主页</span>
 				<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
+				<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
 			</view>
 			<view class="my-dl-three">
-				<ul class="my-two-ul">
+				<ul class="my-one-ul">
 					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>我的内容</label>
-					</li>
-					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
-						<label>我的商区</label>
+						<span>205</span>
+						<label>我的商号</label>
 					</li>
 				</ul>
 			</view>
@@ -108,15 +106,16 @@
 				<label></label>
 				<span>我的消息处理</span>
 				<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
+				<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
 			</view>
 			<view class="my-dl-three">
 				<ul class="my-two-ul">
 					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
+						<span>205</span>
 						<label>未读消息</label>
 					</li>
 					<li>
-						<span>205<img src="static/images/my-wen.png" alt="" class="my-wen-icon" /></span>
+						<span>205</span>
 						<label>全部消息</label>
 					</li>
 				</ul>

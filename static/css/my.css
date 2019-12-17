@@ -28,10 +28,10 @@ i{
 }
 .my-header-wrap{
 	width: 100%;
-	height: 328rpx;
+	height: 164px;
 	background: url(../images/my-bg.jpg) no-repeat center;
 	background-size: 100%;
-	margin-top: 40rpx;
+	margin-top: 20x;
 }
 .my-fl-three{
 	height: 80px;
@@ -42,26 +42,26 @@ i{
 	display: inline-block;
 	float: left;
 	width: 100%;
-	height: 160rpx;
+	height: 80px;
 }
 .my-fl-three ul li{
 	display: inline-block;
 	width: 33%;
 	float: left;
-	font-size: 24rpx;
+	font-size: 12px;
 	position: relative;
 }
 .my-fl-three ul li img{
 	position: absolute;
 	left: 50%;
 	margin-left: -17px;
-	top: 20rpx;
+	top: 10px;
 }
 .my-fl-three ul li span{
 	display: inline-block;
 	width: 100%;
 	text-align: center;
-	margin-top: 100rpx;
+	margin-top: 50px;
 }
 .my-cont-wrap{
 	width: 92%;
@@ -69,29 +69,29 @@ i{
 	margin-left: 4%;
 	background: #FFFFFF;
 	/* height: 216rpx; */
-	border-radius: 20rpx;
-	margin-top: 20rpx;
-	padding-bottom: 28rpx;
+	border-radius: 10px;
+	margin-top: 10px;
+	padding-bottom: 14px;
 }
 .my-cont-title{
 	width:92%;
 	margin-left: 4%;
-	height: 40rpx;
-	margin-top: 20rpx;
+	height: 20px;
+	margin-top: 10px;
 }
 .my-cont-title label{
 	display: inline-block;
-	width: 12rpx;
-	height: 28rpx;
+	width: 6px;
+	height: 14px;
 	background: #b22420;
-	margin-right: 8rpx;
+	margin-right: 4px;
 	float: left;
-	margin-top: 14rpx;
+	margin-top: 7px;
 	
 }
 .my-cont-title-i{
-	font-size: 28rpx;
-	margin-left: 10rpx;
+	font-size: 14px;
+	margin-left: 5px;
 	color: #ed9795;
 }
 .my-wen-icon-rr{
@@ -101,28 +101,30 @@ i{
 }
 .my-cont-title span{
 	display: inline-block;
-	font-size: 32rpx;
+	font-size: 16px;
+	float: left;
+	margin-top: 3px;
 }
 .my-dl-wrap ul{
 	width: 100%;
 	float: left;
-	margin-top: 44rpx;
+	margin-top: 22px;
 }
 .my-dl-wrap ul li{
 	/* width: 33%; */
 	float: left;
 	text-align: center;
-	height: 48rpx;
-	font-size: 28rpx;
+	height: 24px;
+	font-size: 14px;
 }
 .my-dl-wrap ul li span{
 	display: inline-block;
 	background: #b22420;
 	color: #FFFFFF;
 	padding: 0 10px;
-	border-radius: 8rpx;
-	height: 48rpx;
-	line-height: 48rpx;
+	border-radius: 4px;
+	height: 24px;
+	line-height: 24px;
 }
 .my-dl-three{
 	width: 100%;
@@ -195,7 +197,40 @@ i{
 	position: absolute;
 	right: 20%;
 }
+.my-one-ul{
+	width: 100%;
+	float: left;
+	display: inline-block;
+	margin-top: 20px;
+}
+.my-one-ul li{
+	width: 100%;
+	display: inline-block;
+	float: left;
+}
+.my-one-ul li span{
+	display: inline-block;
+	width: 100%;
+	float: left;
+	font-size: 14px;
+	color: #ed9795;
+	text-align: center;
+	margin-bottom: 4px;
+	position: relative;
+}
+.my-one-ul li label{
+	display: inline-block;
+	width: 100%;
+	float: left;
+	text-align: center;
+	font-size: 14px;
+	color: #646464;
+}
 
+.my-one-ul .my-wen-icon{
+	position: absolute;
+	right: 20%;
+}
 .my-four-ul{
 	width: 100%;
 	float: left;
