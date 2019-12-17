@@ -33,12 +33,23 @@ i{
 	justify-content: center;
 	background: url(../images/index-header-bg.png) no-repeat center;
 	background-size: 100%;
+	position: relative;
+}
+.main-header-news-icon{
+	position: absolute;
+    right: 12px;
+    height: 24px;
+    top: 8px;
 }
 .xisisi{
 	color: blue;
 	display: flex;
 	justify-content: center;
 	vertical-align: middle;
+}
+.slider-main-toggle{
+	display: inline-flex;
+	font-size: 14px;
 }
 .main-toggle-wrap{
 	width: 100%;
@@ -107,6 +118,12 @@ i{
 }
 .current{
 	color: #b22420;
+}
+.show-more{
+	font-size: 14px;
+    text-align: center;
+    color: #b22420;
+    margin-top: 10px;
 }
 .main-tab-list-wrap{
 	width: 100%;
@@ -191,12 +208,55 @@ i{
 	color: #b22420;
 	font-size: 12px;
 }
-
-
-
-
-
-
+.inv-h-w{
+	width: 92%;
+    margin-left: 4%;
+    height: 40px;
+    line-height: 34px;
+    float: left;
+}
+.inv-h-w view{
+	width: 20%;
+	display: inline-block;
+	font-size: 14px;
+	text-align: center;
+}
+.small-tab{
+	width: 92%;
+	margin-left: 4%;
+	padding-bottom: 10px;
+	float: left;
+}
+.main-tb-title{
+	width: 100%;
+	float: left;
+}
+.main-tb-title span{
+	font-size: 12px;
+	color: #646464;
+	float: left;
+	line-height: 14px;
+}
+.main-tb-title label{
+	float: right;
+    font-size: 12px;
+    color: #b22420;
+    border: 1px solid #b22420;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 10px;
+    border-radius: 4px;
+}
+.main-tab-r-b{
+	width: 100%;
+	float: left;
+}
+.main-tab-r-b span{
+	font-size: 12px;
+	width: 33%;
+	display: inline-flex;
+	color: #999999;
+}
 
 
 
