@@ -23,6 +23,12 @@
 			"style": {
 				"navigationBarTitleText": "发现详情"
 			}
+		},
+		{
+			"path": "pages/shopAdd/shopAdd",
+			"style": {
+				"navigationBarTitleText": "创建商号"
+			}
 		}
 	],
 	"globalStyle": {
@@ -54,7 +60,7 @@
                 "selectedIconPath": "static/images/index-nav3.png",
                 "text": "商讯"
             }, {
-                "pagePath": "pages/faxian",
+                "pagePath": "pages/help/help",
                 "iconPath": "static/images/index-nav44.png",
                 "selectedIconPath": "static/images/index-nav4.png",
                 "text": "发现"
