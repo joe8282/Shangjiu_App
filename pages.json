@@ -1,51 +1,3 @@
-<<<<<<< HEAD
- {
- "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-  {
-   "path": "pages/index/index",
-   "style": {
-    "navigationBarTitleText": "首页"
-   }
-  },
-  {
-   "path": "pages/my/my",
-   "style": {
-    "navigationBarTitleText": "我的"
-   }
-  },
-  {
-   "path": "pages/helplist/helplist",
-   "style": {
-    "navigationBarTitleText": "发现"
-   }
-  },
-  {
-   "path": "pages/help/help",
-   "style": {
-    "navigationBarTitleText": "发现详情"
-   }
-  },
-  {
-   "path": "pages/shopAdd/shopAdd",
-   "style": {
-    "navigationBarTitleText": "创建商号"
-   }
-  },
-  {
-   "path": "pages/vip/vip",
-   "style": {
-    "navigationBarTitleText": "会员专区"
-   }
-  }
- ],
- "globalStyle": {
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "uni-app",
-  "navigationBarBackgroundColor": "#F8F8F8",
-  "backgroundColor": "#F8F8F8"
- },
- 
-=======
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
@@ -86,7 +38,6 @@
 		"backgroundColor": "#F8F8F8"
 	},
 	
->>>>>>> e375c013757a66d830a4c9ec709f78807ca35b5c
     "tabBar": {
         "color": "#999999",
         "selectedColor": "#b22420",
@@ -114,12 +65,12 @@
                 "selectedIconPath": "static/images/index-nav4.png",
                 "text": "发现"
             },
-   {
-       "pagePath": "pages/my",
-       "iconPath": "static/images/index-nav55.png",
-       "selectedIconPath": "static/images/index-nav5.png",
-       "text": "我的"
-   }
+			{
+			    "pagePath": "pages/my",
+			    "iconPath": "static/images/index-nav55.png",
+			    "selectedIconPath": "static/images/index-nav5.png",
+			    "text": "我的"
+			}
         ]
     }
 }
