@@ -17,6 +17,12 @@
 			"style": {
 				"navigationBarTitleText": "发现"
 			}
+		},
+		{
+			"path": "pages/help/help",
+			"style": {
+				"navigationBarTitleText": "发现详情"
+			}
 		}
 	],
 	"globalStyle": {
