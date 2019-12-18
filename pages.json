@@ -29,15 +29,21 @@
 			"style": {
 				"navigationBarTitleText": "创建商号"
 			}
+		},
+		{
+			"path": "pages/vip/vip",
+			"style": {
+				"navigationBarTitleText": "会员专区"
+			}
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	},
-	
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "uni-app",
+	"navigationBarBackgroundColor": "#F8F8F8",
+	"backgroundColor": "#F8F8F8"
+},
+ 
     "tabBar": {
         "color": "#999999",
         "selectedColor": "#b22420",
@@ -59,17 +65,18 @@
                 "iconPath": "static/images/index-nav33.png",
                 "selectedIconPath": "static/images/index-nav3.png",
                 "text": "商讯"
-            }, {
-                "pagePath": "pages/help/help",
+            }, 
+			{
+                "pagePath": "pages/helplist/helplist",
                 "iconPath": "static/images/index-nav44.png",
                 "selectedIconPath": "static/images/index-nav4.png",
                 "text": "发现"
             },
 			{
-			    "pagePath": "pages/my",
-			    "iconPath": "static/images/index-nav55.png",
-			    "selectedIconPath": "static/images/index-nav5.png",
-			    "text": "我的"
+			   "pagePath": "pages/my/my",
+			   "iconPath": "static/images/index-nav55.png",
+			   "selectedIconPath": "static/images/index-nav5.png",
+			   "text": "我的"
 			}
         ]
     }
