@@ -35,6 +35,12 @@
 			"style": {
 				"navigationBarTitleText": "会员专区"
 			}
+		},
+		{
+			"path": "pages/myAccount/myAccount",
+			"style": {
+				"navigationBarTitleText": "我的账户"
+			}
 		}
 	],
 	"globalStyle": {
