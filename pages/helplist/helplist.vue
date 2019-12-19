@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- tab nav-->
-		<view class="navbar">
+		<view class="navbar fx-navbar">
 			<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">
 				<span>{{ item.text }}</span>
 			</view>
@@ -82,7 +82,7 @@
 </template>
 
 <script>
-	import 'static/css/helplist.css';
+	import 'pages/helplist/helplist.css';
 	import uniFav from "@/components/uni-fav/uni-fav.vue"
 	export default {
 		components: {

@@ -1,0 +1,268 @@
+*{
+	margin: 0;
+	padding: 0;
+	touch-action: pan-y;
+}
+body{
+	background-color: #F6F6F6;
+}
+ul,li{
+	list-style: none;
+}
+ul{ 
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration:none;
+}
+img{
+	max-width:100%;
+	vertical-align:middle;
+}
+em{
+	font-style:normal;
+}
+i{
+	font-style: normal;
+}
+.main-header-wrap{
+	width: 100%;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	background: url(/static/images/index-header-bg.png) no-repeat center;
+	background-size: 100%;
+	position: relative;
+}
+.main-header-news-icon{
+	position: absolute;
+    right: 12px;
+    height: 24px;
+    top: 8px;
+}
+.xisisi{
+	color: blue;
+	display: flex;
+	justify-content: center;
+	vertical-align: middle;
+}
+.slider-main-toggle{
+	display: inline-flex;
+	font-size: 14px;
+}
+.main-toggle-wrap{
+	width: 100%;
+	float: left;
+	background: #FFFFFF;
+	padding: 10px 0;
+}
+.main-toggle-cont{
+	width: 92%;
+	float: left;
+	margin-left: 4%;
+}
+.main-cjsh-btn{
+	width: 60%;
+	height: 28px;
+	line-height: 28px;
+	border: 1px solid #b22420;
+	border-radius: 4px;
+	font-size: 14px;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	color: #b22420;
+	margin-left: 20%;
+}
+.main-toggle-ul {
+	width: 100%;
+	display: inline-block;
+	float: left;
+	margin-top: 10px;
+	height: 60px;
+	overflow: hidden;
+}
+.main-toggle-ul li{
+	float: left;
+	width: 100%;
+	font-size: 14px;
+	color: #646464;
+	line-height: 18px;
+	margin-bottom: 6px;
+}
+.main-four-wrap{
+	width: 100%;
+	float: left;
+	background: #FFFFFF;
+	margin-top: 10px;
+}
+.main-four-nav{
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #F1F1F1;
+	float: left;
+}
+.navbar{
+	height: 50px;
+	border-bottom: 1px solid #F1F1F1;
+	width: 100%;
+	float: left;
+}
+.navbar .nav-item{
+	width: 25%;
+	float: left;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 6px;
+}
+.current{
+	color: #b22420;
+}
+.show-more{
+	font-size: 14px;
+    text-align: center;
+    color: #b22420;
+    margin-top: 10px;
+}
+.main-tab-list-wrap{
+	width: 100%;
+	float: left;
+	margin-left: 0%;
+}
+.main-tab-list-cont{
+	width: 92%;
+	float: left;
+	margin-left: 4%;
+	border-bottom: 1px solid #F1F1F1;
+	padding-bottom: 10px;
+}
+.main-tab-title{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+}
+.main-tab-time{
+	float: left;
+	color: #646464;
+	font-size: 14px;
+}
+.my_button{
+	border: 1px solid #b22420;
+    width: 70px;
+    font-size: 12px;
+    background-color: #FFFFFF !important;
+    padding: 0 !important;
+    color: #b22420 !important;
+    float: right;
+    margin-top: 8px;
+	line-height: 24px;
+}
+.main-tab-nr{
+	width: 100%;
+	float: left;
+}
+.main-tab-right{
+	width: 80%;
+	float: right;
+}
+.main-tab-r-title{
+	display: inline-block;
+	white-space: nowrap; 
+	width: 100%; 
+	overflow: hidden;
+	text-overflow:ellipsis;
+	float: left;
+	font-size: 14px;
+}
+.main-tab-img{
+	float: left;
+	width: 18%;
+}
+.main-tab-r-ddd{
+	display: inline-block;
+	white-space: nowrap; 
+	width: 100%; 
+	overflow: hidden;
+	text-overflow:ellipsis;
+	float: left;
+	font-size: 12px;
+	color: #646464;
+}
+.main-four-ul, .main-three-ul{
+	float: left;
+	display: inline-block;
+	width: 100%;
+	padding: 0;
+}
+.main-four-ul li{
+	float: left;
+	color: #999999;
+	margin-right: 14px;
+	font-size: 12px;
+}
+.main-three-ul li{
+	width: 33%;
+	float: left;
+	color: #b22420;
+	font-size: 12px;
+}
+.inv-h-w{
+	width: 92%;
+    margin-left: 4%;
+    height: 40px;
+    line-height: 34px;
+    float: left;
+}
+.inv-h-w view{
+	width: 20%;
+	display: inline-block;
+	font-size: 14px;
+	text-align: center;
+}
+.small-tab{
+	width: 92%;
+	margin-left: 4%;
+	padding-bottom: 10px;
+	float: left;
+}
+.main-tb-title{
+	width: 100%;
+	float: left;
+}
+.main-tb-title span{
+	font-size: 12px;
+	color: #646464;
+	float: left;
+	line-height: 14px;
+}
+.main-tb-title label{
+	float: right;
+    font-size: 12px;
+    color: #b22420;
+    border: 1px solid #b22420;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 10px;
+    border-radius: 4px;
+}
+.main-tab-r-b{
+	width: 100%;
+	float: left;
+}
+.main-tab-r-b span{
+	font-size: 12px;
+	width: 33%;
+	display: inline-flex;
+	color: #999999;
+}
+
+
+
+
+
+
+
+
+
