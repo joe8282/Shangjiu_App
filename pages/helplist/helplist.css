@@ -1,21 +1,21 @@
-.navbar1{
+.fx-navbar{
 	display: flex;
 	background-color: #B22420;
 	width: 100%;
-	height: 90rpx;
+	height: 45px;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 }
-.nav-item{
+.fx-navbar .nav-item{
 	color: white;
-	font-size: 36rpx;
+	font-size: 18px;
 	width: 20%;
 }
-.current span{
+.fx-navbar .current span{
 	font-weight: bold;
-	border-bottom: 4rpx solid white;
-	padding-bottom: 6rpx;
+	border-bottom: 2px solid white;
+	padding-bottom: 3px;
 }
 .showArea{
 	width: 100%;
@@ -23,11 +23,11 @@
 }
 .list{
 	width: 100%;
-	border-bottom: 1rpx solid gainsboro;
+	border-bottom: 1px solid gainsboro;
 }
 .list_content{
 	width: 90%;
-	height: 200rpx;
+	height: 100px;
 	margin: 0 auto;
 	display: flex;
 }
@@ -38,23 +38,22 @@
 }
 .word p{
 	height: 55%;
-	font-size: 28rpx;
-	margin-top: 20rpx;
+	font-size: 14px;
+	margin-top: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
 }
 .word span{
-	font-size: 24rpx;
+	font-size: 12px;
 	color: gray;
 	height: 25%;
 	display: flex;
 	align-items: center;
 }
-.word span b{
-	padding-right: 40rpx;
-	font-weight: 400;
+.word span em{
+	padding-right: 20px;
 }
 .pic{
 	width: 30%;

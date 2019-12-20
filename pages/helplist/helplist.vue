@@ -1,7 +1,11 @@
 <template>
 	<view>
 		<!-- tab nav-->
+<<<<<<< HEAD
 		<view class="navbar1">
+=======
+		<view class="navbar fx-navbar">
+>>>>>>> 0b0e0ec87d9a5a83ef6097db38ec58c3901b6228
 			<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">
 				<span>{{ item.text }}</span>
 			</view>
@@ -13,7 +17,7 @@
 					<view class="list_content">
 						<view class="word">
 							<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式J框架。</p>
-							<span><em>2019-09-15</em><em>类型</em></span>
+							<span><b>2019-09-15</b><b>类型</b></span>
 						</view>
 						<view class="pic">
 							<image src="../../static/images/tuboshu.jpg"></image>
@@ -24,7 +28,7 @@
 					<view class="list_content">
 						<view class="word">
 							<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式J框架。</p>
-							<span><em>2019-09-15</em><em>类型</em></span>
+							<span><b>2019-09-15</b><b>类型</b></span>
 						</view>
 						<view class="pic">
 							<image src="../../static/images/tuboshu.jpg"></image>
@@ -35,7 +39,7 @@
 					<view class="list_content">
 						<view class="word">
 							<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式J框架。</p>
-							<span><em>2019-09-15</em><em>类型</em></span>
+							<span><b>2019-09-15</b><b>类型</b></span>
 						</view>
 						<view class="pic">
 							<image src="../../static/images/tuboshu.jpg"></image>
@@ -46,7 +50,7 @@
 					<view class="list_content">
 						<view class="word">
 							<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式J框架。</p>
-							<span><em>2019-09-15</em><em>类型</em></span>
+							<span><b>2019-09-15</b><b>类型</b></span>
 						</view>
 						<view class="pic">
 							<image src="../../static/images/tuboshu.jpg"></image>
@@ -57,7 +61,7 @@
 					<view class="list_content">
 						<view class="word">
 							<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式J框架。</p>
-							<span><em>2019-09-15</em><em>类型</em></span>
+							<span><b>2019-09-15</b><b>类型</b></span>
 						</view>
 						<view class="pic">
 							<image src="../../static/images/tuboshu.jpg"></image>
@@ -82,7 +86,7 @@
 </template>
 
 <script>
-	import 'static/css/helplist.css';
+	import 'pages/helplist/helplist.css';
 	import uniFav from "@/components/uni-fav/uni-fav.vue"
 	export default {
 		components: {

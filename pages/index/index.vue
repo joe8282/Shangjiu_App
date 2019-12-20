@@ -627,7 +627,7 @@
 </template>
 
 <script>
-	import 'static/css/index.css';
+	import 'pages/index/index.css';
 	import uniFav from "@/components/uni-fav/uni-fav.vue"
 	export default {
 		components: {
