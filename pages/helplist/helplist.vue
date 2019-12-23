@@ -1,6 +1,7 @@
 <template>
 	<view>
 		<!-- tab nav-->
+		<!-- <view class="navbar1"> -->
 		<view class="navbar fx-navbar">
 			<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">
 				<span>{{ item.text }}</span>
