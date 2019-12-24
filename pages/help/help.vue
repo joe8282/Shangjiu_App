@@ -156,7 +156,7 @@
 </template>
 
 <script>
-	import 'static/css/help.css';
+	import 'pages/help/help.css';
 </script>
 
 <style>
