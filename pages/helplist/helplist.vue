@@ -11,7 +11,7 @@
 		<view>
 			<view class="showArea" v-show="tabCurrentIndex === 0">
 				<view class="list">
-					<view class="list_content">
+					<navigator url="../help/help" class="list_content">
 						<view class="word">
 							<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式J框架。</p>
 							<span><b>2019-09-15</b><b>类型</b></span>
@@ -19,10 +19,10 @@
 						<view class="pic">
 							<image src="../../static/images/tuboshu.jpg"></image>
 						</view>
-					</view>
+					</navigator>
 				</view>
 				<view class="list">
-					<view class="list_content">
+					<navigator url="../help/help" class="list_content">
 						<view class="word">
 							<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式J框架。</p>
 							<span><b>2019-09-15</b><b>类型</b></span>
@@ -30,10 +30,10 @@
 						<view class="pic">
 							<image src="../../static/images/tuboshu.jpg"></image>
 						</view>
-					</view>
+					</navigator>
 				</view>
 				<view class="list">
-					<view class="list_content">
+					<navigator url="../help/help" class="list_content">
 						<view class="word">
 							<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式J框架。</p>
 							<span><b>2019-09-15</b><b>类型</b></span>
@@ -41,10 +41,10 @@
 						<view class="pic">
 							<image src="../../static/images/tuboshu.jpg"></image>
 						</view>
-					</view>
+					</navigator>
 				</view>
 				<view class="list">
-					<view class="list_content">
+					<navigator url="../help/help" class="list_content">
 						<view class="word">
 							<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式J框架。</p>
 							<span><b>2019-09-15</b><b>类型</b></span>
@@ -52,10 +52,10 @@
 						<view class="pic">
 							<image src="../../static/images/tuboshu.jpg"></image>
 						</view>
-					</view>
+					</navigator>
 				</view>
 				<view class="list">
-					<view class="list_content">
+					<navigator url="../help/help" class="list_content">
 						<view class="word">
 							<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式J框架。</p>
 							<span><b>2019-09-15</b><b>类型</b></span>
@@ -63,7 +63,7 @@
 						<view class="pic">
 							<image src="../../static/images/tuboshu.jpg"></image>
 						</view>
-					</view>
+					</navigator>
 				</view>
 			</view>
 			<view  v-show="tabCurrentIndex === 1">
