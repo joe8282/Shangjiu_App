@@ -40,6 +40,7 @@ i{
 	background: #FFFFFF;
 	margin-top: 10px;
 	float: left;
+	padding-bottom: 10px;
 }
 .shopAdd-cont-cc{
 	width: 92%;
@@ -63,12 +64,66 @@ i{
 	background: #f6f6f6;
 	text-indent: 10px;
 	padding-top: 10px;
-	margin-bottom: 16px;
 	border-radius: 4px;
 }
+.shopAdd-cont-list{
+	width: 14%;
+	display: flex;
+	flex-wrap: wrap; 
+	float: left;
+	margin: 4px 1%;
+	align-content:center;
+	border: 1px solid #999999;
+	color: #999999;
+	height: 22px;
+	line-height: 22px;
+}
+.shopAdd-cont-list span{
+	width: 100%;
+	display: inline-flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 14px;
+	align-content:center;
+	
+}
+.shopAdd-cont-list-three{
+	width: 30%;
+	display: flex;
+	flex-wrap: wrap; 
+	float: left;
+	margin: 4px 1%;
+	align-content:center;
+	border: 1px solid #999999;
+	color: #999999;
+	height: 22px;
+	line-height: 22px;
+}
+.shopAdd-cont-list-three span{
+	width: 100%;
+	display: inline-flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 14px;
+	align-content:center;
+	
+}
 
-
-
-
-
+.active{
+	background: #ffffff;
+	border: 1px solid #000000 !important;
+	color: #000000 !important;
+}
+.Classification {
+	background: #ffffff;
+}
+.blue {
+    color: blue;
+}
+.shopAdd-cont-cc .uni-input{
+	font-size: 14px;
+	background: #f6f6f6;
+	height: 30px;
+	line-height: 30px;
+}
 

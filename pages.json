@@ -41,6 +41,12 @@
 			"style": {
 				"navigationBarTitleText": "我的账户"
 			}
+		},
+		{
+			"path": "pages/businessNews/businessNews",
+			"style": {
+				"navigationBarTitleText": "我的商讯收藏"
+			}
 		}
 	],
 	"globalStyle": {
