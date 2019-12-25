@@ -96,7 +96,7 @@
 	</view>
 </template>
 <script>
-	import 'pages/vip/vip.css';
+	import 'pages/user/user.css';
 </script>
 
 <style>
