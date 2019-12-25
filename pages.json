@@ -59,7 +59,19 @@
 			"style": {
 				"navigationBarTitleText": "充值记录"
 			}
-		}
+		},
+		{
+			"path": "pages/shop/shop",
+			"style": {
+				"navigationBarTitleText": "商管详情"
+			}
+		},
+		{
+			"path": "pages/shanghaodaili/shanghaodaili",
+			"style": {
+				"navigationBarTitleText": "商号代理"
+			}
+		} 
 	],
 	"globalStyle": {
 	"navigationBarTextStyle": "black",
