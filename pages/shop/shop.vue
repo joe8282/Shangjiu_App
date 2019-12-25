@@ -3,6 +3,9 @@
 		<view class="shop-banner-cont">
 			<img src="static/images/shop-banner.jpg" alt="">
 		</view>
+		<view class="">
+			
+		</view>
 	</view>
 	
 </template>
