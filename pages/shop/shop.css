@@ -1,0 +1,28 @@
+*{
+	margin: 0;
+	padding: 0;
+	touch-action: pan-y;
+}
+body{
+	background-color: #F6F6F6;
+}
+ul,li{
+	list-style: none;
+}
+ul{ 
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration:none;
+}
+img{
+	max-width:100%;
+	vertical-align:middle;
+}
+em{
+	font-style:normal;
+}
+i{
+	font-style: normal;
+}
