@@ -47,7 +47,9 @@
 		<view class="cash">
 			<!-- 一般用法 -->
 			<uni-list>
-			    <uni-list-item  title="充值账户"></uni-list-item>
+				<navigator url="../rechargeRecord/rechargeRecord">
+					<uni-list-item  title="充值账户"></uni-list-item>
+				</navigator>
 			</uni-list>
 			<view class="c1">
 				<view class="cc">
