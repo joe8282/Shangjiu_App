@@ -31,7 +31,7 @@
 			}
 		},
 		{
-			"path": "pages/vip/vip",
+			"path": "pages/user/user",
 			"style": {
 				"navigationBarTitleText": "会员专区"
 			}
@@ -46,6 +46,18 @@
 			"path": "pages/businessNews/businessNews",
 			"style": {
 				"navigationBarTitleText": "我的商讯收藏"
+			}
+		},
+		{
+			"path": "pages/procurationBusiness/procurationBusiness",
+			"style": {
+				"navigationBarTitleText": "我的代理业务"
+			}
+		},
+		{
+			"path": "pages/rechargeRecord/rechargeRecord",
+			"style": {
+				"navigationBarTitleText": "充值记录"
 			}
 		}
 	],
