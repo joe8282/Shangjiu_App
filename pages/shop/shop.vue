@@ -3,8 +3,10 @@
 		<view class="shop-banner-cont">
 			<img src="static/images/shop-banner.jpg" alt="">
 		</view>
-		<view class="">
-			
+		<view class="shop-title-wrap">
+			<view class="shop-title-cont">
+				
+			</view>
 		</view>
 	</view>
 	
