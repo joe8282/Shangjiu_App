@@ -232,7 +232,7 @@
 </template>
 
 <script>
-	import 'static/css/my.css'
+	import 'pages/my/my.css'
 	export default {
 		data() {
 			return {
