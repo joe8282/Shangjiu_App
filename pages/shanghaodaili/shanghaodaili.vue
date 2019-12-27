@@ -2,7 +2,7 @@
 	<view class="body">
 		<view class="head">
 			<view class="nav">
-				<span>总充值</span>
+				<span>总收入</span>
 				<span>￥9999.00</span>
 			</view>
 		</view>
@@ -15,7 +15,7 @@
 								<view class="uni-input">{{date}}</view>
 								<image src="../../static/images/zongh2.png"></image>
 							</view>
-							<span class="money">本月充值999元</span>
+							<span class="money">本月收入999元</span>
 						</picker>
 					</view>
 				</view>
@@ -24,26 +24,66 @@
 		<view class="content">
 			<view class="list">
 				<view class="l1">
-					<span>2019-12-25 16:00</span>
-					<span>+100</span>
+					<view class="left">
+						<view class="left_head">
+							<image class="headpic" src="../../static/images/fx_tx.png"></image>
+						</view>
+						<view class="left_user">
+							<span>商九管理员</span>
+							<span>2019-12-25 16:00</span>
+						</view>
+					</view>
+					<view class="right">
+						<span>+100元</span>
+					</view>
 				</view>
 			</view>
 			<view class="list">
 				<view class="l1">
-					<span>2019-12-25 16:00</span>
-					<span>+99</span>
+					<view class="left">
+						<view class="left_head">
+							<image class="headpic" src="../../static/images/fx_tx.png"></image>
+						</view>
+						<view class="left_user">
+							<span>商九管理员</span>
+							<span>2019-12-25 16:00</span>
+						</view>
+					</view>
+					<view class="right">
+						<span>+100元</span>
+					</view>
 				</view>
 			</view>
 			<view class="list">
 				<view class="l1">
-					<span>2019-12-25 16:00</span>
-					<span>+2300</span>
+					<view class="left">
+						<view class="left_head">
+							<image class="headpic" src="../../static/images/fx_tx.png"></image>
+						</view>
+						<view class="left_user">
+							<span>商九管理员</span>
+							<span>2019-12-25 16:00</span>
+						</view>
+					</view>
+					<view class="right">
+						<span>+100元</span>
+					</view>
 				</view>
 			</view>
 			<view class="list">
 				<view class="l1">
-					<span>2019-12-25 16:00</span>
-					<span>+99999</span>
+					<view class="left">
+						<view class="left_head">
+							<image class="headpic" src="../../static/images/fx_tx.png"></image>
+						</view>
+						<view class="left_user">
+							<span>商九管理员</span>
+							<span>2019-12-25 16:00</span>
+						</view>
+					</view>
+					<view class="right">
+						<span>+100元</span>
+					</view>
 				</view>
 			</view>
 		</view>
