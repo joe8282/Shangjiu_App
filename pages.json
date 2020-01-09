@@ -71,6 +71,12 @@
 			"style": {
 				"navigationBarTitleText": "商号代理"
 			}
+		},
+		{
+			"path": "pages/my_dlyw/my_dlyw",
+			"style": {
+				"navigationBarTitleText": "我的代理业务"
+			}
 		} 
 	],
 	"globalStyle": {
