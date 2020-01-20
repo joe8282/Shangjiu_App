@@ -95,7 +95,19 @@
 			"style": {
 				"navigationBarTitleText": "业务员——区域商号"
 			}
-		} 
+		},
+		{
+			"path": "pages/myAgentCustomer/myAgentCustomer",
+			"style": {
+				"navigationBarTitleText": "代理客户"
+			}
+		},
+		{
+			"path": "pages/myAgentWorker/myAgentWorker",
+			"style": {
+				"navigationBarTitleText": "业务员"
+			}
+		}
 	],
 	"globalStyle": {
 	"navigationBarTextStyle": "black",
