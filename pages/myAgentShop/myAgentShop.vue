@@ -123,22 +123,7 @@
 						state: 1,
 						text: '未分配',
 					}
-				],
-				sortList: [
-					{
-						state: 0,
-						text: '拓客排序',
-					},
-					{
-						state: 1,
-						text: '商号付费',
-					},
-					,
-					{
-						state: 2,
-						text: '分利排序',
-					}
-				],
+				]
 			};
 		},
 	
