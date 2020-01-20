@@ -27,7 +27,7 @@
 </template>
 
 <script>
-	import 'pages/my_dlyw/my_dlyw.css'
+	import 'pages/myAgent/myAgent.css'
 </script>
 
 <style>

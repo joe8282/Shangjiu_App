@@ -73,9 +73,27 @@
 			}
 		},
 		{
-			"path": "pages/my_dlyw/my_dlyw",
+			"path": "pages/myAgent/myAgent",
 			"style": {
 				"navigationBarTitleText": "我的代理业务"
+			}
+		},
+		{
+			"path": "pages/myAgentShop/myAgentShop",
+			"style": {
+				"navigationBarTitleText": "区域商号"
+			}
+		},
+		{
+			"path": "pages/myAgentReward/myAgentReward",
+			"style": {
+				"navigationBarTitleText": "代理分利"
+			}
+		},
+		{
+			"path": "pages/ywyqysh/ywyqysh",
+			"style": {
+				"navigationBarTitleText": "业务员——区域商号"
 			}
 		} 
 	],
