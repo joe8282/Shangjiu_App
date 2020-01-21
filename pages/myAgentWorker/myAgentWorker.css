@@ -1,0 +1,142 @@
+uni-page-wrapper{
+	width: 100%;
+	max-height: 100%;
+	background-color:#EDEDED ;
+}
+.main{
+	width: 100%;
+	height: 100%;
+}
+.head{
+	height: 180rpx;
+	background-color: #FFFFFF;
+	border-bottom: 2rpx solid #F6F6F6;
+}
+.btn{
+	width: 100%;
+	height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.add{
+	width: 60%;
+	height: 60%;
+	border: 3rpx solid #B22420;
+	border-radius: 10rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.add span{
+	font-size: 32rpx;
+	color: #B22420;
+}
+.nav-item{
+	width: 35%;
+	height: 100%;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.current span{
+	color: #B22420;
+	border-bottom: 6rpx solid #B22420 !important;
+}
+.head_tab{
+	width: 100%;
+	height: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.head_tab span{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	font-size: 36rpx;
+	border-bottom: 6rpx solid transparent;
+}
+.content,.content1{
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+}
+.list{
+	width: 100%;
+	height: 140rpx;
+	display: flex;
+}
+.head_pic{
+	width: 20%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.head_pic image{
+	width: 60%;
+	height: 64%;
+}
+.username{
+	width: 100%;
+	height: 50%;
+	display: flex;
+	align-items: center;
+}
+.username span{
+	font-size: 28rpx;
+}
+.username span:nth-child(2){
+	color: #646464;
+	padding-left: 20rpx;
+}
+.c1{
+	width: 80%;
+	height: 100%;
+	display: flex;
+	align-items: flex-end;
+}
+.c2{
+	width: 20%;
+	height: 100%;
+	display: flex;
+	align-items: flex-end;
+}
+.stop{
+	width: 70%;
+	height: 55%;
+	border: 2px solid #B22420;
+	display: flex;
+	justify-content: center;
+	border-radius: 10rpx;
+}
+.stop span{
+	color: #B22420;
+}
+.count{
+	width: 100%;
+	height: 50%;
+	display: flex;
+	align-items: center;
+}
+.rt{
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+}
+.count span{
+	font-size: 24rpx;
+	display: inline-block;
+	width: 30%;
+	color: #999999;
+}
+.count span:last-child{
+	width: 40% !important;
+}
+.count span b{
+	font-weight: normal;
+	padding-left: 10rpx;
+}

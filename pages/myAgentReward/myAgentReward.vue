@@ -273,10 +273,6 @@
 			//顶部tab点击
 			tabClick(index) {
 				this.tabCurrentIndex = index;
-			},
-			//点击选择排序方式
-			addClass(){
-				console.log(this.length);
 			}
 	    }
 	}
