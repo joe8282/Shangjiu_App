@@ -31,7 +31,7 @@ uni-page-wrapper{
 	width: 90%;
 	height: 180rpx;
 	background-color: #FFFFFF;
-	margin: 0 auto;
+	margin: 20rpx auto;
 	border-radius: 25rpx;
 	display: flex;
 	justify-content: center;

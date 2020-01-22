@@ -114,6 +114,18 @@
 			"style": {
 				"navigationBarTitleText": "业务员"
 			}
+		},
+		{
+			"path": "pages/wdzc/wdzc",
+			"style": {
+				"navigationBarTitleText": "我的支出"
+			}
+		},
+		{
+			"path": "pages/myAgent_ywy/myAgent_ywy",
+			"style": {
+				"navigationBarTitleText": "我的代理业务——业务员"
+			}
 		}
 >>>>>>> 995f0ce2c8998b7213c08f5f5c96022ddb578c3b
 	],
