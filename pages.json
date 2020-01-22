@@ -73,13 +73,6 @@
 			}
 		},
 		{
-<<<<<<< HEAD
-			"path": "pages/test/test",
-			"style": {
-				"navigationBarTitleText": "test"
-			}
-		} 
-=======
 			"path": "pages/myAgent/myAgent",
 			"style": {
 				"navigationBarTitleText": "我的代理业务"
@@ -127,7 +120,6 @@
 				"navigationBarTitleText": "我的代理业务——业务员"
 			}
 		}
->>>>>>> 995f0ce2c8998b7213c08f5f5c96022ddb578c3b
 	],
 	"globalStyle": {
 	"navigationBarTextStyle": "black",
