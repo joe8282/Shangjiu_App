@@ -39,12 +39,7 @@
 				<view class="shopAdd-cont-title">
 					<span>商号区域：</span>
 				</view>
-				<view class="content">
-					<span @tap="openAddres">选择区域</span>
-					<!-- <button type="primary" @tap="openAddres">打开地址</button> -->
-					<text class="pickers-select">{{pickerText}}</text>
-					<simple-address ref="simpleAddress" :pickerValueDefault="cityPickerValueDefault" @onConfirm="onConfirm" themeColor='#007AFF'></simple-address>
-				</view>
+
 			</view>
 		</view>
 		<view class="shopAdd-cont-wrap">
@@ -120,16 +115,11 @@
 				],
 				a: 0,
 				b: 0,
-				c: 0,
-				cityPickerValueDefault: [0, 0, 1],
-                pickerText: ''
+				c: 0
 		
 			}
 				
 		},
-		components: {
-            simpleAddress
-        },
 		onLoad() {
 
 		},
@@ -142,13 +132,7 @@
 			},
 			changChengyuan(index2) {
 				this.c = index2;
-			},
-			openAddres() {
-                this.$refs.simpleAddress.open();
-            },
-            onConfirm(e) {
-                this.pickerText = JSON.stringify(e.label)
-            }
+			}
 		}
 	}
 </script>

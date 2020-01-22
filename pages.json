@@ -71,6 +71,12 @@
 			"style": {
 				"navigationBarTitleText": "商号代理"
 			}
+		},
+		{
+			"path": "pages/test/test",
+			"style": {
+				"navigationBarTitleText": "test"
+			}
 		} 
 	],
 	"globalStyle": {
