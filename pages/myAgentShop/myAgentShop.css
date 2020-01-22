@@ -1,0 +1,149 @@
+uni-page-wrapper{
+	width: 100%;
+	max-height: 100%;
+	background-color:#EDEDED ;
+}
+.main{
+	width: 100%;
+	height: 100%;
+}
+.tou{
+	width: 100%;
+	height: 80rpx;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.tou span{
+	display: inline-block;
+	width: 30%;
+	height: 100%;
+	line-height: 80rpx;
+	text-align: center;
+	font-size: 34rpx;
+}
+.nav-item{
+	width: 100%;
+	height: 80rpx;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.current span{
+	color: #B22420;
+	border-bottom: 8rpx solid #B22420;
+}
+.sort{
+	width: 100%;
+	height: 80rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.sort span{
+	display: inline-block;
+	width: 33%;
+	text-align: center;
+	font-size: 32rpx;
+	color: #999999;
+}
+.sort_active{
+	color: #ED9795 !important;
+}
+.list{
+	width: 100%;
+	height: 160rpx;
+	border-bottom: 2rpx solid #F6F6F6;
+	background-color: white;
+}
+.bd{
+	width: 92%;
+	height: 100%;
+	margin: 0 auto;
+}
+.head{
+	width: 100%;
+	height:65%;
+	display: flex;
+	align-items: center;
+}
+.pic{
+	width: 15%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.pic image{
+	width: 80%;
+	height: 75%;
+	border-radius: 10rpx;
+}
+.title{
+	width: 63%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.title span{
+	font-size: 28rpx;
+	display: inline-block;
+	width: 100%;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	line-height: 50rpx
+}
+.title span:first-child{
+	width: 85% !important;
+}
+.title span:nth-child(2){
+	color: #646464;
+}
+.fp{
+	width: 22%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.fp span{
+	font-size: 26rpx;
+	display: inline-block;
+	width: 100%;
+	line-height: 50rpx;
+	text-align: right;
+}
+.fp navigator{
+	font-size: 26rpx;
+	display: inline-block;
+	width: 100%;
+	text-align: right;
+	color: #B22420;
+}
+.fp span:first-child{
+	color: #B22420;
+}
+.bt{
+	width: 100%;
+	height: 35%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.bt span{
+	color: #999999;
+	font-size: 26rpx;
+	display: inline-block;
+	width: 35%;
+	text-align: right;
+}
+.bt span:nth-child(2){
+	text-align: center !important;
+}
+.bt span:first-child{
+	width: 30% !important;
+	text-align: left;
+}

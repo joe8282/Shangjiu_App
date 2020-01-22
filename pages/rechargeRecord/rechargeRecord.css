@@ -91,9 +91,8 @@ picker image{
 	width: 50%;
 }
 .l1 span:nth-child(2){
-	font-size: 32rpx;
+	font-size: 36rpx;
 	color: #B22420;
-	font-weight: 600;
 	display: inline-block;
 	width: 50%;
 	text-align: right;

@@ -73,11 +73,49 @@
 			}
 		},
 		{
+<<<<<<< HEAD
 			"path": "pages/test/test",
 			"style": {
 				"navigationBarTitleText": "test"
 			}
 		} 
+=======
+			"path": "pages/myAgent/myAgent",
+			"style": {
+				"navigationBarTitleText": "我的代理业务"
+			}
+		},
+		{
+			"path": "pages/myAgentShop/myAgentShop",
+			"style": {
+				"navigationBarTitleText": "区域商号"
+			}
+		},
+		{
+			"path": "pages/myAgentReward/myAgentReward",
+			"style": {
+				"navigationBarTitleText": "代理分利"
+			}
+		},
+		{
+			"path": "pages/ywyqysh/ywyqysh",
+			"style": {
+				"navigationBarTitleText": "业务员——区域商号"
+			}
+		},
+		{
+			"path": "pages/myAgentCustomer/myAgentCustomer",
+			"style": {
+				"navigationBarTitleText": "代理客户"
+			}
+		},
+		{
+			"path": "pages/myAgentWorker/myAgentWorker",
+			"style": {
+				"navigationBarTitleText": "业务员"
+			}
+		}
+>>>>>>> 995f0ce2c8998b7213c08f5f5c96022ddb578c3b
 	],
 	"globalStyle": {
 	"navigationBarTextStyle": "black",
