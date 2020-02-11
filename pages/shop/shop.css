@@ -26,6 +26,35 @@ em{
 i{
 	font-style: normal;
 }
+@font-face {font-family: "iconfont";
+  src: url('/static/fonts/iconfont.eot?t=1581411798999'); /* IE9 */
+  src: url('/static/fonts/iconfont.eot?t=1581411798999#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAANkAAsAAAAAB1wAAAMWAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqCRIIlATYCJAMMCwgABCAFhG0HNhtrBsgOJSHNwADgAQBAPLyNle/PzCK6OwUozwLFA6qT5fimaquAfZWoRNdUqMazEXto9/0c5BxKglkhLyd9kaVQQerAeg24pv6ixPJsNreqtMZIwAkOtMvWIuMNZEC+YeyClnicQNOiSGbHxZWNYKswxwXiEc/2gW0mrCgsVxeqFUuLeA9W6umF+Q/gXfD9+C8+bEkqmTn15E7RIOT+gm/LLWbGrE6PAMl0TrBVZGwBhbitdN+wiNJbLDRVpaVWCaqKkKaKGQYIxJq2utE/XiKqzPw2WIOZxC9wBAS/ll8ggQyqKHgIPIb68dCHpxNLD0vZcdmxueMOnVebfTo2bzt2yL758tC27T7Hn8dvO+Rpf+AIwOxJ5JEnieazF8ufe9ksP73i0Hp1+8p5s/hw+soFh9bHh0F7n8Q6LL977alv65aLioNF8yE4ll5utSe6LH+r9+ntDGa/yM1wLUJFrhmWmyyepSkx9pddbzlFjy7atD5wsfOni7pDr+GTGI3qfl0oCu3fFXIseDRoadAudDfkcHDxtqaQRLuYos/+dms/GH9t5oanIs50WBW9X5y2+ANfoW/XwDByc2dnc82yoLCgWb96x9ng/PV3CLkDvQDzy/lbLgAgzyz+xW98Xxe4q8cl87+tQwE/uVXPYHh+ueiurZ+pKgaK3rykY1vRZKYlF0XsiA1vdjEwldDUfOZg+ofeDddOOicJ9YyEIalZQFa3RCq0LVS0bKOqbg9Nm0pWt4wQFqI0sGEhQOg7jaTrE7K+u6RCe4uKqe+o6ocFmq7CY8uWleDtCwjuo3gQ9Y8hfkBVGNtG7cPCeswOSX0kLQvYzZiY+BiKi47N50qwgskUM0zDbDylDGKIKqNicBqWJBVpRBXwAI3mKNXSY2KYqhdFD6gy2DtCYH0obBDSbwzCG6BSMF5vyr7w+XoYa4ikD2moqgo3wwgTvn8kTrTYDqQStdKp6lYuMRnGikdRDIRBqGRIMXBikpVWIVr1IAE2gIrGDUhq0sWgbkxXdfTyWvkFilgd5rQcKXIU+UmfYt3PuyGBBwAAAA==') format('woff2'),
+  url('/static/fonts/iconfont.woff?t=1581411798999') format('woff'),
+  url('/static/fonts/iconfont.ttf?t=1581411798999') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('/static/fonts/iconfont.svg?t=1581411798999#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zan:before {
+  content: "\e600";
+}
+
+.icon-bianji:before {
+  content: "\e68b";
+}
+
+
+
+
+
 .shop-banner-cont{
 	width: 100%;
 	
@@ -337,15 +366,17 @@ i{
 	background: #FFFFFF;
 	margin-top: 10px;
 }
-.four-button span{
+.four-button a{
 	display: inline-flex;
 	width: 25%;
+	height: 54px;
+	text-align: center;
+    justify-content: center;
 	
 }
-.four-button span img{
-	width: 68%;
-	margin-left: 16%;
-	margin-top: 10%;
+.four-button a img{
+	height: 40px;
+	margin-top: 7px;
 }
 .stabl-title-cont{
 	width: 100%;
@@ -380,7 +411,111 @@ i{
 	margin-top: 6px;
 	line-height: 18px;
 }
+.shop-main-four .inv-h{
+	color: #666666;
+}
+.shop-main-four .inv-h-se{
+	color: #B22420;
+}
+.main-tab-title i{
+	float: right;
+    font-size: 14px;
+    color: #b22420;
+    border: 1px solid #B22420;
+    padding: 0 10px;
+    border-radius: 4px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 8px;
+    margin-left: 6px;
+}
+.smtab-imgs{
+	width: 100%;
+}
+.smtab-imgs img{
+	width: 31%;
+	margin: 1% 1%;
+}
+.smtab-five img{
+	width: 18%;
+}
+.small-tab-timeer{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #8e8e8e;
+}
+.small-tab-timeer i{
+	font-size: 14px;
+	color: #8e8e8e;
+	float: left;
+}
+.small-tab-icons{
+	float: right;
+	margin-left: 10px;
+}
+.small-tab-borderb{
+	border-bottom: 1px solid #F1F1F1;
+	padding-bottom: 0 !important;
+	margin-top: 10px;
+}
 
+.newshf-wrap{
+	width: 100%;
+}
+.news-hf-zi{
+	width: 100%;
+	font-size: 16px;
+	font-family: '微软雅黑';
+	margin-top: 10px;
+	margin-bottom: 4px;
+}
+.news-hf-cont{
+	width: 92%;
+	background: #f4f4f4;
+	padding: 2% 4%;
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+.x-hf-title-cont{
+	color: #838383;
+}
 
+.fbsx-button-wrap{
+	width: 100%;
+	margin: 4px 0;
+	float: left;
+	
+}
+.fbsx-button-wrap span{
+	color: #ed7070;
+	border: 1px solid #ed7070;
+	font-size: 14px;
+	border-radius: 4px;
+	float: right;
+	margin-right: 4%;
+	padding: 2px 4px;
+}
 
+.sx-bigtab{
+	margin-top: -6px;
+}
+.sx-bigtab uni-view{
+	width: 36% !important;
+}
+.invxs-right .main-tab-img{
+	float: right;
+}
+.invxs-right .main-tab-right{
+	float: left;
+}
+.invxs-right .main-four-ul li{
+	margin-top: 6px;
+	color: #646464;
+}
+.tg-red{
+	color: #b30000;
+	font-size: 14px;
+}
 

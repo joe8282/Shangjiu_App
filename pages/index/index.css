@@ -41,6 +41,9 @@ i{
     height: 24px;
     top: 8px;
 }
+.list .inv-h-se{
+	color: #B22420;
+}
 .xisisi{
 	color: blue;
 	display: flex;

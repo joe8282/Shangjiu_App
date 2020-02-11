@@ -88,7 +88,7 @@
 		
 		<view class="shop-xq-all-cont">
 			<view class="shop-xq-all-cc">
-				<span>会员可根据需要创建多个商号，用于商家经营推广、创 业、接活；做自媒与内容。商号为创新社群模式，内置 “商讯、商链、说说、问答、</span>
+				<span>会员可根据需要创建多个商号，用于商家经营推广、创业、接活；做自媒与内容。商号为创新社群模式，内置 “商讯、商链、说说、问答、</span>
 				<label>查看详细介绍</label>
 				<label>生成我的商区码</label>
 				<label>查看商区代理</label>
@@ -96,12 +96,12 @@
 			</view>
 		</view>
 		<view class="four-button">
-			<span><img src="static/images/t.png" alt="" /></span>
-			<span><img src="static/images/l.png" alt="" /></span>
-			<span><img src="static/images/g.png" alt="" /></span>
-			<span><img src="static/images/f.png" alt="" /></span>
+			<a href="javascript:;"><img src="static/images/t.png" alt="" /></a>
+			<a href="javascript:;"><img src="static/images/l.png" alt="" /></a>
+			<a href="javascript:;"><img src="static/images/g.png" alt="" /></a>
+			<a href="javascript:;"><img src="static/images/f.png" alt="" /></a>
 		</view>
-		<view class="main-four-wrap">
+		<view class="main-four-wrap shop-main-four">
 			<!-- tab nav-->
 			<view class="navbar">
 				<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">
@@ -115,216 +115,1035 @@
 				{{content}}
 			</button> -->
 			<view class="list" v-show="tabCurrentIndex === 0">
-				<!-- {{ item.state }} -->
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						00
+				<view class="fbsx-button-wrap">
+					<span>发布商讯</span>
+				</view>
+				<view class="inv-h-w sx-bigtab" style="margin-bottom: -10px;">
+					<view :class="['inv-h',Invx1==0?'inv-h-se':'']" @click="Invx1=0">我的商讯(120)</view>
+					<view :class="['inv-h',Invx1==1?'inv-h-se':'']" @click="Invx1=1">外部投稿(120)</view>
+				</view>
+				<view class="" v-show="Invx1 == 0">
+					<view class="inv-h-w" style="margin-bottom: -10px;">
+						<view :class="['inv-h',Invxs1==0?'inv-h-se':'']" @click="Invxs1=0">公开(20)</view>
+						<view :class="['inv-h',Invxs1==1?'inv-h-se':'']" @click="Invxs1=1">私存(20)</view>
+						<view :class="['inv-h',Invxs1==2?'inv-h-se':'']" @click="Invxs1=2">待审(20)</view>
+						<view :class="['inv-h',Invxs1==3?'inv-h-se':'']" @click="Invxs1=3">拒绝(20)</view>
+					</view>
+					<view class="" v-show="Invxs1 == 0">
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>取消置顶</i>
+									<i>私存</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+											<span class="tg-red">推广(有)￥10000</span>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="" v-show="Invxs1 == 1">
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>公开</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>公开</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>公开</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="" v-show="Invxs1 == 2">
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="" v-show="Invxs1 == 3">
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
 					</view>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						00
+				<view class="" v-show="Invx1 == 1">
+					<view class="inv-h-w" style="margin-bottom: -10px;">
+						<view :class="['inv-h',Invxs2==0?'inv-h-se':'']" @click="Invxs2=0">通过(20)</view>
+						<view :class="['inv-h',Invxs2==1?'inv-h-se':'']" @click="Invxs2=1">私存(20)</view>
+						<view :class="['inv-h',Invxs2==2?'inv-h-se':'']" @click="Invxs2=2">待审(20)</view>
+						<view :class="['inv-h',Invxs2==3?'inv-h-se':'']" @click="Invxs2=3">拒绝(20)</view>
 					</view>
-				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						00
+					<view class="" v-show="Invxs2 == 0">
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>取消置顶</i>
+									<i>停止</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>取消置顶</i>
+									<i>停止</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="" v-show="Invxs2 == 1">
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>恢复</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>恢复</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="" v-show="Invxs2 == 2">
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>拒绝</i>
+									<i>通过</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>拒绝</i>
+									<i>通过</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="" v-show="Invxs2 == 3">
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>通过</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
+						<view class="main-tab-list-wrap invxs-right">
+							<view class="main-tab-list-cont">
+								<view class="main-tab-title">
+									<span class="main-tab-time">2019-09-25</span>
+									<i>通过</i>
+								</view>
+								<view class="main-tab-nr">
+									<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+									<view class="main-tab-right">
+										<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+										<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+										<ul class="main-four-ul">
+											<li>身份</li>
+											<li>类型</li>
+											<li>行业</li>
+											<li>区域</li>
+										</ul>
+									</view>
+								</view>
+							</view>
+						</view>
 					</view>
 				</view>
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 1">
-				<!-- {{ item.state }} -->
-				<view class="main-tab-list-wrap">
-					111
+				<view class="inv-h-w" style="margin-bottom: -10px;">
+					<view :class="['inv-h',Inv1==0?'inv-h-se':'']" @click="Inv1=0">通过(20)</view>
+					<view :class="['inv-h',Inv1==1?'inv-h-se':'']" @click="Inv1=1">停止(20)</view>
+					<view :class="['inv-h',Inv1==2?'inv-h-se':'']" @click="Inv1=2">待审(20)</view>
+					<view :class="['inv-h',Inv1==3?'inv-h-se':'']" @click="Inv1=3">拒绝(20)</view>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						111
+				<view class="" v-show="Inv1 == 0">
+					<view class="main-tab-list-wrap">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">2019-09-25</span>
+								<i>取消置顶</i>
+								<i>停止</i>
+							</view>
+							<view class="main-tab-nr">
+								<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+									<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+									<ul class="main-four-ul">
+										<li>身份</li>
+										<li>类型</li>
+										<li>行业</li>
+										<li>区域</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>免费加入</li>
+										<li>推广（有）</li>
+										<li>红包（无）</li>
+									</ul>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="main-tab-list-wrap">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">2019-09-25</span>
+								<i>取消置顶</i>
+								<i>停止</i>
+							</view>
+							<view class="main-tab-nr">
+								<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+									<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+									<ul class="main-four-ul">
+										<li>身份</li>
+										<li>类型</li>
+										<li>行业</li>
+										<li>区域</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>免费加入</li>
+										<li>推广（有）</li>
+										<li>红包（无）</li>
+									</ul>
+								</view>
+							</view>
+						</view>
+					</view>
+					
+				</view>
+				<view class="" v-show="Inv1 == 1">
+					<view class="main-tab-list-wrap">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">2019-09-25</span>
+								<i>恢复</i>
+							</view>
+							<view class="main-tab-nr">
+								<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+									<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+									<ul class="main-four-ul">
+										<li>身份</li>
+										<li>类型</li>
+										<li>行业</li>
+										<li>区域</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>免费加入</li>
+										<li>推广（有）</li>
+										<li>红包（无）</li>
+									</ul>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="main-tab-list-wrap">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">2019-09-25</span>
+								<i>恢复</i>
+							</view>
+							<view class="main-tab-nr">
+								<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+									<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+									<ul class="main-four-ul">
+										<li>身份</li>
+										<li>类型</li>
+										<li>行业</li>
+										<li>区域</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>免费加入</li>
+										<li>推广（有）</li>
+										<li>红包（无）</li>
+									</ul>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="" v-show="Inv1 == 2">
+					<view class="main-tab-list-wrap">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">2019-09-25</span>
+								<i>拒绝</i>
+								<i>通过</i>
+							</view>
+							<view class="main-tab-nr">
+								<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+									<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+									<ul class="main-four-ul">
+										<li>身份</li>
+										<li>类型</li>
+										<li>行业</li>
+										<li>区域</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>免费加入</li>
+										<li>推广（有）</li>
+										<li>红包（无）</li>
+									</ul>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="main-tab-list-wrap">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">2019-09-25</span>
+								<i>拒绝</i>
+								<i>通过</i>
+							</view>
+							<view class="main-tab-nr">
+								<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+									<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+									<ul class="main-four-ul">
+										<li>身份</li>
+										<li>类型</li>
+										<li>行业</li>
+										<li>区域</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>免费加入</li>
+										<li>推广（有）</li>
+										<li>红包（无）</li>
+									</ul>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="" v-show="Inv1 == 3">
+					<view class="main-tab-list-wrap">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">2019-09-25</span>
+								<i>通过</i>
+							</view>
+							<view class="main-tab-nr">
+								<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+									<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+									<ul class="main-four-ul">
+										<li>身份</li>
+										<li>类型</li>
+										<li>行业</li>
+										<li>区域</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>免费加入</li>
+										<li>推广（有）</li>
+										<li>红包（无）</li>
+									</ul>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="main-tab-list-wrap">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">2019-09-25</span>
+								<i>通过</i>
+							</view>
+							<view class="main-tab-nr">
+								<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
+									<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+									<ul class="main-four-ul">
+										<li>身份</li>
+										<li>类型</li>
+										<li>行业</li>
+										<li>区域</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>免费加入</li>
+										<li>推广（有）</li>
+										<li>红包（无）</li>
+									</ul>
+								</view>
+							</view>
+						</view>
 					</view>
 				</view>
 				
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 2">
-				<!-- {{ item.state }} -->
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<!-- <view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-						</view> -->
-					</view>
+				<view class="inv-h-w" style="margin-bottom: -10px;">
+					<view :class="['inv-h',Inv2==0?'inv-h-se':'']" @click="Inv2=0">公开(20)</view>
+					<view :class="['inv-h',Inv2==1?'inv-h-se':'']" @click="Inv2=1">停止(20)</view>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
+				<view class="" v-show="Inv2 == 0">
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>取消置顶</i>
+							<i>停止</i>
 						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
 							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+							
 						</view>
 					</view>
-				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>取消置顶</i>
+							<i>停止</i>
 						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
 							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+							
 						</view>
 					</view>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
+				
+				<view class="" v-show="Inv2 == 1">
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>恢复</i>
 						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
 							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+							
+						</view>
+					</view>
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>恢复</i>
+						</view>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
+							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+							
 						</view>
 					</view>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
+				
+				
 				
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 3">
-				<!-- {{ item.state }} -->
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						333
+				<view class="inv-h-w" style="margin-bottom: -10px;">
+					<view :class="['inv-h',Inv3==0?'inv-h-se':'']" @click="Inv3=0">公开(20)</view>
+					<view :class="['inv-h',Inv3==1?'inv-h-se':'']" @click="Inv3=1">停止(20)</view>
+				</view>
+				<view class="" v-show="Inv3 == 0">
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>取消置顶</i>
+							<i>停止</i>
+						</view>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs smtab-five">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
+							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+						</view>
+						<view class="newshf-wrap">
+							<view class="news-hf-zi">
+								最新回答
+							</view>
+							<view class="news-hf-cont">
+								<view class="stabl-title-cont x-hf-title-cont">
+									<img src="static/images/fx_tx.png" alt="" height="100%" />
+									<span>胖胖子</span>
+									<label>2019-02-19</label>
+								</view>
+								<view class="stable-dl">
+									成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>取消置顶</i>
+							<i>停止</i>
+						</view>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs smtab-five">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
+							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+						</view>
+						<view class="newshf-wrap">
+							<view class="news-hf-zi">
+								最新回答
+							</view>
+							<view class="news-hf-cont">
+								<view class="stabl-title-cont x-hf-title-cont">
+									<img src="static/images/fx_tx.png" alt="" height="100%" />
+									<span>胖胖子</span>
+									<label>2019-02-19</label>
+								</view>
+								<view class="stable-dl">
+									成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+								</view>
+							</view>
+						</view>
 					</view>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						333
+				<view class="" v-show="Inv3 == 1">
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>恢复</i>
+						</view>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs smtab-five">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
+							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+						</view>
+					</view>
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>恢复</i>
+						</view>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs smtab-five">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
+							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+						</view>
 					</view>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						333
-					</view>
-				</view>
-				
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 4">
-				<!-- {{ item.state }} -->
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						444
+				<view class="inv-h-w" style="margin-bottom: -10px;">
+					<view :class="['inv-h',Inv4==0?'inv-h-se':'']" @click="Inv4=0">公开(20)</view>
+					<view :class="['inv-h',Inv4==1?'inv-h-se':'']" @click="Inv4=1">停止(20)</view>
+				</view>
+				<view class="" v-show="Inv4 == 0">
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>取消置顶</i>
+							<i>停止</i>
+						</view>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs smtab-five">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
+							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+						</view>
+						<view class="newshf-wrap">
+							<view class="news-hf-zi">
+								最新回答
+							</view>
+							<view class="news-hf-cont">
+								<view class="stabl-title-cont x-hf-title-cont">
+									<img src="static/images/fx_tx.png" alt="" height="100%" />
+									<span>胖胖子</span>
+									<label>2019-02-19</label>
+								</view>
+								<view class="stable-dl">
+									成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>取消置顶</i>
+							<i>停止</i>
+						</view>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs smtab-five">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
+							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+						</view>
+						<view class="newshf-wrap">
+							<view class="news-hf-zi">
+								最新回答
+							</view>
+							<view class="news-hf-cont">
+								<view class="stabl-title-cont x-hf-title-cont">
+									<img src="static/images/fx_tx.png" alt="" height="100%" />
+									<span>胖胖子</span>
+									<label>2019-02-19</label>
+								</view>
+								<view class="stable-dl">
+									成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+								</view>
+							</view>
+						</view>
 					</view>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						444
+				<view class="" v-show="Inv4 == 1">
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>恢复</i>
+						</view>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs smtab-five">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
+							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+						</view>
+					</view>
+					<view class="small-tab small-tab-borderb">
+						<view class="stabl-title-cont">
+							<img src="static/images/fx_tx.png" alt="" height="100%" />
+							<span>胖胖子</span>
+							<i>恢复</i>
+						</view>
+						<view class="stable-dl">
+							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						</view>
+						<view class="smtab-imgs smtab-five">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+							<img src="static/images/shangqu-img.png" alt="">
+						</view>
+						<view class="small-tab-timeer">
+							<i>2019-02-19</i>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe68b;</span>
+								<label>12580</label>
+							</view>
+							<view class="small-tab-icons">
+								<span class="icon iconfont">&#xe600;</span>
+								<label>12580</label>
+							</view>
+						</view>
 					</view>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						444
-					</view>
-				</view>
-				
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 5">
 				<view class="inv-h-w">
@@ -339,9 +1158,9 @@
 							<img src="static/images/fx_tx.png" alt="" height="100%" />
 							<span>胖胖子</span>
 							<label>2019-06-29</label>
-							
-							<i>拒绝</i>
-							<i>通过</i>
+							<i>停止</i>
+							<i>发送消息</i>
+							<i>编辑</i>
 						</view>
 						<view class="stable-dl">
 							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
@@ -352,9 +1171,9 @@
 							<img src="static/images/fx_tx.png" alt="" height="100%" />
 							<span>胖胖子</span>
 							<label>2019-06-29</label>
-							
-							<i>拒绝</i>
-							<i>通过</i>
+							<i>停止</i>
+							<i>发送消息</i>
+							<i>编辑</i>
 						</view>
 						<view class="stable-dl">
 							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
@@ -365,9 +1184,9 @@
 							<img src="static/images/fx_tx.png" alt="" height="100%" />
 							<span>胖胖子</span>
 							<label>2019-06-29</label>
-							
-							<i>拒绝</i>
-							<i>通过</i>
+							<i>停止</i>
+							<i>发送消息</i>
+							<i>编辑</i>
 						</view>
 						<view class="stable-dl">
 							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
@@ -382,8 +1201,7 @@
 							<span>胖胖子</span>
 							<label>2019-06-29</label>
 							
-							<i>拒绝</i>
-							<i>通过</i>
+							<i>恢复</i>
 						</view>
 						<view class="stable-dl">
 							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
@@ -424,56 +1242,12 @@
 							<img src="static/images/fx_tx.png" alt="" height="100%" />
 							<span>胖胖子</span>
 							<label>2019-06-29</label>
-							
-							<i>拒绝</i>
 							<i>通过</i>
 						</view>
 						<view class="stable-dl">
 							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
 						</view>
 					</view>
-				</view>
-				<view class="" v-show="Inv == 4">
-					<view class="small-tab">
-						<view class="stabl-title-cont">
-							<img src="static/images/fx_tx.png" alt="" height="100%" />
-							<span>胖胖子</span>
-							<label>2019-06-29</label>
-							
-							<i>拒绝</i>
-							<i>通过</i>
-						</view>
-						<view class="stable-dl">
-							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-						</view>
-					</view>
-					<view class="small-tab">
-						<view class="stabl-title-cont">
-							<img src="static/images/fx_tx.png" alt="" height="100%" />
-							<span>胖胖子</span>
-							<label>2019-06-29</label>
-							
-							<i>拒绝</i>
-							<i>通过</i>
-						</view>
-						<view class="stable-dl">
-							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-						</view>
-					</view>
-					<view class="small-tab">
-						<view class="stabl-title-cont">
-							<img src="static/images/fx_tx.png" alt="" height="100%" />
-							<span>胖胖子</span>
-							<label>2019-06-29</label>
-							
-							<i>拒绝</i>
-							<i>通过</i>
-						</view>
-						<view class="stable-dl">
-							成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-						</view>
-					</view>
-					
 				</view>
 				
 			</view>
@@ -492,16 +1266,17 @@
 		},
 		data() {
 			return {
-				toLearnList:[
-					'1.会员可根据需要创建多个商号，用于商家经营推广、创业、接活；做自媒与内容。',
-					'2.商号为创新社群模式，内置“商讯、',
-					'3.商号为创新社群模',
-					'4.展开展开展开',
-					'5.zzzzzzzzzzzz'   //进行显示的数据
-				],
+
 				showAll:false, 
 				 
 				Inv:0,   //小切换
+				Inv1:0,   //小切换
+				Inv2:0,   //小切换
+				Inv3:0,   //小切换
+				Inv4:0,   //小切换
+				Invx1:0,   //商讯大tab
+				Invxs1:0,   //商讯大tab
+				Invxs2:0,   //商讯大tab
 				
 				　
 				tabCurrentIndex: 0,
@@ -551,7 +1326,6 @@
 		onLoad(options) {
 			// 页面显示是默认选中第一个
 			this.tabCurrentIndex = 0;
-			this.tabCurrentIndex1 = 0;
 		},
 		computed:{
 			showList:function(){
@@ -579,8 +1353,15 @@
 		 },
 
 		methods: {
-			 changeTab(Inv){
+			 changeTab(Inv,Inv1,Inv2,Inv3,Inv4,Invx1,Invxs1,Invxs2){
 				that.navIdx = Inv;
+				that.navIdx = Inv1;
+				that.navIdx = Inv2;
+				that.navIdx = Inv3;
+				that.navIdx = Inv4;
+				that.navIdx = Invx1;
+				that.navIdx = Invxs1;
+				that.navIdx = Invxs2;
 					 
 			},
 			changeTab(e) {
@@ -589,36 +1370,8 @@
 			//顶部tab点击
 			tabClick(index) {
 				this.tabCurrentIndex = index;
-			},
-			favor (e) {
-                this.liked=!this.liked;
-                if(this.liked){
-                    this.content="取消关注";
-                    this.bg_color="#ffffff";
-                    this.ft_color="#b22420";
-                }
-
-                else{
-                    this.content="+关注"
-                    this.bg_color="#ffffff";
-                    this.ft_color="#b22420";
-
-                }
-            },
-            change(){
-                this.bg_color="#ffffff";
-                this.ft_color="#b22420";
-            },
-            goback(){
-                if(this.liked){
-                    this.bg_color="#ffffff";
-                    this.ft_color="#b22420";
-                }
-                else{
-                    this.bg_color="#ffffff";
-                    this.ft_color="#b22420";
-                }
-            }
+			}
+			
 		}
 	}
 </script>
