@@ -39,7 +39,7 @@
 				<view class="shopAdd-cont-title">
 					<span>商号区域：</span>
 				</view>
-
+				<pickerAddress @change="change" class="select-city">{{txt}}</pickerAddress>
 			</view>
 		</view>
 		<view class="shopAdd-cont-wrap">
@@ -71,6 +71,10 @@
 		</view>
 
 
+		<view class="next-bottomfixed">
+			<span>下一步</span>
+		</view>
+
 
 		
 	</view>
@@ -79,10 +83,15 @@
 
 <script>
 	import 'pages/shopAdd/shopAdd.css';
+	import pickerAddress from '@/components/wangding-pickerAddress/wangding-pickerAddress.vue';
 	import simpleAddress from "@/components/simple-address/simple-address.nvue"
 	export default {
+		components:{
+            pickerAddress
+        },
 		data() {
 			return {
+				txt: '选择地址',
 				shenfen: [
 					{name: '身份'},
 					{name: '身份'},
@@ -123,6 +132,7 @@
 		onLoad() {
 
 		},
+		
 		methods: {
 			changShenfen(index) {
 				this.a = index;
@@ -132,7 +142,12 @@
 			},
 			changChengyuan(index2) {
 				this.c = index2;
-			}
+			},
+			change(data) {
+				
+                this.txt = data.data.join('')
+                console.log(data.data)
+            }
 		}
 	}
 </script>

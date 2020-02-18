@@ -67,6 +67,12 @@
 			}
 		},
 		{
+			"path": "pages/shop/shopxq",
+			"style": {
+				"navigationBarTitleText": "商讯详情"
+			}
+		},
+		{
 			"path": "pages/shanghaodaili/shanghaodaili",
 			"style": {
 				"navigationBarTitleText": "商号代理"
@@ -118,6 +124,12 @@
 			"path": "pages/myAgent_ywy/myAgent_ywy",
 			"style": {
 				"navigationBarTitleText": "我的代理业务——业务员"
+			}
+		},
+		{
+			"path": "pages/editor/LevineHua-editor",
+			"style": {
+				"navigationBarTitleText": "文本编辑器"
 			}
 		}
 	],

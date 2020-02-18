@@ -98,6 +98,7 @@ i{
 	color: #999999;
 	height: 22px;
 	line-height: 22px;
+	border-radius: 5px;
 }
 .shopAdd-cont-list-three span{
 	width: 100%;
@@ -113,6 +114,9 @@ i{
 	background: #ffffff;
 	border: 1px solid #000000 !important;
 	color: #000000 !important;
+	border-radius: 5px;
+	background: url(../../static/images/ygou.png) no-repeat right top;
+	/* background-size: 50%; */
 }
 .Classification {
 	background: #ffffff;
@@ -139,3 +143,21 @@ i{
 	display: inline-flex;
 	padding: 0 30px;
 }
+.select-city{
+	font-size: 14px;
+}
+
+.next-bottomfixed{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background: #FFFFFF;
+	justify-content: center;
+	text-align: center;
+	float: left;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #b22420;
+}
+
+
