@@ -127,9 +127,39 @@
 			}
 		},
 		{
-			"path": "pages/editor/LevineHua-editor",
+			"path": "pages/tgtk/tgtk",
 			"style": {
-				"navigationBarTitleText": "文本编辑器"
+				"navigationBarTitleText": "我的推广拓客"
+			}
+		},
+		{
+			"path": "pages/shanghaodashang/shanghaodashang",
+			"style": {
+				"navigationBarTitleText": "商号打赏"
+			}
+		},
+		{
+			"path": "pages/mybankcard/mybankcard",
+			"style": {
+				"navigationBarTitleText": "我的银行卡"
+			}
+		},
+		{
+			"path": "pages/hongbaoshouru/hongbaoshouru",
+			"style": {
+				"navigationBarTitleText": "红包收入"
+			}
+		},
+		{
+			"path": "pages/jiesuanjilu/jiesuanjilu",
+			"style": {
+				"navigationBarTitleText": "结算记录"
+			}
+		},
+		{
+			"path":"pages/editor/LevineHua-editor",
+			"style": {
+				"navigationBarTitleText":"文本编辑器"
 			}
 		}
 	],
