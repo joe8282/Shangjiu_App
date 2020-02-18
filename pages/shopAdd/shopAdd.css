@@ -94,22 +94,25 @@ i{
 	float: left;
 	margin: 4px 1%;
 	align-content:center;
-	border: 1px solid #999999;
-	color: #999999;
+	background: #ffffff;
+	border: 1px solid #000000;
+	color: #000000;
+	border-radius: 5px;
+	background: url(../../static/images/ygou.png) no-repeat right top;
 	height: 22px;
 	line-height: 22px;
 	border-radius: 5px;
-}
-.shopAdd-cont-list-three span{
-	width: 100%;
 	display: inline-flex;
 	justify-content: center;
 	text-align: center;
 	font-size: 14px;
 	align-content:center;
-	
 }
-
+.active1{
+	border: 1px solid #999999 !important;
+	color: #999999 !important;
+	background: none !important;
+}
 .active{
 	background: #ffffff;
 	border: 1px solid #000000 !important;
@@ -159,5 +162,32 @@ i{
 	font-size: 14px;
 	color: #b22420;
 }
-
-
+.nowindex-list{
+	width: 92%;
+	float: left;
+	margin-left: 4%;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 10px;
+}
+.nowindex-list span{
+	display: inline-flex;
+	float: left;
+	font-size: 14px;
+	width: 14%;
+	font-weight: bold;
+}
+.nowindex-list input{
+	border: 1px solid #c1c1c1;
+	float: left;
+	height: 22px;
+	width: 60%;
+	margin-top: 2px;
+	border-radius: 3px;
+}
+.nowindex-list label{
+	float: right;
+	color: #c1c1c1;
+	font-size: 14px;
+	width: 20%;
+}

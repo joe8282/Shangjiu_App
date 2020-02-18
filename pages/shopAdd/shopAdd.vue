@@ -47,10 +47,43 @@
 				<view class="shopAdd-cont-title">
 					<span>成员加入：</span>
 				</view>
-				<view v-for="(item , index2) in chengyuan" @click="changChengyuan(index2)" :key="index2"
+				<!-- <view v-for="(item , index2) in chengyuan" @click="changChengyuan(index2)" :key="index2"
 					 :class="{active:c === index2}" class="shopAdd-cont-list-three">
 					<span>{{ item.name }}</span>
+				</view> -->
+				<view class="shopAdd-cont-list-three" @click="addbg(i,item)" v-for="(item,i) in text" :class="{active1:i!=nowIndex}">{{item}}</view>
+
+				<view v-show="nowIndex === 0" class="content">
 				</view>
+
+				<view v-show="nowIndex === 1" class="content">
+					<textarea @blur="bindTextAreaBlur" style="margin-top: 10px;" auto-height placeholder="请输入加入条件" class="shopAdd-textarea" />
+				</view>
+
+				<view v-show="nowIndex === 2" class="content">
+					<view class="nowindex-list">
+						<span>次费</span>
+						<input type="text" value="" />
+						<label>可选填</label>
+					</view>
+					<view class="nowindex-list">
+						<span>月费</span>
+						<input type="text" value="" />
+						<label>可选填</label>
+					</view>
+					<view class="nowindex-list">
+						<span>年费</span>
+						<input type="text" value="" />
+						<label>可选填</label>
+					</view>
+					<view class="nowindex-list">
+						<span>不限</span>
+						<input type="text" value="" />
+						<label>可选填</label>
+					</view>
+				</view>
+
+
 			</view>
 		</view>
 		<view class="shopAdd-cont-wrap">
@@ -91,6 +124,11 @@
         },
 		data() {
 			return {
+				nowIndex: 0,
+
+				active_text:'菜单一',
+
+				text: ['开放加入', '审核加入', '付费加入'],
 				txt: '选择地址',
 				shenfen: [
 					{name: '身份'},
@@ -117,11 +155,11 @@
 					{name: '身份'},
 					{name: '身份'}
 				],
-				chengyuan: [
-					{name: '开放加入'},
-					{name: '审核加入'},
-					{name: '付费加入'}
-				],
+				// chengyuan: [
+				// 	{name: '开放加入'},
+				// 	{name: '审核加入'},
+				// 	{name: '付费加入'}
+				// ],
 				a: 0,
 				b: 0,
 				c: 0
@@ -147,7 +185,11 @@
 				
                 this.txt = data.data.join('')
                 console.log(data.data)
-            }
+            },
+			addbg(index, active_text) {
+				this.nowIndex = index;
+				this.active_text= active_text;
+			}
 		}
 	}
 </script>
