@@ -105,7 +105,8 @@
 
 
 		<view class="next-bottomfixed">
-			<span>下一步</span>
+			<!-- <a href="editor.vue">下一步</a> -->
+			<span @click="hreftwo" class="test-one">下一步</span>
 		</view>
 
 
@@ -187,7 +188,11 @@
 			},
 			bindTextAreaBlur: function (e) {
 				console.log(e.detail.value)
+			},
+			hreftwo(){
+				this.$router.push({ path:'editor'  })
 			}
+
 		}
 	}
 </script>
