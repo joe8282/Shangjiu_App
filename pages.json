@@ -157,9 +157,15 @@
 			}
 		},
 		{
-			"path":"pages/editor/LevineHua-editor",
+			"path":"pages/shopAdd/editor",
 			"style": {
 				"navigationBarTitleText":"文本编辑器"
+			}
+		},
+		{
+			"path":"pages/productAdd/productAdd",
+			"style": {
+				"navigationBarTitleText":"发布商讯"
 			}
 		}
 	],

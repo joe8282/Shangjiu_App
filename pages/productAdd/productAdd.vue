@@ -1,21 +1,21 @@
 <template>
 	<view class="content">
 		<view class="shopAdd-commit-img-wrap">
-			上传主图 
+			上传商讯主图 
 		</view>
 		<view class="shopAdd-cont-wrap">
 			<view class="shopAdd-cont-cc">
 				<view class="shopAdd-cont-title">
-					<span>商号名称：</span>
+					<span>商讯标题：</span>
 					<!-- <textarea value="" placeholder="请填写商号名称" class="shopAdd-textarea" /> -->	
 				</view>
-				<textarea @blur="bindTextAreaBlur" auto-height placeholder="请填写商号名称" class="shopAdd-textarea" />
+				<textarea @blur="bindTextAreaBlur" auto-height placeholder="请填写商讯标题" class="shopAdd-textarea" />
 			</view>
 		</view>
 		<view class="shopAdd-cont-wrap">
 			<view class="shopAdd-cont-cc">
 				<view class="shopAdd-cont-title">
-					<span>商号所有者身份：</span>
+					<span>类型：</span>
 				</view>
 				<view v-for="(item , index) in shenfen" @click="changShenfen(index)" :key="index"
 					 :class="{active:a === index}" class="shopAdd-cont-list">
@@ -26,7 +26,7 @@
 		<view class="shopAdd-cont-wrap">
 			<view class="shopAdd-cont-cc">
 				<view class="shopAdd-cont-title">
-					<span>商号行业：</span>
+					<span>行业：</span>
 				</view>
 				<view v-for="(item , index1) in hangye" @click="changHangye(index1)" :key="index1"
 					 :class="{active:b === index1}" class="shopAdd-cont-list">
@@ -37,7 +37,7 @@
 		<view class="shopAdd-cont-wrap">
 			<view class="shopAdd-cont-cc">
 				<view class="shopAdd-cont-title">
-					<span>商号区域：</span>
+					<span>商讯区域：</span>
 				</view>
 				<pickerAddress @change="change" class="select-city">{{txt}}</pickerAddress>
 			</view>
@@ -45,7 +45,7 @@
 		<view class="shopAdd-cont-wrap">
 			<view class="shopAdd-cont-cc">
 				<view class="shopAdd-cont-title">
-					<span>成员加入：</span>
+					<span>收费设置：</span>
 				</view>
 				<!-- <view v-for="(item , index2) in chengyuan" @click="changChengyuan(index2)" :key="index2"
 					 :class="{active:c === index2}" class="shopAdd-cont-list-three">
@@ -57,29 +57,16 @@
 				</view>
 
 				<view v-show="nowIndex === 1" class="content">
-					<textarea @blur="bindTextAreaBlur" style="margin-top: 10px;" auto-height placeholder="请输入加入条件" class="shopAdd-textarea" />
+					<view class="nowindex-list">
+						<span>填写价格</span>
+						<input type="text" value="" />
+					</view>
 				</view>
 
 				<view v-show="nowIndex === 2" class="content">
 					<view class="nowindex-list">
-						<span>次费</span>
+						<span>填写价格</span>
 						<input type="text" value="" />
-						<label>可选填</label>
-					</view>
-					<view class="nowindex-list">
-						<span>月费</span>
-						<input type="text" value="" />
-						<label>可选填</label>
-					</view>
-					<view class="nowindex-list">
-						<span>年费</span>
-						<input type="text" value="" />
-						<label>可选填</label>
-					</view>
-					<view class="nowindex-list">
-						<span>不限</span>
-						<input type="text" value="" />
-						<label>可选填</label>
 					</view>
 				</view>
 
@@ -88,18 +75,38 @@
 		</view>
 		<view class="shopAdd-cont-wrap">
 			<view class="shopAdd-cont-cc">
-				<view class="shopAdd-cont-title">
-					<span>联系人：</span>
+				<view class="productAdd-ff-list">
+					<span>内容来源：</span>
+					<view class="pdt-rr">
+						<view v-for="(item , index4) in nrly" @click="changNrly(index4)" :key="index4"
+							 :class="{active:d === index4}" class="shopAdd-cont-list">
+							<span>{{ item.name }}</span>
+						</view>
+					</view>
+					
 				</view>
-				<input class="uni-input" placeholder="请填写联系人名称" />
-				<view class="shopAdd-cont-title">
-					<span>联系电话：</span>
+				<view class="productAdd-ff-list">
+					<span>是否公开：</span>
+					<view class="pdt-rr">
+						<view v-for="(item , index5) in sfgk" @click="changSfgk(index5)" :key="index5"
+							 :class="{active:e === index5}" class="shopAdd-cont-list">
+							<span>{{ item.name }}</span>
+						</view>
+					</view>
+					
 				</view>
-				<input class="uni-input" placeholder="请填写联系电话" />
+			</view>
+		</view>
+		<view class="shopAdd-cont-wrap">
+			<view class="shopAdd-cont-cc">
 				<view class="shopAdd-cont-title">
-					<span>经营地址：</span>
+					<span>内容作者：</span>
 				</view>
-				<textarea @blur="bindTextAreaBlur" auto-height placeholder="请填写经营地址" class="shopAdd-textarea" />
+				<input class="uni-input" placeholder="请填写内容作者(可选填)" />
+				<view class="shopAdd-cont-title">
+					<span>内容出处：</span>
+				</view>
+				<input class="uni-input" placeholder="请填写内容出处(可选填)" />
 			</view>
 		</view>
 
@@ -115,7 +122,7 @@
 </template>
 
 <script>
-	import 'pages/shopAdd/shopAdd.css';
+	import 'pages/productAdd/productAdd.css';
 	import pickerAddress from '@/components/wangding-pickerAddress/wangding-pickerAddress.vue';
 	import simpleAddress from "@/components/simple-address/simple-address.nvue"
 	export default {
@@ -128,7 +135,7 @@
 
 				active_text:'菜单一',
 
-				text: ['开放加入', '审核加入', '付费加入'],
+				text: ['免费', '订阅收费', '项目收费'],
 				txt: '选择地址',
 				shenfen: [
 					{name: '身份'},
@@ -155,9 +162,19 @@
 					{name: '身份'},
 					{name: '身份'}
 				],
+				nrly: [
+					{name: '原创'},
+					{name: '转载'}
+				],
+				sfgk: [
+					{name: '公开'},
+					{name: '私存'}
+				],
 				a: 0,
 				b: 0,
-				c: 0
+				c: 0,
+				d: 0,
+				e: 0
 		
 			}
 				
@@ -175,6 +192,12 @@
 			},
 			changChengyuan(index2) {
 				this.c = index2;
+			},
+			changNrly(index4) {
+				this.d = index4;
+			},
+			changSfgk(index5) {
+				this.e = index5;
 			},
 			change(data) {
 				
