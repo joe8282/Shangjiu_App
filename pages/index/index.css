@@ -260,6 +260,12 @@ i{
 	display: inline-flex;
 	color: #999999;
 }
+.productList-ssthree{
+	width: 33%;
+	text-align: center;
+	justify-content: center;
+	vertical-align: middle;
+}
 
 
 

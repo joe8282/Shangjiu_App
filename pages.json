@@ -167,6 +167,18 @@
 			"style": {
 				"navigationBarTitleText":"发布商讯"
 			}
+		},
+		{
+			"path":"pages/productList/productList",
+			"style": {
+				"navigationBarTitleText":"商讯主页"
+			}
+		},
+		{
+			"path":"pages/product/product",
+			"style": {
+				"navigationBarTitleText":"商讯详情"
+			}
 		}
 	],
 	"globalStyle": {
@@ -193,7 +205,7 @@
                 "text": "商号"
             },
             {
-                "pagePath": "pages/shangxun",
+                "pagePath": "pages/productList/productList",
                 "iconPath": "static/images/index-nav33.png",
                 "selectedIconPath": "static/images/index-nav3.png",
                 "text": "商讯"
