@@ -179,6 +179,24 @@
 			"style": {
 				"navigationBarTitleText":"商讯详情"
 			}
+		},
+		{
+			"path":"pages/AdRecord/AdRecord",
+			"style": {
+				"navigationBarTitleText":"推广记录管理"
+			}
+		},
+		{
+			"path":"pages/AdOperation/AdOperation",
+			"style": {
+				"navigationBarTitleText":"置顶"
+			}
+		},
+		{
+			"path":"pages/AdAdd/AdAdd",
+			"style": {
+				"navigationBarTitleText":"商号推广"
+			}
 		}
 	],
 	"globalStyle": {

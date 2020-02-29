@@ -26,6 +26,19 @@ em{
 i{
 	font-style: normal;
 }
+.rotatetop{
+	transform: rotate(180deg);
+}
+.rotatebottom{
+	transform: rotate(0deg);
+}
+.slider-down-icon{
+	width: 20px;
+	position: absolute;
+	left: 50%;
+	margin-left: -10px;
+	top: 6px;
+}
 .main-header-wrap{
 	width: 100%;
 	height: 40px;
@@ -124,9 +137,11 @@ i{
 }
 .show-more{
 	font-size: 14px;
-    text-align: center;
-    color: #b22420;
-    margin-top: 10px;
+	text-align: center;
+	color: #b22420;
+	position: relative;
+	height: 20px;
+	width: 100%;
 }
 .main-tab-list-wrap{
 	width: 100%;

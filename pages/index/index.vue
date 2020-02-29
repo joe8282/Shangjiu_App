@@ -20,7 +20,7 @@
 						<span class="slider-main-toggle">{{item}}</span>
 						
 					</view>
-					<view @click="showAll = !showAll" class="show-more">{{word}}</view>
+					<view @click="showAll = !showAll" class="show-more"><!-- {{word}} --><img src="static/images/down-icon.png" class="slider-down-icon" @click="sliderToggle()":class="[rotate?  'rotatetop' : 'rotatebottom']"/></view>
 				</view>
 				
 			</view>
@@ -635,6 +635,7 @@
 		},
 		data() {
 			return {
+				rotate: false,
 				toLearnList:[
 					'1.会员可根据需要创建多个商号，用于商家经营推广、创业、接活；做自媒与内容。',
 					'2.商号为创新社群模式，内置“商讯、',
@@ -755,7 +756,15 @@
                     this.bg_color="#ffffff";
                     this.ft_color="#b22420";
                 }
-            }
+            },
+			sliderToggle() {
+			    if(this.showAll == false){
+					this.rotate = !this.rotate;
+			    }else{
+					this.rotate = !this.rotate;
+					
+			    }
+			}
 		}
 	}
 </script>
