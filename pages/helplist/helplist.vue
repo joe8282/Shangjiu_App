@@ -186,7 +186,6 @@
 						// all
 						// var all = res.data.rows.filter(function (e) { return e.TypeName == '资讯'; });
 						for ( var a = 0; a < res.data.rows.length; a ++ ) {
-							console.log(a)
 							var allLeixing = res.data.rows[a].TypeName,
 								allHelpTitle = res.data.rows[a].HelpTitle,
 								allPic = res.data.rows[a].HelpPic,
@@ -264,7 +263,6 @@
 							this.qitaList[x].img = QTPic;
 							this.qitaList[x].time = QTTime;
 							this.qitaList.push(qita[x])
-							console.log(xiuchang[z])
 						}
 						
 					}
