@@ -1,45 +1,75 @@
 <template>
-	<view class="container">
-        <editor id="editor" class="ql-container" :placeholder="placeholder" @ready="onEditorReady"></editor>
-        <button type="warn" @tap="undo">撤销</button>
-    </view>
-	
+    <view>
+  <view v-for="(item, index) in newsList" class="newslist">{{item}}</view>
+  <view class="loading">{{loadingText}}</view>
+ </view>
 </template>
-
 <script>
-	// import 'pages/my/my.css'
-	export default {
-        data() {
-            return {
-                placeholder: '开始输入...'
-            }
-        },
-        methods: {
-            onEditorReady() {
-                uni.createSelectorQuery().select('#editor').context((res) => {
-                    this.editorCtx = res.context
-                }).exec()
-            },
-            undo() {
-                this.editorCtx.undo()
-            }
-        }
+var _self, page = 1, timer = null;
+export default {
+ data:{
+  newsList:[],
+  loadingText:'加载中...'
+ },
+    onLoad:function(){
+  _self = this;
+  this.getnewsList();
+    },
+ onPullDownRefresh:function(){
+  this.getnewsList();
+ },
+ onReachBottom:function(){
+  if(timer != null){
+   clearTimeout(timer);
+  }
+  timer = setTimeout(function(){
+   _self.getmorenews();
+  }, 1000);
+ },
+ methods:{
+  getmorenews : function(){
+   if(_self.loadingText != '' && _self.loadingText != '加载更多'){
+    return false;
+   }
+   _self.loadingText = '加载中...';
+   uni.showNavigationBarLoading();
+   uni.request({
+    url: 'https://demo.hcoder.net/index.php?user=hcoder&pwd=hcoder&m=list1&page='+page,
+    method: 'GET',
+    success: function(res){
+     _self.loadingText = '';
+     if(res.data == null){
+      uni.hideNavigationBarLoading();
+      _self.loadingText = '已加载全部';
+      return false;
+     }
+     page++;
+     console.log(res);
+     _self.newsList = _self.newsList.concat(res.data.split('--hcSplitor--'));
+     _self.loadingText = '加载更多';
+     uni.hideNavigationBarLoading();
     }
+   });
+  },
+  getnewsList : function(){
+   page = 1;
+   uni.showNavigationBarLoading();
+   uni.request({
+    url: 'https://demo.hcoder.net/index.php?user=hcoder&pwd=hcoder&m=list1&page=1',
+    method: 'GET',
+    success: function(res){
+     page++;
+     _self.newsList = res.data.split('--hcSplitor--');
+     uni.hideNavigationBarLoading();
+     uni.stopPullDownRefresh();
+     _self.loadingText = '加载更多';
+    }
+   });
+  }
+ }
+}
 </script>
-
 <style>
-	
-	.container {
-        padding: 10px;
-    }
-
-    #editor {
-        width: 100%;
-        height: 300px;
-        background-color: #CCCCCC;
-    }
-
-    button {
-        margin-top: 10px;
-    }
+.newslist{padding:10px; line-height:60px; font-size:28px;}
+.loading{text-align:center; line-height:80px;}
 </style>

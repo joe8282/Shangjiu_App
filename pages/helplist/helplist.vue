@@ -10,71 +10,71 @@
 		<!-- tab 显示区域 -->
 		<view class="all-arr">
 			<view class="showArea" v-show="tabCurrentIndex === 0">
-				<view class="list" v-for="all in allList">
+				<view class="list" v-for="(item , index) in allList">
 					<navigator url="../help/help" class="list_content">
 						<view class="word">
-							<p>{{ all.title }}</p>
-							<span><b>{{ all.time }}</b><b>{{ all.leixing }}</b></span>
+							<p>{{ item.HelpTitle }}</p>
+							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
 						</view>
 						<view class="pic">
 							<span></span>
-							<img :src="all.img" />
+							<img :src="item.HelpPic" />
 						</view>
 					</navigator>
 				</view>
 			</view>
 			<view  v-show="tabCurrentIndex === 1">
-				<view class="list" v-for="ZiXun in ZiXunList">
+				<view class="list" v-for="(item , index) in zixun">
 					<navigator url="../help/help" class="list_content">
 						<view class="word">
-							<p>{{ ZiXun.title }}</p>
-							<span><b>{{ ZiXun.time }}</b><b>{{ ZiXun.leixing }}</b></span>
+							<p>{{ item.HelpTitle }}</p>
+							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
 						</view>
 						<view class="pic">
 							<span></span>
-							<img :src="ZiXun.img" />
+							<img :src="item.HelpPic" />
 						</view>
 					</navigator>
 				</view>
 			</view>
 			<view  v-show="tabCurrentIndex === 2">
-				<view class="list" v-for="zhishi in zhishiList">
+				<view class="list" v-for="(item , index) in zhishi">
 					<navigator url="../help/help" class="list_content">
 						<view class="word">
-							<p>{{ zhishi.title }}</p>
-							<span><b>{{ zhishi.time }}</b><b>{{ zhishi.leixing }}</b></span>
+							<p>{{ item.HelpTitle }}</p>
+							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
 						</view>
 						<view class="pic">
 							<span></span>
-							<img :src="zhishi.img" />
+							<img :src="item.HelpPic" />
 						</view>
 					</navigator>
 				</view>
 			</view>
 			<view  v-show="tabCurrentIndex === 3">
-				<view class="list" v-for="xiuchang in xiuchangList">
+				<view class="list" v-for="(item , index) in xiuchang">
 					<navigator url="../help/help" class="list_content">
 						<view class="word">
-							<p>{{ xiuchang.title }}</p>
-							<span><b>{{ xiuchang.time }}</b><b>{{ xiuchang.leixing }}</b></span>
+							<p>{{ item.HelpTitle }}</p>
+							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
 						</view>
 						<view class="pic">
 							<span></span>
-							<img :src="xiuchang.img" />
+							<img :src="item.HelpPic" />
 						</view>
 					</navigator>
 				</view>
 			</view>
 			<view  v-show="tabCurrentIndex === 4">
-				<view class="list" v-for="qita in qitaList">
+				<view class="list" v-for="(item , index) in qita">
 					<navigator url="../help/help" class="list_content">
 						<view class="word">
-							<p>{{ qita.title }}</p>
-							<span><b>{{ qita.time }}</b><b>{{ qita.leixing }}</b></span>
+							<p>{{ item.HelpTitle }}</p>
+							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
 						</view>
 						<view class="pic">
 							<span></span>
-							<img :src="qita.img" />
+							<img :src="item.HelpPic" />
 						</view>
 					</navigator>
 				</view>
@@ -88,10 +88,11 @@
 	import uniFav from "@/components/uni-fav/uni-fav.vue"
 	export default {
 		components: {
-			uniFav
+			uniFav,
 		},
 		data() {
 			return {
+									
 				tabCurrentIndex: 0,
 				navList: [
 					{
@@ -115,46 +116,12 @@
 						text: '新闻',
 					}
 				],
-				allList: [
-					{
-						title: '11',
-						time: '22',
-						leixing: '33',
-						img: ''
-					}
-				],
-				ZiXunList: [
-					{
-						title: '11',
-						time: '22',
-						leixing: '33',
-						img: ''
-					}
-				],
-				zhishiList: [
-					{
-						title: '11',
-						time: '22',
-						leixing: '33',
-						img: ''
-					}	
-				],
-				xiuchangList: [
-					{
-						title: '11',
-						time: '22',
-						leixing: '33',
-						img: ''
-					}	
-				],
-				qitaList: [
-					{
-						title: '11',
-						time: '22',
-						leixing: '33',
-						img: ''
-					}	
-				]
+				allList: [],
+				zixun: [],
+				zhishi: [],
+				xiuchang: [],
+				qita: []
+
 			};
 		},
 	
@@ -163,10 +130,18 @@
 			this.tabCurrentIndex = 0;
 			this.getData();
 			this.getDaraList();
-			
+			setTimeout(function () {
+			}, 1000);
+			uni.startPullDownRefresh();
 		},
-	
+		onPullDownRefresh() {
+	        setTimeout(function () {
+	            uni.stopPullDownRefresh();
+	        }, 1000);
+	    },
+		
 		methods: {
+			
 			// 接口调取
 			getData() {
 				uni.request({
@@ -181,93 +156,27 @@
 			},
 			getDaraList() {
 				uni.request({
-					url:this.$serverUrl + '/Help/Dev_Help/GetDataList',
+					// url:this.$serverUrl + '/Help/Dev_Help/GetDataList?TypeId=' + TypeId + '&Status=' + Status,
+					url:this.$serverUrl + '/Help/Dev_Help/GetDataList?Status=1',
 					success: (res) =>{
-						// all
-						// var all = res.data.rows.filter(function (e) { return e.TypeName == '资讯'; });
-						for ( var a = 0; a < res.data.rows.length; a ++ ) {
-							var allLeixing = res.data.rows[a].TypeName,
-								allHelpTitle = res.data.rows[a].HelpTitle,
-								allPic = res.data.rows[a].HelpPic,
-								allCreateTime = res.data.rows[a].CreateTime, //获取时间
-								allTime = allCreateTime.substring(0,10); //截取后的时间
-							this.allList[a].title = allHelpTitle;
-							this.allList[a].leixing = allLeixing;
-							this.allList[a].img = allPic;
-							this.allList[a].time = allTime;
-							this.allList.push(res.data.rows[a])
-						}
-						// 资讯
-						var zixun = res.data.rows.filter(function (e) { return e.TypeName == '资讯'; });
-						for ( var i = 0; i < zixun.length; i ++ ) {
-							var ZxLeixing = zixun[i].TypeName,
-								ZxHelpTitle = zixun[i].HelpTitle,
-								ZxPic = zixun[i].HelpPic,
-								ZxCreateTime = zixun[i].CreateTime, //获取时间
-								ZxTime = ZxCreateTime.substring(0,10); //截取后的时间
-							
-							
-							this.ZiXunList[i].title = ZxHelpTitle;
-							this.ZiXunList[i].leixing = ZxLeixing;
-							this.ZiXunList[i].img = ZxPic;
-							this.ZiXunList[i].time = ZxTime;
-							this.ZiXunList.push(zixun[i])
-						}
+						var zixunList = res.data.rows.filter(function (e) { return e.TypeName == '资讯'; });
+						var zhishiList = res.data.rows.filter(function (e) { return e.TypeName == '知识'; });
+						var xiuchangList = res.data.rows.filter(function (e) { return e.TypeName == '秀场'; });
+						var qitaList = res.data.rows.filter(function (e) { return e.TypeName == '其他'; });
 						
-						// 知识
-						var zhishi = res.data.rows.filter(function (e) { return e.TypeName == '知识'; });
-						for ( var z = 0; z < zhishi.length; z ++ ) {
+						this.allList = res.data.rows;
+						this.zixun = zixunList;
+						this.zhishi = zhishiList;
+						this.xiuchang = xiuchangList;
+						this.qita = qitaList;
 						
-							var ZSLeixing = zhishi[z].TypeName,
-								ZSHelpTitle = zhishi[z].HelpTitle,
-								ZSPic = zhishi[z].HelpPic,
-								ZSCreateTime = zhishi[z].CreateTime, //获取时间
-								ZSTime = ZSCreateTime.substring(0,10); //截取后的时间
-							
-							
-							this.zhishiList[z].title = ZSHelpTitle;
-							this.zhishiList[z].leixing = ZSLeixing;
-							this.zhishiList[z].img = ZSPic;
-							this.zhishiList[z].time = ZSTime;
-							this.zhishiList.push(zhishi[z])
-						}
-						// 秀场
-						var xiuchang = res.data.rows.filter(function (e) { return e.TypeName == '秀场'; });
-						for ( var x = 0; x < xiuchang.length; x ++ ) {
-							var XCLeixing = xiuchang[x].TypeName,
-								XCHelpTitle = xiuchang[x].HelpTitle,
-								XCPic = xiuchang[x].HelpPic,
-								XCCreateTime = xiuchang[x].CreateTime, //获取时间
-								XCTime = XCCreateTime.substring(0,10); //截取后的时间
-							
-							
-							this.xiuchangList[x].title = ZSHelpTitle;
-							this.xiuchangList[x].leixing = ZSLeixing;
-							this.xiuchangList[x].img = ZSPic;
-							this.xiuchangList[x].time = ZSTime;
-							this.xiuchangList.push(xiuchang[x])
-						}
 						
-						// 其他
-						var qita = res.data.rows.filter(function (e) { return e.TypeName == '其他'; });
-						for ( var q = 0; q < qita.length; q ++ ) {
-							var QTLeixing = qita[x].TypeName,
-								QTCHelpTitle = qita[x].HelpTitle,
-								QTPic = qita[x].HelpPic,
-								QTCreateTime = qita[x].CreateTime, //获取时间
-								QTTime = QTCreateTime.substring(0,10); //截取后的时间
-							
-							
-							this.qitaList[x].title = QTHelpTitle;
-							this.qitaList[x].leixing = QTLeixing;
-							this.qitaList[x].img = QTPic;
-							this.qitaList[x].time = QTTime;
-							this.qitaList.push(qita[x])
-						}
+						
 						
 					}
 				})
 			},
+			
 			changeTab(e) {
 				this.tabCurrentIndex = e.target.current;
 			},

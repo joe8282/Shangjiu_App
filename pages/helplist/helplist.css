@@ -66,6 +66,3 @@
 	height: 80%;
 	/* background: url(../../static/images/tuboshu.jpg) no-repeat center center; */
 }
-.all-arr view .list:last-child{
-	display: none;
-}
