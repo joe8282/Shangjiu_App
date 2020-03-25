@@ -29,7 +29,7 @@
 							<p>{{ item.HelpTitle }}</p>
 							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
 						</view>
-						<view class="pic">
+						<view class="pic-imgs">
 							<span></span>
 							<img :src="item.HelpPic" />
 						</view>
