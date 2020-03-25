@@ -66,3 +66,10 @@
 	height: 80%;
 	/* background: url(../../static/images/tuboshu.jpg) no-repeat center center; */
 }
+.loading_text{
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+	font-size: 14px;
+	color: rgb(102, 204, 255);
+}

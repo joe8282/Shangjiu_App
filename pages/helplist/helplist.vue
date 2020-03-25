@@ -10,8 +10,9 @@
 		<!-- tab 显示区域 -->
 		<view class="all-arr">
 			<view class="showArea" v-show="tabCurrentIndex === 0">
-				<view class="list" v-for="(item , index) in allList">
-					<navigator url="../help/help" class="list_content">
+				
+				<!-- <view class="list" v-for="(item , index) in allList">
+					<navigator class="list_content">
 						<view class="word">
 							<p>{{ item.HelpTitle }}</p>
 							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
@@ -21,7 +22,24 @@
 							<img :src="item.HelpPic" />
 						</view>
 					</navigator>
-				</view>
+				</view> -->
+				<view class="n_indent list" v-for="(item,index) in allList" :key="index" :pageSize="10">
+		            <navigator :url="'../help/help?id=' + item.Id " class="list_content" >
+						<view class="word">
+							<p>{{ item.HelpTitle }}</p>
+							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
+						</view>
+						<view class="pic">
+							<span></span>
+							<img :src="item.HelpPic" />
+						</view>
+					</navigator>
+		        </view>
+		        <view class="loading_text">
+		            <text>{{loadingText}}</text>
+		        </view>
+				
+				
 			</view>
 			<view  v-show="tabCurrentIndex === 1">
 				<view class="list" v-for="(item , index) in zixun">
@@ -85,13 +103,19 @@
 
 <script>
 	import 'pages/helplist/helplist.css';
-	import uniFav from "@/components/uni-fav/uni-fav.vue"
+	import uniFav from "@/components/uni-fav/uni-fav.vue";
+	import wsLoadMore from '@/components/wsure-load-more/load-more.vue';
 	export default {
 		components: {
 			uniFav,
+			wsLoadMore
 		},
 		data() {
 			return {
+				pagesize: 10,
+				pre:'item',
+				failFlag:true,
+				count:0,
 									
 				tabCurrentIndex: 0,
 				navList: [
@@ -117,10 +141,12 @@
 					}
 				],
 				allList: [],
+				items: [],
 				zixun: [],
 				zhishi: [],
 				xiuchang: [],
-				qita: []
+				qita: [],
+				loadingText:'正在加载....'
 
 			};
 		},
@@ -130,18 +156,62 @@
 			this.tabCurrentIndex = 0;
 			this.getData();
 			this.getDaraList();
-			setTimeout(function () {
-			}, 1000);
-			uni.startPullDownRefresh();
-		},
-		onPullDownRefresh() {
-	        setTimeout(function () {
-	            uni.stopPullDownRefresh();
-	        }, 1000);
-	    },
 		
-		methods: {
-			
+		},
+		// 下拉刷新
+		onPullDownRefresh(){
+			console.log('刷新中');
+			setTimeout(function(){
+				uni.stopPullDownRefresh();
+				console.log("OK了")
+			},2000)
+		},
+		
+		
+		methods: {		
+			// 上拉加载
+			onReachBottom(){	
+				// var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+				// console.log(scrollTop);
+				// //变量windowHeight是可视区的高度
+				// var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+				// console.log(windowHeight);
+				// //变量scrollHeight是滚动条的总高度
+				// var scrollHeight = (document.documentElement.scrollHeight||document.body.scrollHeight)-60;
+				// console.log(scrollHeight);
+				// 	   //滚动条到底部的条件
+				// 	   if(scrollTop+windowHeight > scrollHeight){
+				// 		//页数增加
+				// 		this.pagenum ++;
+				// 		// this.pagesize + 10;
+				// 		//到了这个就可以进行业务逻辑加载后台数据了
+				// 		this.getDaraList(this.pagenum);
+						
+				// 	  }   
+				
+				this.pagenum ++ ;
+				this.pagesize ++;
+				uni.request({	
+					url:this.$serverUrl + '/Help/Dev_Help/GetDataList?Status=1&pageSize='+ this.pagesize+'&pageNumber=' + this.pagenum,
+					success: (res) =>{
+						
+						var zixunList = res.data.rows.filter(function (e) { return e.TypeName == '资讯'; });
+						var zhishiList = res.data.rows.filter(function (e) { return e.TypeName == '知识'; });
+						var xiuchangList = res.data.rows.filter(function (e) { return e.TypeName == '秀场'; });
+						var qitaList = res.data.rows.filter(function (e) { return e.TypeName == '其他'; });
+						this.allList = res.data.rows;
+						this.zixun = zixunList;
+						this.zhishi = zhishiList;
+						this.xiuchang = xiuchangList;
+						this.qita = qitaList;
+						
+						
+					},
+					
+				})
+				
+				
+			},
 			// 接口调取
 			getData() {
 				uni.request({
@@ -156,24 +226,21 @@
 			},
 			getDaraList() {
 				uni.request({
-					// url:this.$serverUrl + '/Help/Dev_Help/GetDataList?TypeId=' + TypeId + '&Status=' + Status,
-					url:this.$serverUrl + '/Help/Dev_Help/GetDataList?Status=1',
+					url:this.$serverUrl + '/Help/Dev_Help/GetDataList?Status=1&pageSize='+ this.pagesize+'&pageNumber=' + this.pagenum,
 					success: (res) =>{
 						var zixunList = res.data.rows.filter(function (e) { return e.TypeName == '资讯'; });
 						var zhishiList = res.data.rows.filter(function (e) { return e.TypeName == '知识'; });
 						var xiuchangList = res.data.rows.filter(function (e) { return e.TypeName == '秀场'; });
 						var qitaList = res.data.rows.filter(function (e) { return e.TypeName == '其他'; });
-						
 						this.allList = res.data.rows;
 						this.zixun = zixunList;
 						this.zhishi = zhishiList;
 						this.xiuchang = xiuchangList;
 						this.qita = qitaList;
+						// console.log(res.data.rows)
 						
-						
-						
-						
-					}
+					},
+					
 				})
 			},
 			
