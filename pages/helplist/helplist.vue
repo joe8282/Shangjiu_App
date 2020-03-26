@@ -190,7 +190,15 @@
 						uni.request({
 							url:this.$serverUrl + '/Help/Dev_Help/GetDataList?Status=1&pageSize='+newPageSize+'&pageNumber=' + this.pagenum,
 							success: (res) =>{
+								var zixunList = res.data.rows.filter(function (e) { return e.TypeName == '资讯'; });
+								var zhishiList = res.data.rows.filter(function (e) { return e.TypeName == '知识'; });
+								var xiuchangList = res.data.rows.filter(function (e) { return e.TypeName == '秀场'; });
+								var qitaList = res.data.rows.filter(function (e) { return e.TypeName == '其他'; });
 								this.allList = res.data.rows;
+								this.zixun = zixunList;
+								this.zhishi = zhishiList;
+								this.xiuchang = xiuchangList;
+								this.qita = qitaList;
 								if(newPageSize > this.allList.length){
 									this.loadingText = '没有更多了'
 								}else{
