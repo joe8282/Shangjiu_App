@@ -169,46 +169,45 @@
 		
 		
 		methods: {		
-			// 上拉加载
-			onReachBottom(){	
-				// var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
-				// console.log(scrollTop);
-				// //变量windowHeight是可视区的高度
-				// var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
-				// console.log(windowHeight);
-				// //变量scrollHeight是滚动条的总高度
-				// var scrollHeight = (document.documentElement.scrollHeight||document.body.scrollHeight)-60;
-				// console.log(scrollHeight);
-				// 	   //滚动条到底部的条件
-				// 	   if(scrollTop+windowHeight > scrollHeight){
-				// 		//页数增加
-				// 		this.pagenum ++;
-				// 		// this.pagesize + 10;
-				// 		//到了这个就可以进行业务逻辑加载后台数据了
-				// 		this.getDaraList(this.pagenum);
-						
-				// 	  }   
+			// 加载
+			onReachBottom(){
+				var newPageSize = this.pagesize += 8;
+				var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+					// console.log(scrollTop);
+					//可视区的高度
+					var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+					// console.log(windowHeight);
+					//滚动条的总高度
+					var scrollHeight = (document.documentElement.scrollHeight||document.body.scrollHeight)-200;
+					// console.log(scrollHeight);
+				   //滚动条到底部的条件
+				   if(scrollTop+windowHeight > scrollHeight){
+					  
 				
-				this.pagenum ++ ;
-				this.pagesize ++;
-				uni.request({	
-					url:this.$serverUrl + '/Help/Dev_Help/GetDataList?Status=1&pageSize='+ this.pagesize+'&pageNumber=' + this.pagenum,
-					success: (res) =>{
+						//页数增加
+						this.pagenum ++;
 						
-						var zixunList = res.data.rows.filter(function (e) { return e.TypeName == '资讯'; });
-						var zhishiList = res.data.rows.filter(function (e) { return e.TypeName == '知识'; });
-						var xiuchangList = res.data.rows.filter(function (e) { return e.TypeName == '秀场'; });
-						var qitaList = res.data.rows.filter(function (e) { return e.TypeName == '其他'; });
-						this.allList = res.data.rows;
-						this.zixun = zixunList;
-						this.zhishi = zhishiList;
-						this.xiuchang = xiuchangList;
-						this.qita = qitaList;
-						
-						
-					},
+						uni.request({
+							url:this.$serverUrl + '/Help/Dev_Help/GetDataList?Status=1&pageSize='+newPageSize+'&pageNumber=' + this.pagenum,
+							success: (res) =>{
+								this.allList = res.data.rows;
+								if(newPageSize > this.allList.length){
+									this.loadingText = '没有更多了'
+								}else{
+									this.loadingText = '正在加载中......'
+								}
+								
+							},
+							
+						})
+					};
 					
-				})
+					
+					
+				
+				
+				
+				
 				
 				
 			},

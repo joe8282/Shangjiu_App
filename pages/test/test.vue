@@ -1,168 +1,218 @@
 <template>
-    <scroll-view scroll-y="true"  class="content">
-
-<!-- 遍历自己自定义的数据 items -->
-        <view class="n_indent" v-for="(item,index) in items" :key="index">
-            <view class="head_time">
-                <text>{{item.list.time}}</text>
-            </view>
-            <view class="n_content">
-                <view class="n_h1">
-                    <text>{{item.list.delivery}}</text>
-                </view>
-                <view class="n_p">
-                    <text>你在 [{{item.list.text}}] 下的订单已送达出。（点击查看详情） </text>
-                </view>
-            </view>
-        </view>
-        <view class="loading_text">
-            <text>{{loadingText}}</text>
-        </view>
-    </scroll-view>
+<view class="body-view">
+		<scroll-view class="top-menu-view" scroll-x="true">
+			<block v-for="(menuTab,index) in menuTabs" :key="index">
+				<view class="menu-one-view" v-bind:id="'tabNum'+index" @click="swichMenu(index)">
+					<view :class="[currentTab==index ? 'menu-one-act' : 'menu-one']">
+						<view class="menu-one-txt">{{menuTab.name}}</view>
+						<view class="menu-one-bottom">
+							<view class="menu-one-bottom-color"></view>
+						</view>
+					</view>
+				</view>
+			</block>
+		</scroll-view>
+		<swiper :current="currentTab" class="swiper-box-list" duration="300" @change="swiperChange">
+			<block v-for="(swiperDate,index1) in swiperDateList" :key="index1">
+				<swiper-item>
+					<scroll-view class="swiper-one-list" scroll-y="true" @scrolltolower="loadMore(index1)">
+						<block v-for="(swiperDate2,index2) in swiperDate" :key="index2">
+							<view class="swiper-list-entity">
+								<view>{{swiperDate2}}</view>
+							</view>
+						</block>
+					</scroll-view>
+				</swiper-item>
+			</block>
+		</swiper>
+</view>
 </template>
-
 <script>
-	import wsLoadMore from '@/components/wsure-load-more/load-more.vue';
- 
+	import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
 	export default {
-		components:{
-			wsLoadMore
+		components: {
+			uniLoadMore	
 		},
 		data() {
 			return {
-				pre:'item',
-				failFlag:false,
-				count:0,
-				items:[
-					{
-						id:1,
-						list:{
-							time:'11:21',
-							delivery:'您的商品已送出',
-							text:'杨铭宇黄焖鸡米饭（广埠屯店）'
-						}
-					},
-					{
-						id:2,
-						list:{
-							time:'10:56',
-							delivery:'您的订单已接单',
-							text:'杨铭宇黄焖鸡米饭（广埠屯店）'
-						}
-					},
-					{
-						id:3,
-						list:{
-							time:'昨天11:44',
-							delivery:'您的订单已送达',
-							text:'杨铭宇黄焖鸡米饭（广埠屯店）'
-						}
-					},
-					{
-						id:4,
-						list:{
-							time:'昨天11:17',
-							delivery:'您的商品已送出',
-							text:'老韩煸鸡（武大店）'
-						}
-					},
-					{
-						id:5,
-						list:{
-							time:'昨天11:00',
-							delivery:'您的商品已接单',
-							text:'杨铭宇饭（街道口店）'
-						}
+				scrollLeft: 0,
+				isClickChange: false,
+				currentTab: 0,
+				menuTabs: [{
+					name: '政策咨询'
+				}, {
+					name: '就业分配'
+				}, {
+					name: '战友互助'
+				}, {
+					name: '趣味杂谈'
+				}, {
+					name: '怀旧时光'
+				}, {
+					name: '军旅生活'
+				}],
+				swiperDateList: [[],[],[],[],[],[]]
+			}
+		},
+		
+		onLoad: function() {
+			//初始化数据
+			for (var i = 0; i < this.swiperDateList.length; i++) {
+				this.getDateList(i);
+			}
+		},
+		
+		
+		methods: {
+			swichMenu: async function(current) { //点击其中一个 menu
+					if (this.currentTab == current) {
+						return false;
+					} else {
+						this.currentTab = current;
 					}
-				],
-				loadingText:'正在加载...'
-			}
-		},
-		onLoad:function(option){
-			// 进入页面 加载数据
-			setTimeout(function(){
-				console.log('刷新成功')
-			},2000);
-			uni.startPullDownRefresh({
-				success:function(red) {
-					console.log(red);
-				}
-			})
-		},
-		
-		// 下拉刷新
-		onPullDownRefresh(){
-			console.log('刷新中');
-			setTimeout(function(){
-				uni.stopPullDownRefresh();
-				console.log("OK了")
-			},2000)
-		},
-		
-		// 上拉加载
-		onReachBottom(){
-			// 自己模拟数据  后期开发ajax请求数据
-			if(this.items.length > 40){
-				this.loadingText = '我是有底线的';
-				return false;
-			}
-			var len = this.items.length;
-			for(var i =1; i < 10 ; i++){
-				var id = this.items[len - 1].id + i ;
-				var  p = {
-					id: id,
-					list:{
-						time:'昨天11:00',
-						delivery:'您的商品已接单',
-						text:'杨铭宇饭（街道口店）'
-					}
-				}
-				this.items.push(p);
-			}
-		},
-		
-		methods:{
-			
+				},
+				swiperChange: async function(e) {
+						let index = e.target.current;
+						this.currentTab = index; 
+					},
+					
+						
+						loadMore: function(tabIndex) {
+							console.log('正在加载更多数据。。。')
+							this.getDateList(tabIndex);
+						},
+						getDateList: function(tabIndex) {
+							for (var i = 0; i < 20; i++) {
+								var entity = this.menuTabs[tabIndex].name + (this.swiperDateList[tabIndex].length);
+								this.swiperDateList[tabIndex].push(entity);
+							}
+						}
+ 
 		}
 	}
 </script>
-<style lang="scss">
-	page{background-color: #f6f5f5; }
-	
-	.content {
-		.n_indent {
-			margin-top: 30upx;
-			&:first-child {
-				margin-top: 0;
-			}
-			.head_time {
-				color: #969696;
-				display: flex;
-				justify-content: center;
-				padding: 30upx 0;
-				font-size: 20upx;
-			}
-			.n_content {
-				background-color: #fff;
-				padding: 34upx 63upx 34upx 34upx;
-				font-size: 34upx;
-				.n_h1 {
-					margin-bottom: 20upx;
-					font-weight: 700;
-				}
-				.n_p {
-					color: #969696;
-					font-size: 20upx;
-				}
-			}
-			
+
+<style>
+	page {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			justify-content: center;
+			background: rgba(249, 249, 249, 1);
 		}
-		.loading_text {
+	 
+		.body-view {
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			overflow: hidden;
+			height: 100%;
+			width: 100%;
+			align-items: flex-start;
+			justify-content: center;
+		}
+	 
+		.top-menu-view {
+			display: flex;
+			white-space: nowrap;
+			width: 100%;
+			background-color: #FFFFFF;
+			height: 112upx;
+			/* 在这里设置导航条高度 */
+		}
+	 
+		.top-menu-view .menu-one-view {
+			display: inline-block;
+			white-space: nowrap;
+			height: 100%;
+		}
+	 
+		.top-menu-view .menu-one-view .menu-one {
+			/* 在这里写 单个按钮样式 */
+			margin-left: 25upx;
+			margin-right: 25upx;
+			position: relative;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	 
+		.top-menu-view .menu-one-view .menu-one .menu-one-txt {
+			height: 40upx;
+			font-size: 28upx;
+			font-weight: 400;
+			color: rgba(154, 154, 154, 1);
+			line-height: 40upx;
+		}
+	 
+		.top-menu-view .menu-one-view .menu-one .menu-one-bottom {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}
+	 
+		.top-menu-view .menu-one-view .menu-one .menu-one-bottom .menu-one-bottom-color {
+			width: 60%;
+			height: 4upx;
+		}
+	 
+		.top-menu-view .menu-one-view .menu-one-act {
+			/* 在这里写 单个按钮样式 */
+			margin-left: 25upx;
+			margin-right: 25upx;
+			position: relative;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	 
+		.top-menu-view .menu-one-view .menu-one-act .menu-one-txt {
+			height: 40upx;
+			font-size: 28upx;
+			font-weight: 400;
+			color: rgba(0, 170, 255, 1);
+			line-height: 40upx;
+		}
+	 
+		.top-menu-view .menu-one-view .menu-one-act .menu-one-bottom {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
 			display: flex;
 			justify-content: center;
-			font-size: 20upx;
-			margin: 48upx 0 30upx;
-			color: #979797;
 		}
+	 
+		.top-menu-view .menu-one-view .menu-one-act .menu-one-bottom .menu-one-bottom-color {
+			width: 60%;
+			height: 4upx;
+			background: rgba(0, 170, 255, 1);
+		}
+	 
+		.swiper-box-list {
+			flex: 1;
+			width: 100%;
+			height: auto;
+			background-color: #FFFFFF;
+		}
+	 
+		.swiper-one-list {
+			height: 100%;
+			width: 100%;
+		}
+	 
+		.swiper-one-list .swiper-list-entity {
+			width: 100%;
+			height: 112upx;
+			text-align: center;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
 	}
+	
+
 </style>
