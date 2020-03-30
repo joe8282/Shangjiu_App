@@ -6,6 +6,10 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+	position: fixed;
+	top: 44px;
+	z-index: 9999;
+	left: 0;
 }
 .fx-navbar .nav-item{
 	color: white;
@@ -18,8 +22,11 @@
 	padding-bottom: 6rpx;
 }
 .showArea{
+	position: absolute;
+	top: 44px;
+	left: 0;
+	margin-bottom: 50px;
 	width: 100%;
-	height: 100%;
 }
 .list{
 	width: 100%;

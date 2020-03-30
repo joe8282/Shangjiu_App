@@ -4,25 +4,12 @@
 		<!-- <view class="navbar1"> -->
 		<view class="navbar fx-navbar">
 			<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">
-				<span>{{ item.text }}</span>
+				<span v-if="btnFlag"  @click="backTop()">{{ item.text }}</span>
 			</view>
 		</view>
 		<!-- tab 显示区域 -->
 		<view class="all-arr">
 			<view class="showArea" v-show="tabCurrentIndex === 0">
-				
-				<!-- <view class="list" v-for="(item , index) in allList">
-					<navigator class="list_content">
-						<view class="word">
-							<p>{{ item.HelpTitle }}</p>
-							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
-						</view>
-						<view class="pic">
-							<span></span>
-							<img :src="item.HelpPic" />
-						</view>
-					</navigator>
-				</view> -->
 				<view class="n_indent list" v-for="(item,index) in allList" :key="index" :pageSize="10">
 		            <navigator :url="'../help/help?id=' + item.Id " class="list_content" >
 						<view class="word">
@@ -41,61 +28,73 @@
 				
 				
 			</view>
-			<view  v-show="tabCurrentIndex === 1">
+			<view class="showArea" v-show="tabCurrentIndex === 1">
 				<view class="list" v-for="(item , index) in zixun">
 					<navigator url="../help/help" class="list_content">
 						<view class="word">
 							<p>{{ item.HelpTitle }}</p>
 							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
 						</view>
-						<view class="pic">
+						<view class="pic-imgs">
 							<span></span>
 							<img :src="item.HelpPic" />
 						</view>
 					</navigator>
 				</view>
+				<view class="loading_text">
+		            <text>{{loadingText}}</text>
+		        </view>
 			</view>
-			<view  v-show="tabCurrentIndex === 2">
+			<view  class="showArea" v-show="tabCurrentIndex === 2">
 				<view class="list" v-for="(item , index) in zhishi">
 					<navigator url="../help/help" class="list_content">
 						<view class="word">
 							<p>{{ item.HelpTitle }}</p>
 							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
 						</view>
-						<view class="pic">
+						<view class="pic-imgs">
 							<span></span>
 							<img :src="item.HelpPic" />
 						</view>
 					</navigator>
 				</view>
+				<view class="loading_text">
+		            <text>{{loadingText}}</text>
+		        </view>
 			</view>
-			<view  v-show="tabCurrentIndex === 3">
+			<view  class="showArea" v-show="tabCurrentIndex === 3">
 				<view class="list" v-for="(item , index) in xiuchang">
 					<navigator url="../help/help" class="list_content">
 						<view class="word">
 							<p>{{ item.HelpTitle }}</p>
 							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
 						</view>
-						<view class="pic">
+						<view class="pic-imgs">
 							<span></span>
 							<img :src="item.HelpPic" />
 						</view>
 					</navigator>
 				</view>
+				<view class="loading_text">
+		            <text>{{loadingText}}</text>
+		        </view>
 			</view>
-			<view  v-show="tabCurrentIndex === 4">
+			<view  class="showArea" v-show="tabCurrentIndex === 4">
 				<view class="list" v-for="(item , index) in qita">
 					<navigator url="../help/help" class="list_content">
 						<view class="word">
 							<p>{{ item.HelpTitle }}</p>
 							<span><b>{{ item.CreateTime }}</b><b>{{ item.TypeName }}</b></span>
 						</view>
-						<view class="pic">
+						<view class="pic-imgs">
 							<span></span>
 							<img :src="item.HelpPic" />
 						</view>
 					</navigator>
 				</view>
+				<view class="loading_text">
+		            <text>{{loadingText}}</text>
+		        </view>
 			</view>
 		</view>
 	</view>
@@ -140,6 +139,7 @@
 						text: '新闻',
 					}
 				],
+				btnFlag:true,
 				allList: [],
 				items: [],
 				zixun: [],
@@ -166,9 +166,25 @@
 				console.log("OK了")
 			},2000)
 		},
-		
+		mounted() {
+			window.addEventListener('scroll', this.scrollToTop)
+		},
+		destroyed() {
+			window.removeEventListener('scroll', this.scrollToTop)
+		},
+
 		
 		methods: {		
+			backTop() {
+				let that = this
+				// let timer = setInterval(() => {
+					let ispeed = Math.floor(-that.scrollTop / 5)
+					document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+					if(that.scrollTop === 0) {
+						clearInterval(timer)
+					}
+				// }, 16)
+			},
 			// 加载
 			onReachBottom(){
 				var newPageSize = this.pagesize += 8;

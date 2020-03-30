@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="shopAdd-commit-img-wrap">
-			上传主图 
+			<input type="file" />
 		</view>
 		<view class="shopAdd-cont-wrap">
 			<view class="shopAdd-cont-cc">
