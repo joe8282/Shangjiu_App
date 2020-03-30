@@ -204,6 +204,12 @@
 			"style": {
 				"navigationBarTitleText":"测试"
 			}
+		},
+		{
+			"path":"pages/myAgentReg/myAgentReg",
+			"style": {
+				"navigationBarTitleText":"申请代理"
+			}
 		}
 	],
 	"globalStyle": {
