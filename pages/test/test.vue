@@ -1,218 +1,102 @@
 <template>
-<view class="body-view">
-		<scroll-view class="top-menu-view" scroll-x="true">
-			<block v-for="(menuTab,index) in menuTabs" :key="index">
-				<view class="menu-one-view" v-bind:id="'tabNum'+index" @click="swichMenu(index)">
-					<view :class="[currentTab==index ? 'menu-one-act' : 'menu-one']">
-						<view class="menu-one-txt">{{menuTab.name}}</view>
-						<view class="menu-one-bottom">
-							<view class="menu-one-bottom-color"></view>
-						</view>
-					</view>
-				</view>
-			</block>
-		</scroll-view>
-		<swiper :current="currentTab" class="swiper-box-list" duration="300" @change="swiperChange">
-			<block v-for="(swiperDate,index1) in swiperDateList" :key="index1">
-				<swiper-item>
-					<scroll-view class="swiper-one-list" scroll-y="true" @scrolltolower="loadMore(index1)">
-						<block v-for="(swiperDate2,index2) in swiperDate" :key="index2">
-							<view class="swiper-list-entity">
-								<view>{{swiperDate2}}</view>
-							</view>
-						</block>
-					</scroll-view>
-				</swiper-item>
-			</block>
-		</swiper>
-</view>
+    <view>
+		<image :src="imgs"></image>
+        <progress :percent="percent" strock-width="10"></progress>
+        <button type="primary" @tap="cI">chooseImg</button>
+    </view>
 </template>
+
 <script>
-	import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
-	export default {
-		components: {
-			uniLoadMore	
-		},
-		data() {
-			return {
-				scrollLeft: 0,
-				isClickChange: false,
-				currentTab: 0,
-				menuTabs: [{
-					name: '政策咨询'
-				}, {
-					name: '就业分配'
-				}, {
-					name: '战友互助'
-				}, {
-					name: '趣味杂谈'
-				}, {
-					name: '怀旧时光'
-				}, {
-					name: '军旅生活'
-				}],
-				swiperDateList: [[],[],[],[],[],[]]
-			}
-		},
-		
-		onLoad: function() {
-			//初始化数据
-			for (var i = 0; i < this.swiperDateList.length; i++) {
-				this.getDateList(i);
-			}
-		},
-		
-		
-		methods: {
-			swichMenu: async function(current) { //点击其中一个 menu
-					if (this.currentTab == current) {
-						return false;
-					} else {
-						this.currentTab = current;
-					}
-				},
-				swiperChange: async function(e) {
-						let index = e.target.current;
-						this.currentTab = index; 
-					},
-					
-						
-						loadMore: function(tabIndex) {
-							console.log('正在加载更多数据。。。')
-							this.getDateList(tabIndex);
-						},
-						getDateList: function(tabIndex) {
-							for (var i = 0; i < 20; i++) {
-								var entity = this.menuTabs[tabIndex].name + (this.swiperDateList[tabIndex].length);
-								this.swiperDateList[tabIndex].push(entity);
-							}
+    // 注册一个进度条
+    var _self;
+    
+    export default {
+        data() {
+            return {
+                percent:0,
+				imgs:''
+            }
+        },
+        onLoad() {
+            _self = this;
+			// base64
+			
+        },
+        methods: {
+            // cI(){
+            //     uni.chooseImage({
+            //         count: 1,
+            //         sizetype: ['compressed'],
+            //         success(res){
+            //             // tepFliePaths 保存图片路径 
+            //             var imgFiles = res.tempFilePaths;
+            //             // 因为没写下标， 直接以数组形式输出
+            //             console.log(imgFiles)
+            //         }
+            //     })
+            // }
+            cI:function(){
+                uni.chooseImage({
+                    count: 1,
+                    sizeType:['copressed'],
+                    success(res) {
+                        //因为有一张图片， 输出下标[0]， 直接输出地址
+                        var imgFiles = res.tempFilePaths[0];
+						console.log(imgFiles)
+						this.imgs = imgFiles;
+						// base64
+						var img = imgFiles;
+						var image = new Image();
+						image.src = img;
+						image.onload = function() {
+						    //文件的Base64字符串
+						    var newImgUrl = getBase64Image(image);
+						    console.log(newImgUrl);
 						}
- 
-		}
-	}
+						/**
+						 * 图像转Base64
+						 */
+						function getBase64Image(img) {
+						    var canvas = document.createElement("canvas");
+						    canvas.width = img.width;
+						    canvas.height = img.height;
+						    var ctx = canvas.getContext("2d");
+						    ctx.drawImage(img, 0, 0, img.width, img.height);
+						    var ext = img.src.substring(img.src.lastIndexOf(".") + 1).toLowerCase();
+						    var newImgUrl = canvas.toDataURL("image/" + ext);
+						    return newImgUrl;
+						}
+						// base64 end
+						
+                        // 上传图片
+                        uni.uploadFile({
+							
+                            // 需要上传的地址
+                            url:this.$serverUrl +'/Base_SysManage/Common/UploadFile',
+                            // filePath  需要上传的文件
+                            filePath: imgFiles,
+                            name: 'file',
+							formData:{
+								fileName: imgFiles,
+								fileType:'image',
+								data: this.newImgUrl
+								
+							},
+							
+							header:{"Content-Type": "multipart/form-data"},
+                            success(res1) {
+                                // 显示上传信息
+                                console.log(res1)
+                            }
+                        });
+                        
+                    }
+                })
+            }
+        }
+    }
 </script>
 
 <style>
-	page {
-			width: 100%;
-			height: 100%;
-			display: flex;
-			flex-wrap: wrap;
-			align-items: flex-start;
-			justify-content: center;
-			background: rgba(249, 249, 249, 1);
-		}
-	 
-		.body-view {
-			display: flex;
-			flex: 1;
-			flex-direction: column;
-			overflow: hidden;
-			height: 100%;
-			width: 100%;
-			align-items: flex-start;
-			justify-content: center;
-		}
-	 
-		.top-menu-view {
-			display: flex;
-			white-space: nowrap;
-			width: 100%;
-			background-color: #FFFFFF;
-			height: 112upx;
-			/* 在这里设置导航条高度 */
-		}
-	 
-		.top-menu-view .menu-one-view {
-			display: inline-block;
-			white-space: nowrap;
-			height: 100%;
-		}
-	 
-		.top-menu-view .menu-one-view .menu-one {
-			/* 在这里写 单个按钮样式 */
-			margin-left: 25upx;
-			margin-right: 25upx;
-			position: relative;
-			height: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-	 
-		.top-menu-view .menu-one-view .menu-one .menu-one-txt {
-			height: 40upx;
-			font-size: 28upx;
-			font-weight: 400;
-			color: rgba(154, 154, 154, 1);
-			line-height: 40upx;
-		}
-	 
-		.top-menu-view .menu-one-view .menu-one .menu-one-bottom {
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-		}
-	 
-		.top-menu-view .menu-one-view .menu-one .menu-one-bottom .menu-one-bottom-color {
-			width: 60%;
-			height: 4upx;
-		}
-	 
-		.top-menu-view .menu-one-view .menu-one-act {
-			/* 在这里写 单个按钮样式 */
-			margin-left: 25upx;
-			margin-right: 25upx;
-			position: relative;
-			height: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-	 
-		.top-menu-view .menu-one-view .menu-one-act .menu-one-txt {
-			height: 40upx;
-			font-size: 28upx;
-			font-weight: 400;
-			color: rgba(0, 170, 255, 1);
-			line-height: 40upx;
-		}
-	 
-		.top-menu-view .menu-one-view .menu-one-act .menu-one-bottom {
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			display: flex;
-			justify-content: center;
-		}
-	 
-		.top-menu-view .menu-one-view .menu-one-act .menu-one-bottom .menu-one-bottom-color {
-			width: 60%;
-			height: 4upx;
-			background: rgba(0, 170, 255, 1);
-		}
-	 
-		.swiper-box-list {
-			flex: 1;
-			width: 100%;
-			height: auto;
-			background-color: #FFFFFF;
-		}
-	 
-		.swiper-one-list {
-			height: 100%;
-			width: 100%;
-		}
-	 
-		.swiper-one-list .swiper-list-entity {
-			width: 100%;
-			height: 112upx;
-			text-align: center;
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			justify-content: center;
-	}
-	
 
 </style>

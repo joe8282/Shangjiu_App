@@ -170,6 +170,7 @@
 		methods: {
 			GetDataDetail(){
 				var getLocaUrl = document.location.href;
+				console.log(getLocaUrl)
 				var jqId = getLocaUrl.indexOf('1');
 				var newId = getLocaUrl.substr(jqId);
 				uni.request({
