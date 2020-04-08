@@ -21,6 +21,7 @@
 			<view class="shopAdd-commit-img-wrap">
 				<block v-if="imageSrc">
 					<image :src="imageSrc" class="image" mode="widthFix"></image>
+					<span @click="delimg" class="delimg-icon">X</span>
 				</block>
 				<block v-else>
 					<view class="uni-hello-addfile" @click="chooseImage">+ 选择图片</view>
@@ -209,6 +210,9 @@
 			this.imageSrc = '';
 		},
 		methods: {
+			delimg: function(){
+				this.imageSrc = ''
+			},
 			readOnlyChange() {
 				this.readOnly = !this.readOnly
 			},
@@ -394,7 +398,6 @@
 					}
 				});
 			},
-			
 			
 			getShopAddData(){
 				uni.request({

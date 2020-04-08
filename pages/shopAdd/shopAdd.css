@@ -36,6 +36,19 @@ i{
 	line-height: 150px;
 	background: #FFFFFF;
 	float: left;
+	position: relative;
+}
+.delimg-icon{
+	position: absolute;
+	top: 10px;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	line-height: 30px;
+	background: #ccccccab;
+	color: #999;
+	border-radius: 4px;
+	right: 10px;
 }
 .shopAdd-cont-wrap{
 	width: 100%;
