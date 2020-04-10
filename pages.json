@@ -210,6 +210,18 @@
 			"style": {
 				"navigationBarTitleText":"申请代理"
 			}
+		},
+		{
+			"path":"pages/shopList/shopList",
+			"style": {
+				"navigationBarTitleText":"商号主页"
+			}
+		},
+		{
+			"path":"pages/shopdetail/shopdetail",
+			"style": {
+				"navigationBarTitleText":"商号详情"
+			}
 		}
 	],
 	"globalStyle": {

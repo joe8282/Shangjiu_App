@@ -33,11 +33,15 @@
 						<img src="static/images/all3.png" alt="" />
 						<span>付费</span>
 					</view>
+					<view class="productList-ssthree">
+						<img src="static/images/all4.png" alt="" />
+						<span>红包</span>
+					</view>
 				</view>
 				<view class="productList-slider-toggle">
 					<view class="ps-toggle-list">
 						<view class="pstoggle-list-left">
-							<b>类型 |</b>
+							<b>身份 |</b>
 						</view>
 						<view class="stoggle-list-right" id="hideshow-slider">
 							<span>社团</span>
@@ -55,7 +59,7 @@
 					</view>
 					<view class="ps-toggle-list">
 						<view class="pstoggle-list-left">
-							<b>应用 |</b>
+							<b>类型 |</b>
 						</view>
 						<view class="stoggle-list-right" id="hideshow-slider1">
 							<span>全部</span>
@@ -175,7 +179,7 @@
 </template>
 
 <script>
-	import 'pages/productList/productList.css';
+	import 'pages/shopList/shopList.css';
 	import uniSection from '@/components/uni-section/uni-section.vue';
 	import uniSwiperDot from "@/components/uni-swiper-dot/uni-swiper-dot.vue";
 	import uniFav from "@/components/uni-fav/uni-fav.vue"
