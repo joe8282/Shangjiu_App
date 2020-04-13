@@ -4,8 +4,8 @@
 			<img src="static/images/setting-icon.png" alt="" class="setting-icon" />
 			<view class="my-top-txs">
 				<img src="static/images/my-tx.png" alt="" class="my-tx-icon" />
-				<span class="my-name">爱吃面包的猫</span>
-				<span class="my-time">2019-01-02</span>
+				<span class="my-name">{{RoleNames}}</span>
+				<span class="my-time">{{CreateTime}}</span>
 			</view>
 		</view>
 		<view class="my-fl-three">
@@ -71,15 +71,15 @@
 			<view class="my-dl-three">
 				<ul class="my-three-ul">
 					<li>
-						<span>205</span>
+						<span>{{RechargeLeftFee}}</span>
 						<label>充值余额</label>
 					</li>
 					<li>
-						<span>205</span>
+						<span>{{IncomeFee}}</span>
 						<label>我的收入</label>
 					</li>
 					<li>
-						<span>205</span>
+						<span>{{StatementLeftFee}}</span>
 						<label>应结余额</label>
 					</li>
 				</ul>
@@ -95,7 +95,7 @@
 			<view class="my-dl-three">
 				<ul class="my-one-ul">
 					<li>
-						<span>205</span>
+						<span>{{ShopNum}}</span>
 						<label>我的商号</label>
 					</li>
 				</ul>
@@ -127,7 +127,7 @@
 				<span>我的推广拓客</span>
 				
 				<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
-				<i class="my-cont-title-i">205</i>
+				<i class="my-cont-title-i">{{UserNum}}</i>
 				<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
 			</view>
 			
@@ -138,7 +138,7 @@
 				<span>我的商讯收藏</span>
 				
 				<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
-				<i class="my-cont-title-i">205</i>
+				<i class="my-cont-title-i">{{ProductNum}}</i>
 				<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
 			</view>
 			
@@ -236,14 +236,39 @@
 	export default {
 		data() {
 			return {
-				
+				RoleNames:'',//用户昵称
+				RechargeLeftFee:'',//充值余额
+				IncomeFee:'',//收入总额
+				StatementLeftFee:'',//应结余额
+				ShopNum:'',//我的商号
+				UserNum:'',//我的推广拓客
+				ProductNum:'',//我的商讯收藏
+				CreateTime:''//创建时间
 			}
 		},
 		onLoad() {
-
+			this.GetUserInfo();		
 		},
 		methods: {
-
+			GetUserInfo(){
+				var id='1133345545746780160';//用户id
+				uni.request({
+					url:this.$serverUrl + '/Base_SysManage/Base_User/GetDataDetail?Id='+id,
+					success: (res) =>{
+						console.log(res);
+						this.RoleNames = res.data.RoleNames;
+						this.RechargeLeftFee = res.data.RechargeLeftFee;
+						this.IncomeFee = res.data.IncomeFee;
+						this.StatementLeftFee = res.data.StatementLeftFee;
+						this.ShopNum = res.data.ShopNum;
+						this.UserNum = res.data.UserNum;
+						this.ProductNum = res.data.ProductNum;
+						var time=(res.data.CreateTime).trim().split(" ");
+						this.CreateTime=time[0];						
+					},
+					
+				})
+			}
 		}
 	}
 </script>
