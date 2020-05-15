@@ -185,6 +185,7 @@
 		},
 		methods: {
 			getDataList() {
+				// 主页底部列表信息
 				uni.request({
 					url:this.$serverUrl + '/Product/Dev_Product/GetDataList',
 					success: (res) =>{
@@ -192,6 +193,7 @@
 					}
 				});
 				uni.request({
+					// 主页下拉切换
 					url:this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1206262951519064064',
 					success: (res) =>{
 						var arr = ['a','b','c','d'];
