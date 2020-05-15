@@ -35,134 +35,36 @@
 					</view>
 				</view>
 				<view class="productList-slider-toggle">
-					<view class="ps-toggle-list">
-						<view class="pstoggle-list-left">
-							<b>类型 |</b>
-						</view>
-						<view class="stoggle-list-right" id="hideshow-slider">
-							<span>社团</span>
-							<span>全部</span>
-							<span>商报</span>
-							<span>商社</span>
-							<span>资讯</span>
-							<span>社团</span>
-							<span>全部</span>
-							<span>商报</span>
-							<span>商社</span>
-							<span>资讯</span>
-						</view>
-						<img src="static/images/down-icon.png" class="slider-down-icon1" @click="sliderToggle()":class="[rotate?  'rotatetop' : 'rotatebottom']"/>
-					</view>
-					<view class="ps-toggle-list">
-						<view class="pstoggle-list-left">
-							<b>应用 |</b>
-						</view>
-						<view class="stoggle-list-right" id="hideshow-slider1">
-							<span>全部</span>
-							<span>商社</span>
-							<span>商报</span>
-							<span>社团</span>
-							<span>资讯</span>
-							<span>全部</span>
-							<span>商社</span>
-							<span>商报</span>
-							<span>社团</span>
-							<span>资讯</span>
-						</view>
-						<img src="static/images/down-icon.png" class="slider-down-icon1" @click="sliderToggle1()":class="[rotate1?  'rotatetop' : 'rotatebottom']"/>
-					</view>
-					<view class="ps-toggle-list">
-						<view class="pstoggle-list-left">
-							<b>行业 |</b>
-						</view>
-						<view class="stoggle-list-right" id="hideshow-slider2">
-							<span>全部</span>
-							<span>商社</span>
-							<span>商报</span>
-							<span>社团</span>
-							<span>资讯</span>
-							<span>全部</span>
-							<span>商社</span>
-							<span>商报</span>
-							<span>社团</span>
-							<span>资讯</span>
-						</view>
-						<img src="static/images/down-icon.png" class="slider-down-icon1" @click="sliderToggle2()":class="[rotate2?  'rotatetop' : 'rotatebottom']"/>
-					</view>
-					<view class="ps-toggle-list">
-						<view class="pstoggle-list-left">
-							<b>排序 |</b>
-						</view>
-						<view class="stoggle-list-right" id="hideshow-slider3">
-							<span>综合</span>
-							<span>浏览</span>
-							<span>时间</span>
-							<span>关注</span>
-							<span>成员</span>
-							<span>综合</span>
-							<span>浏览</span>
-							<span>时间</span>
-							<span>关注</span>
-							<span>成员</span>
-						</view>
-						<img src="static/images/down-icon.png" class="slider-down-icon1" @click="sliderToggle3()":class="[rotate3?  'rotatetop' : 'rotatebottom']"/>
-					</view>
+					<view class="productList-slider-toggle">
+						<ms-dropdown-menu>
+							<ms-dropdown-item v-model="value1" :list="sflist"></ms-dropdown-item>
+							<ms-dropdown-item v-model="value1" :list="lxlist"></ms-dropdown-item>
+							<ms-dropdown-item v-model="value1" :list="hylist"></ms-dropdown-item>
+							<ms-dropdown-item v-model="value1" :list="pxlist"></ms-dropdown-item>
+						</ms-dropdown-menu>
+					 </view>
 				</view>
 			</view>
-			<view class="productlist-hh-wrap">
-				<view class="productlist-hh-list">
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-									<span class="dysf-style">订阅收费 ￥10000</span>
-								</ul>
+			<view class="productlist-hh-wrap" style="margin-bottom: 60px;">
+				<view class="productlist-hh-list" v-for="(item,index) in productList" :key="index">
+					<navigator :url="'../product/product?id=' + item.Id" class="list_content">
+						<view class="small-tab">
+							<view class="main-tab-nr">
+								<img :src="item.ProductPic" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">{{ item.ProductTitle }}</span>
+									<label class="main-tab-r-ddd">{{ item.ProductRemark }}</label>
+									<ul class="main-four-ul">
+										<li>{{ item.ChannelName }}</li>
+										<li>{{ item.TypeName }}</li>
+										<li>{{ item.ClassName }}</li>
+										<li>{{ item.City }}-{{ item.Area }}</li>
+										<!-- <span class="dysf-style" id="joinway">{{ item.JoinWay }}</span> -->
+									</ul>
+								</view>
 							</view>
 						</view>
-					</view>
-				</view>
-				<view class="productlist-hh-list">
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-									<span class="dysf-style">订阅收费 ￥10000</span>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
-				<view class="productlist-hh-list">
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-									<span class="dysf-style">订阅收费 ￥10000</span>
-								</ul>
-							</view>
-						</view>
-					</view>
+					</navigator>
 				</view>
 			</view>
 			
@@ -178,15 +80,53 @@
 	import 'pages/productList/productList.css';
 	import uniSection from '@/components/uni-section/uni-section.vue';
 	import uniSwiperDot from "@/components/uni-swiper-dot/uni-swiper-dot.vue";
-	import uniFav from "@/components/uni-fav/uni-fav.vue"
+	import uniFav from "@/components/uni-fav/uni-fav.vue";
+	import msDropdownMenu from '@/components/ms-dropdown/dropdown-menu.vue';
+	import msDropdownItem from '@/components/ms-dropdown/dropdown-item.vue';
 	export default {
 		components: {
 			uniFav,
 			uniSection,
-			uniSwiperDot
+			uniSwiperDot,
+			msDropdownMenu,
+			msDropdownItem
 		},
 		data() {
 			return {
+				productList:[], //商讯主页底部列表
+				sflist: [
+					{
+						text: '111',
+						value: 0
+					}
+				],
+				lxlist: [
+					{
+						text: '111',
+						value: 0
+					}
+				],
+				hylist: [
+					{
+						text: '111',
+						value: 0
+					}
+				],
+				pxlist: [
+					{
+						text: '升序',
+						value: 0
+					},
+					{
+						text: '升序',
+						value: 1
+					},
+					{
+						text: '降序',
+						value: 2
+					}
+				],
+				value1: 0,
 				sss:false,
 				rotate: false,
 				rotate1: false,
@@ -240,8 +180,71 @@
 
 			}
 		},
-		onLoad() {},
+		onLoad() {
+			this.getDataList();
+		},
 		methods: {
+			getDataList() {
+				uni.request({
+					url:this.$serverUrl + '/Product/Dev_Product/GetDataList',
+					success: (res) =>{
+						this.productList = res.data.rows
+					}
+				});
+				uni.request({
+					url:this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1206262951519064064',
+					success: (res) =>{
+						var arr = ['a','b','c','d'];
+						arr.splice(1,1);
+						console.log(arr)
+						for( var i = 0; i <res.data.length; i++ ){
+							this.shenfen = res.data;
+							var sfName = res.data[i].Name;
+							var sfId = res.data[i].Id;
+							this.sflist[0].text = res.data[0].Name;
+							this.sflist.push({
+								text: sfName,
+								value: sfId
+							})
+							
+							
+						}
+					}
+				});
+				
+				uni.request({
+					url:this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1204236610573570048',
+					success: (res) =>{
+						for( var h = 0; h <res.data.length; h++ ){
+							this.hangye = res.data
+							var hyName = res.data[h].Name;
+							var hyId = res.data[h].Id;
+							this.hylist[0].text = res.data[0].Name;
+							this.hylist.push({
+								text: hyName,
+								value: hyId
+							})
+						}
+					}
+				});
+				uni.request({
+					url:this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1204236075598483456',
+					success: (res) =>{
+						for( var l = 0; l <res.data.length; l++ ){
+							this.leixing = res.data
+							var lxName = res.data[l].Name;
+							var lxId = res.data[l].Id;
+							this.lxlist[0].text = res.data[0].Name;
+							this.lxlist.push({
+								text: lxName,
+								value: lxId
+							})
+						}
+					}
+				});
+			},
+			
+			
 			change(e) {
 				this.current = e.detail.current
 			},

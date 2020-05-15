@@ -94,6 +94,8 @@ i{
 }
 .shop-ullist, .shop-ullist-red{
 	width: 100%;
+	height: 30px;
+	float: left;
 }
 .shop-ullist span{
 	font-size: 14px;

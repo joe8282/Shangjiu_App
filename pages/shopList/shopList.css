@@ -151,7 +151,7 @@ i{
 	line-height: 20px;
 }
 .main-tab-img{
-	float: right;
+	float: right !important;
 	width: 18%;
 }
 .main-tab-r-ddd{
@@ -269,4 +269,20 @@ p{
 .rotatebottom{
 	transform: rotate(0deg);
 }
-
+.dropdown-item{
+	width: 14% !important;
+	float: left;
+}
+.dropdown-item .list__option{
+	font-size: 14px !important;
+}
+.dropdown-item .list__option:first-child{
+	display: none !important;
+}
+.dropdown-item__selected[data-v-2978376e]{
+	background: #FFFFFF !important;
+	padding: 6px !important;
+}
+.dropdown-item__selected .selected__name[data-v-2978376e]{
+	font-size: 14px !important;
+}

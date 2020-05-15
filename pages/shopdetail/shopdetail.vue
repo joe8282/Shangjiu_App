@@ -1,67 +1,67 @@
 <template>
 	<view class="content">
 		<view class="shop-banner-cont">
-			<img src="static/images/shop-banner.jpg" alt="">
+			<img :src="ShopPic">
 		</view>
 		<view class="shop-title-wrap">
 			<view class="shop-title-cont">
-				<view class="shop-title-ctitle">这是商区标题这是商区标题这是</view>
+				<view class="shop-title-ctitle">{{ShopTitle}}</view>
 				<view class="shop-tx-time-cont">
 					<img src="static/images/my-tx.png" alt="" width="23"/>
-					<span>爱吃面包的猫</span>
-					<label>2019-07-08</label>
+					<span>{{UserName}}</span>
+					<label>{{CreateTime}}</label>
 				</view>
 				<view class="shop-ullist">
-					<span>身份</span>
-					<span>类型</span>
-					<span>行业</span>
-					<span>区域</span>
+					<span>{{ChannelName}}</span>
+					<span>{{TypeName}}</span>
+					<span>{{ClassName}}</span>
+					<span>{{City}}-{{Area}}</span>
 				</view>
 				<view class="shop-ullist-red">
-					<span>免费加入</span>
-					<span>推广（有）</span>
-					<span>红包（无）</span>
+					<span>{{JoinWay}}</span>
+					<span>推广（{{IsAd}}）</span>
+					<span>红包（{{HasReward}}）</span>
 				</view>
 				<view class="shop-ullist-ten">
 					<view class="shop-ullist-ll">
 						<span>成员</span>
-						<label>123</label>
+						<label>{{MemberNum}}</label>
 					</view>
 					<view class="shop-ullist-ll">
 						<span>内容</span>
-						<label>123</label>
+						<label>{{ProductNum}}</label>
 					</view>
 					<view class="shop-ullist-ll">
 						<span>商链</span>
-						<label>123</label>
+						<label>{{LinkNum}}</label>
 					</view>
 					<view class="shop-ullist-ll">
 						<span>说说</span>
-						<label>123</label>
+						<label>{{ChatNum}}</label>
 					</view>
 					<view class="shop-ullist-ll">
 						<span>问答</span>
-						<label>123</label>
+						<label>{{AskNum}}</label>
 					</view>
 					<view class="shop-ullist-ll">
 						<span>留言</span>
-						<label>123</label>
+						<label>{{MessageNum}}</label>
 					</view>
 					<view class="shop-ullist-ll">
 						<span>人气</span>
-						<label>123</label>
+						<label>{{ClickNum}}</label>
 					</view>
 					<view class="shop-ullist-ll">
 						<span>关注</span>
-						<label>123</label>
+						<label>{{CollectionNum}}</label>
 					</view>
 					<view class="shop-ullist-ll">
 						<span>打赏</span>
-						<label>123</label>
+						<label>{{GetRewardFee}}</label>
 					</view>
 					<view class="shop-ullist-ll">
 						<span>点赞</span>
-						<label>123</label>
+						<label>{{GoodNum}}</label>
 					</view>
 				</view>
 			</view>
@@ -80,9 +80,9 @@
 		
 		<view class="shop-phone-add-cont">
 			<view class="shop-phone-add-cc">
-				<text>联系人：李先生</text>
-				<text class="sphone">电话：12345678941</text><br>
-				<text>地址：徐州市、铜山区、某某街道、45号某某商城</text>
+				<text>联系人：{{Contact}}</text>
+				<text class="sphone">电话：{{ContactTel}}</text><br>
+				<text>地址：{{ContactAddress}}</text>
 			</view>
 		</view>
 		
@@ -102,22 +102,22 @@
 			<a href="javascript:;"><img src="static/images/f.png" alt="" /></a>
 		</view>
 		<!-- 隐藏申请加入 start -->
-		<view class="sqjr-wrap" style="display: none;">
-			<span>申请条件：据了解爱死了放假了就爱睡觉打发时间地方</span>
+		<view class="sqjr-wrap" v-if="sqjrCont">
+			<span>{{ sqjrMsg }}</span>
 			<label>您需要符合加入条件，才能点击申请加入，<br>申请提交后请等待商区审核</label>
 			<b>申请加入</b>
 		</view>
 		<!-- 隐藏申请加入 end -->
 		
 		<!-- 隐藏开放加入 start -->
-		<view class="sqjr-wrap" style="display: none;">
-			<label style="margin-top: 30px;margin-bottom: 10px;">您可以直接点击加入，无需审核与付费</label>
-			<b>点击加入</b>
+		<view class="sqjr-wrap" v-if="kfjrCont">
+			<label style="margin-top: 30px;margin-bottom: 30px;">{{ dspMsg }}</label>
+			<!-- <b>点击加入</b> -->
 		</view>
 		<!-- 隐藏开放加入 end -->
 		
 		<!-- 隐藏付费加入 start -->
-		<view class="ffjr-wrap" style="display: none;">
+		<view class="ffjr-wrap" v-if="ffjrCont">
 			<view class="ffjr-list-wrap">
 				<span>   体验</span>
 				<label>￥10</label>
@@ -143,7 +143,7 @@
 		</view>
 		<!-- 隐藏付费加入 end -->
 		
-		<view class="main-four-wrap shop-main-four">
+		<view class="main-four-wrap shop-main-four" v-if="bottomTab">
 			<!-- tab nav-->
 			<view class="navbar">
 				<view v-for="(item, index) in navList" :key="index" class="nav-item" :class="{ current: tabCurrentIndex === index }" @click="tabClick(index)">
@@ -157,102 +157,43 @@
 				{{content}}
 			</button> -->
 			<view class="list" v-show="tabCurrentIndex === 0">
-				<view class="main-tab-list-wrap invxs-right" style="margin-top: 10px;">
+				<view class="main-tab-list-wrap invxs-right" style="margin-top: 10px;" v-for="(item,index) in shangxun">
 					<view class="main-tab-list-cont">
 						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+							<img :src="item.ProductPic" alt="" class="main-tab-img" />
 							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+								<span class="main-tab-r-title">{{ item.ShopTitle }}</span>
+								<label class="main-tab-r-ddd">{{ item.ProductTitle }}</label>
 								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-									<span class="tg-red">推广(有)￥10000</span>
+									<li>{{ item.TypeName }}</li>
+									<li>{{ item.ClassName }}</li>
+									<li>{{ item.ChannelName }}</li>
+									<li>{{ item.City }} {{ item.Area }}</li>
+									<span class="tg-red">推广({{item.IsAd}})</span>
 								</ul>
 							</view>
 						</view>
 					</view>
 				</view>
-				<view class="main-tab-list-wrap invxs-right" style="margin-top: 10px;">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-									<span class="tg-red">推广(有)￥10000</span>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
-				<view class="main-tab-list-wrap invxs-right" style="margin-top: 10px;">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-									<span class="tg-red">推广(有)￥10000</span>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
-			
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 1">
-				<view class="main-tab-list-wrap">
+				<view class="main-tab-list-wrap" v-for="(item,index) in shanglian">
 					<view class="main-tab-list-cont">
 						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
+							<img :src="item.LinkPic" alt="" class="main-tab-img" />
 							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
+								<span class="main-tab-r-title">{{ item.ShopTitle }}</span>
+								<label class="main-tab-r-ddd">{{ item.LinkTitle }}</label>
 								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
+									<li>{{ item.TypeName }}</li>
+									<li>{{ item.ClassName }}</li>
+									<li>{{ item.ChannelName }}</li>
+									<li>{{ item.City }} {{ item.Area }}</li>
 								</ul>
 								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
+									<li>{{ item.JoinWay }}</li>
+									<li>推广（{{ item.IsAd }}）</li>
+									<li>红包（{{ item.HasReward }}）</li>
 								</ul>
 							</view>
 						</view>
@@ -261,82 +202,24 @@
 				
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 2">
-				<view class="small-tab small-tab-borderb">
+				<view class="small-tab small-tab-borderb" v-for="(item,index) in shuoshuo">
 					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
+						<img :src="item.HeadPic" alt="" height="100%" />
+						<span>{{ item.UserName }}</span>
 					</view>
 					<view class="stable-dl">
-						成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						{{ item.SubjectTitle }}
 					</view>
 					<view class="smtab-imgs">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
+						<img :src="ssPics1" alt="" height="100%"/>
+						<img :src="ssPics2" alt="" height="100%"/>
+						<img :src="ssPics3" alt="" height="100%"/>
+						<img :src="ssPics4" alt="" height="100%"/>
+						<img :src="ssPics5" alt="" height="100%"/>
+						<img :src="ssPics6" alt="" height="100%"/>
 					</view>
 					<view class="small-tab-timeer">
-						<i>2019-02-19</i>
-						<view class="small-tab-icons">
-							<span class="icon iconfont">&#xe68b;</span>
-							<label>12580</label>
-						</view>
-						<view class="small-tab-icons">
-							<span class="icon iconfont">&#xe600;</span>
-							<label>12580</label>
-						</view>
-						
-					</view>
-				</view>
-				<view class="small-tab small-tab-borderb">
-					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
-					</view>
-					<view class="stable-dl">
-						成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-					</view>
-					<view class="smtab-imgs">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-					</view>
-					<view class="small-tab-timeer">
-						<i>2019-02-19</i>
-						<view class="small-tab-icons">
-							<span class="icon iconfont">&#xe68b;</span>
-							<label>12580</label>
-						</view>
-						<view class="small-tab-icons">
-							<span class="icon iconfont">&#xe600;</span>
-							<label>12580</label>
-						</view>
-						
-					</view>
-				</view>
-				<view class="small-tab small-tab-borderb">
-					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
-					</view>
-					<view class="stable-dl">
-						成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-					</view>
-					<view class="smtab-imgs">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-					</view>
-					<view class="small-tab-timeer">
-						<i>2019-02-19</i>
+						<i>{{ item.CreateTime }}</i>
 						<view class="small-tab-icons">
 							<span class="icon iconfont">&#xe68b;</span>
 							<label>12580</label>
@@ -350,23 +233,24 @@
 				</view>
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 3">
-				<view class="small-tab small-tab-borderb">
+				<view class="small-tab small-tab-borderb" v-for="(item,index) in wenda">
 					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
+						<img :src="item.HeadPic" alt="" height="100%" />
+						<span>{{ item.UserName }}</span>
 					</view>
 					<view class="stable-dl">
-						成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						{{ item.SubjectTitle }}
 					</view>
-					<view class="smtab-imgs smtab-five">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
+					<view class="smtab-imgs smtab-five" >
+						<img :src="wddPics1" alt="" height="100%"/>
+						<img :src="wddPics2" alt="" height="100%"/>
+						<img :src="wddPics3" alt="" height="100%"/>
+						<img :src="wddPics4" alt="" height="100%"/>
+						<img :src="wddPics5" alt="" height="100%"/>
+						<img :src="wddPics6" alt="" height="100%"/>
 					</view>
 					<view class="small-tab-timeer">
-						<i>2019-02-19</i>
+						<i>{{ item.CreateTime }}</i>
 						<view class="small-tab-icons">
 							<span class="icon iconfont">&#xe68b;</span>
 							<label>12580</label>
@@ -376,18 +260,22 @@
 							<label>12580</label>
 						</view>
 					</view>
-					<view class="newshf-wrap">
-						<view class="news-hf-zi">
-							最新回答
-						</view>
-						<view class="news-hf-cont">
-							<view class="stabl-title-cont x-hf-title-cont">
-								<img src="static/images/fx_tx.png" alt="" height="100%" />
-								<span>胖胖子</span>
-								<label>2019-02-19</label>
+					<view class="newshf-wrap" >
+						<view class="" v-for="(items,index) in ssPlList">
+							<view class="" v-if="items.ParentId == item.Id">
+								<view class="news-hf-cont">
+									<view class="stabl-title-cont x-hf-title-cont">
+										<img src="static/images/fx_tx.png" alt="" height="100%" />
+										<span>{{ item.UserName }}</span>
+										<label>{{ item.CreateTime }}</label>
+									</view>
+									<view class="stable-dl">
+										{{ item.CommentContent }}
+									</view>
+								</view>
 							</view>
-							<view class="stable-dl">
-								成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+							<view class="" v-else>
+								
 							</view>
 						</view>
 					</view>
@@ -395,24 +283,24 @@
 				
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 4">
-				<view class="small-tab small-tab-borderb">
+				<view class="small-tab small-tab-borderb" v-for="(item,index) in liuyan">
 					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
+						<img :src="item.HeadPic" alt="" height="100%" />
+						<span>{{ item.UserName }}</span>
 						
 					</view>
 					<view class="stable-dl">
-						成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+						{{ item.SubjectTitle }}
 					</view>
 					<view class="smtab-imgs smtab-five">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
+						<img :src="lyPics1" alt="" height="100%"/>
+						<img :src="lyPics2" alt="" height="100%"/>
+						<img :src="lyPics3" alt="" height="100%"/>
+						<img :src="lyPics4" alt="" height="100%"/>
+						<img :src="lyPics5" alt="" height="100%"/>
 					</view>
 					<view class="small-tab-timeer">
-						<i>2019-02-19</i>
+						<i>{{ item.CreateTime }}</i>
 						<view class="small-tab-icons">
 							<span class="icon iconfont">&#xe68b;</span>
 							<label>12580</label>
@@ -422,181 +310,36 @@
 							<label>12580</label>
 						</view>
 					</view>
-					<view class="newshf-wrap">
-						<view class="news-hf-zi">
-							最新回答
-						</view>
-						<view class="news-hf-cont">
-							<view class="stabl-title-cont x-hf-title-cont">
-								<img src="static/images/fx_tx.png" alt="" height="100%" />
-								<span>胖胖子</span>
-								<label>2019-02-19</label>
+					<view class="newshf-wrap" >
+						<view class="" v-for="(items,index) in lyPlList">
+							<view class="" v-if="items.ParentId == item.Id">
+								<view class="news-hf-cont">
+									<view class="stabl-title-cont x-hf-title-cont">
+										<img src="static/images/fx_tx.png" alt="" height="100%" />
+										<span>{{ item.UserName }}</span>
+										<label>{{ item.CreateTime }}</label>
+									</view>
+									<view class="stable-dl">
+										{{ item.CommentContent }}
+									</view>
+								</view>
 							</view>
-							<view class="stable-dl">
-								成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-							</view>
-						</view>
-					</view>
-				</view>
-				<view class="small-tab small-tab-borderb">
-					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
-						
-					</view>
-					<view class="stable-dl">
-						成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-					</view>
-					<view class="smtab-imgs smtab-five">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-					</view>
-					<view class="small-tab-timeer">
-						<i>2019-02-19</i>
-						<view class="small-tab-icons">
-							<span class="icon iconfont">&#xe68b;</span>
-							<label>12580</label>
-						</view>
-						<view class="small-tab-icons">
-							<span class="icon iconfont">&#xe600;</span>
-							<label>12580</label>
-						</view>
-					</view>
-					<view class="newshf-wrap">
-						<view class="news-hf-zi">
-							最新回答
-						</view>
-						<view class="news-hf-cont">
-							<view class="stabl-title-cont x-hf-title-cont">
-								<img src="static/images/fx_tx.png" alt="" height="100%" />
-								<span>胖胖子</span>
-								<label>2019-02-19</label>
-							</view>
-							<view class="stable-dl">
-								成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-							</view>
-						</view>
-					</view>
-				</view>
-				<view class="small-tab small-tab-borderb">
-					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
-						
-					</view>
-					<view class="stable-dl">
-						成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-					</view>
-					<view class="smtab-imgs smtab-five">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-					</view>
-					<view class="small-tab-timeer">
-						<i>2019-02-19</i>
-						<view class="small-tab-icons">
-							<span class="icon iconfont">&#xe68b;</span>
-							<label>12580</label>
-						</view>
-						<view class="small-tab-icons">
-							<span class="icon iconfont">&#xe600;</span>
-							<label>12580</label>
-						</view>
-					</view>
-					<view class="newshf-wrap">
-						<view class="news-hf-zi">
-							最新回答
-						</view>
-						<view class="news-hf-cont">
-							<view class="stabl-title-cont x-hf-title-cont">
-								<img src="static/images/fx_tx.png" alt="" height="100%" />
-								<span>胖胖子</span>
-								<label>2019-02-19</label>
-							</view>
-							<view class="stable-dl">
-								成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-							</view>
-						</view>
-					</view>
-				</view>
-				<view class="small-tab small-tab-borderb">
-					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
-						
-					</view>
-					<view class="stable-dl">
-						成员备注成员备注成员备注成员备注成员备注成员备注成员备注
-					</view>
-					<view class="smtab-imgs smtab-five">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-						<img src="static/images/shangqu-img.png" alt="">
-					</view>
-					<view class="small-tab-timeer">
-						<i>2019-02-19</i>
-						<view class="small-tab-icons">
-							<span class="icon iconfont">&#xe68b;</span>
-							<label>12580</label>
-						</view>
-						<view class="small-tab-icons">
-							<span class="icon iconfont">&#xe600;</span>
-							<label>12580</label>
-						</view>
-					</view>
-					<view class="newshf-wrap">
-						<view class="news-hf-zi">
-							最新回答
-						</view>
-						<view class="news-hf-cont">
-							<view class="stabl-title-cont x-hf-title-cont">
-								<img src="static/images/fx_tx.png" alt="" height="100%" />
-								<span>胖胖子</span>
-								<label>2019-02-19</label>
-							</view>
-							<view class="stable-dl">
-								成员备注成员备注成员备注成员备注成员备注成员备注成员备注
+							<view class="" v-else>
+								
 							</view>
 						</view>
 					</view>
 				</view>
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 5">
-				<view class="small-tab">
+				<view class="small-tab" v-for="(item,index) in chengyuan">
 					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
-						<label>2019-06-29</label>
+						<img :src="item.HeadPic" alt="" height="100%" />
+						<span>{{ item.UserName }}</span>
+						<label>{{ item.CreateTime }}</label>
 					</view>
 				</view>
-				<view class="small-tab">
-					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
-						<label>2019-06-29</label>
-					</view>
-				</view>
-				<view class="small-tab">
-					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
-						<label>2019-06-29</label>
-					</view>
-				</view>
-				<view class="small-tab">
-					<view class="stabl-title-cont">
-						<img src="static/images/fx_tx.png" alt="" height="100%" />
-						<span>胖胖子</span>
-						<label>2019-06-29</label>
-					</view>
-				</view>
+				
 				
 			</view>
 		</view>
@@ -614,9 +357,67 @@
 		},
 		data() {
 			return {
-
+				sqjrCont: false,
+				kfjrCont: false,
+				ffjrCont: false,
+				sqjrMsg:'',
+				bottomTab: false,
+				dspMsg:'',
+				
+				pagesize: 10,
+				pre:'item',
+				failFlag:true,
+				count:0,
+				shangxun:[],
+				shanglian:[],
+				chengyuan:[],
+				
 				showAll:false, 
-				 
+				ShopPic:[],
+				ShopTitle:[],
+				UserName:[],
+				CreateTime:[],
+				ChannelName:[],
+				TypeName:[],
+				ClassName:[],
+				City:[],
+				Area:[],
+				JoinWay:[],
+				IsAd:[],
+				HasReward:[],
+				MemberNum:[],
+				ProductNum:[],
+				LinkNum:[],
+				ChatNum:[],
+				AskNum:[],
+				MessageNum:[],
+				ClickNum:[],
+				CollectionNum:[],
+				GetRewardFee:[],
+				GoodNum:[],
+				Contact:[],
+				ContactTel:[],
+				ContactAddress:[],
+				shuoshuo:[],
+				wenda:[],
+				liuyan:[],
+				ssPics1:[],
+				ssPics2:[],
+				ssPics3:[],
+				ssPics4:[],
+				ssPics5:[],
+				ssPics6:[],
+				wddPics1:'',
+				wddPics2:'',
+				wddPics3:'',
+				wddPics4:'',
+				wddPics5:'',
+				wddPics6:'',
+				lyPics1:[],
+				lyPics2:[],
+				lyPics3:[],
+				lyPics4:[],
+				lyPics5:[],
 				Inv:0,   //小切换
 				Inv1:0,   //小切换
 				Inv2:0,   //小切换
@@ -625,6 +426,11 @@
 				Invx1:0,   //商讯大tab
 				Invxs1:0,   //商讯大tab
 				Invxs2:0,   //商讯大tab
+				
+				ssPlList:[],
+				lyPlList:[],
+				
+				
 				
 				　
 				tabCurrentIndex: 0,
@@ -672,6 +478,12 @@
 		},
 
 		onLoad(options) {
+			
+			this.GetShopDetail();
+			this.getShopProduct();
+			this.getShopLink();
+			this.getShopMember();
+			this.getOtherManage();
 			// 页面显示是默认选中第一个
 			this.tabCurrentIndex = 0;
 		},
@@ -701,7 +513,231 @@
 		 },
 
 		methods: {
-			 changeTab(Inv,Inv1,Inv2,Inv3,Inv4,Invx1,Invxs1,Invxs2){
+			getShopProduct(){
+				var getLocaUrl = document.location.href;
+				var jqId = getLocaUrl.indexOf('1');
+				var newId = getLocaUrl.substr(jqId);
+				var newIds = newId.substring(0,19);
+				uni.request({
+					url:this.$serverUrl + '/Shop/Dev_ShopProduct/GetDataList',
+					data: {
+						ShopId: newIds
+					},
+					success: (res) =>{
+						this.shangxun = res.data.rows
+						for ( var s = 0; s < res.data.rows.length; s ++ ) {
+							if( res.data.rows[s].IsAd == 1 ) {
+								this.shangxun[s].IsAd = '是'
+							} else if( res.data.rows[s].IsAd == 2 ) {
+								this.shangxun[s].IsAd = '否'
+							} 
+						}
+					}
+				})
+			},
+			getShopLink(){
+				var getLocaUrl = document.location.href;
+				var jqId = getLocaUrl.indexOf('1');
+				var newId = getLocaUrl.substr(jqId);
+				var newIds = newId.substring(0,19);
+				uni.request({
+					url:this.$serverUrl + '/Shop/Dev_ShopLink/GetDataList',
+					data: {
+						ShopId: newIds
+					},
+					success: (res) =>{
+						this.shanglian = res.data.rows
+						for ( var s = 0; s < res.data.rows.length; s ++ ) {
+							if( res.data.rows[s].IsAd == 1 || res.data.rows[s].HasReward == 1 || res.data.rows[s].JoinWay == 1) {
+								this.shanglian[s].IsAd = '是';
+								this.shanglian[s].HasReward = '有';
+								this.shanglian[s].JoinWay = '开放加入';
+							} else if( res.data.rows[s].IsAd == 2 || res.data.rows[s].HasReward == 2 || res.data.rows[s].JoinWay == 2 ) {
+								this.shanglian[s].IsAd = '否';
+								this.shanglian[s].HasReward = '无';
+								this.shanglian[s].JoinWay = '审核加入';
+							} else if( res.data.rows[s].JoinWay == 3 ) {
+								this.shanglian[s].JoinWay = '付费加入';
+							}
+						}
+					}
+				})
+			},
+			getShopMember(){
+				var getLocaUrl = document.location.href;
+				var jqId = getLocaUrl.indexOf('1');
+				var newId = getLocaUrl.substr(jqId);
+				var newIds = newId.substring(0,19);
+				uni.request({
+					url:this.$serverUrl + '/Shop/Dev_ShopMember/GetDataList',
+					data: {
+						ShopId: newIds
+					},
+					success: (res) =>{
+						// console.log(res)
+						this.chengyuan = res.data.rows
+					}
+				})
+			},
+			
+			GetShopDetail(){
+				var getLocaUrl = document.location.href;
+				var jqId = getLocaUrl.indexOf('1');
+				var newId = getLocaUrl.substr(jqId);
+				var newIds = newId.substring(0,19);
+				var shopIds = newId.substring(27,46)
+				
+				uni.request({
+					url:this.$serverUrl + '/Shop/Dev_ShopMember/CheckJoin?UserId=' + newIds + '&ShopId=' + shopIds ,
+					success: (res) =>{
+						console.log(res)
+						if(res.data.Success == false) {
+							this.sqjrCont = true;
+							this.sqjrMsg = res.data.Msg;
+							this.bottomTab = false;
+						}
+						if(res.data.Success == true && res.data.Data == 1){
+							this.kfjrCont = true;
+							this.dspMsg = '您已申请加入商号，请等待审核！'
+							this.bottomTab = false;
+						}
+						if(res.data.Success == true && res.data.Data == 2){
+							this.bottomTab = true;
+						}
+						if(res.data.Success == true && res.data.Data == 3){
+							this.kfjrCont = true;
+							this.dspMsg = '不好意思，您的条件未满足加入要求！'
+							this.bottomTab = false;
+						}
+						
+					}
+				})
+				
+				
+				uni.request({
+					url:this.$serverUrl + '/Shop/Dev_Shop/GetDataDetail?id=' + newIds,
+					success: (res) =>{
+						this.ShopPic = res.data.ShopPic;
+						this.ShopTitle = res.data.ShopTitle;
+						this.UserName = res.data.UserName;
+						this.CreateTime = res.data.CreateTime;
+						this.ChannelName = res.data.ChannelName;
+						this.TypeName = res.data.TypeName;
+						this.ClassName = res.data.ClassName;
+						this.City = res.data.City;
+						this.Area = res.data.Area;
+						this.JoinWay = res.data.JoinWay;
+						this.IsAd = res.data.IsAd;
+						this.HasReward = res.data.HasReward;
+						this.MemberNum = res.data.MemberNum;
+						this.ProductNum = res.data.ProductNum;
+						this.LinkNum = res.data.LinkNum;
+						this.ChatNum = res.data.ChatNum;
+						this.AskNum = res.data.AskNum;
+						this.MessageNum = res.data.MessageNum;
+						this.ClickNum = res.data.ClickNum;
+						this.CollectionNum = res.data.CollectionNum;
+						this.GetRewardFee = res.data.GetRewardFee;
+						this.GoodNum = res.data.GoodNum;
+						this.Contact = res.data.Contact;
+						this.ContactTel = res.data.ContactTel;
+						this.ContactAddress = res.data.ContactAddress;
+						
+						if ( this.JoinWay == 1 ){
+							this.JoinWay = '开放加入'
+						} else if ( this.JoinWay == 2 ) {
+							this.JoinWay = '审核加入'
+						} else if ( this.JoinWay == 3 ) {
+							this.JoinWay = '付费加入'
+						};
+						
+						if( this.IsAd == 1 || this.IsTop == 1 || this.HasReward == 1 ) {
+							this.IsAd = '是';
+							this.IsTop = '是';
+							this.HasReward = '是';
+						} else if (  this.IsAd == 2 || this.IsTop == 2 || this.HasReward == 2 ) {
+							this.IsAd = '否';
+							this.IsTop = '否';
+							this.HasReward = '否';
+						}
+						
+						
+					},
+					
+				})
+			},
+			getOtherManage(){
+				uni.request({
+					url:this.$serverUrl + '/OtherManage/Dev_Comment/GetDataList',
+					method: 'POST',
+					header: {
+						'content-type': 'multipart/form-data'
+					},
+					success: (res) =>{
+						this.ssPlList = res.data.rows;
+					},
+				})
+				
+				
+				
+				var getLocaUrl = document.location.href;
+				var jqId = getLocaUrl.indexOf('1');
+				var newId = getLocaUrl.substr(jqId);
+				var newIds = newId.substring(0,19)
+				uni.request({
+					url:this.$serverUrl + '/OtherManage/Dev_Comment/GetDataList?CommentType=商号说说&Status=1&SubjectId=' + newIds ,
+					success: (res) =>{
+						this.shuoshuo = res.data.rows
+						
+						for ( var o = 0; o < res.data.rows.length; o ++ ){
+							
+							var morePic = res.data.rows[o].CommentPic;
+							var newPics = morePic.split(';');
+							this.ssPics1 = newPics[0];
+							this.ssPics2 = newPics[1];
+							this.ssPics3 = newPics[2];
+							this.ssPics4 = newPics[3];
+							this.ssPics5 = newPics[4];
+							this.ssPics6 = newPics[5];
+						
+						}
+					},
+				})
+				uni.request({
+					url:this.$serverUrl + '/OtherManage/Dev_Comment/GetDataList?CommentType=商号问答&Status=1&SubjectId=' + newIds ,
+					success: (res) =>{
+						this.wenda = res.data.rows;
+						for ( var w = 0; w < res.data.rows.length; w ++ ){
+							// console.log(res.data.rows[w].Id)
+							var morePic = res.data.rows[w].CommentPic;
+							var newPics = morePic.split(';');
+							this.wddPics1 = newPics[0];
+							this.wddPics2 = newPics[1];
+							this.wddPics3 = newPics[2];
+							this.wddPics4 = newPics[3];
+							this.wddPics5 = newPics[4];
+							
+						}
+					},
+				})
+				uni.request({
+					url:this.$serverUrl + '/OtherManage/Dev_Comment/GetDataList?CommentType=商号留言&Status=1&SubjectId=' + newIds ,
+					success: (res) =>{
+						this.liuyan = res.data.rows;
+						for ( var y = 0; y < res.data.rows.length; y ++ ){
+							
+							var morePic2 = res.data.rows[y].CommentPic;
+							var newPics2 = morePic2.split(';');
+							this.lyPics1 = newPics2[0];
+							this.lyPics2 = newPics2[1];
+							this.lyPics3 = newPics2[2];
+							this.lyPics4 = newPics2[3];
+							this.lyPics5 = newPics2[4];
+						}
+					},
+				})
+			},
+			changeTab(Inv,Inv1,Inv2,Inv3,Inv4,Invx1,Invxs1,Invxs2){
 				that.navIdx = Inv;
 				that.navIdx = Inv1;
 				that.navIdx = Inv2;

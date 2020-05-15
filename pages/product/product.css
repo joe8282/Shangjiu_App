@@ -92,6 +92,9 @@ i{
 	vertical-align: middle;
 	line-height: 34px;
 }
+.shop-ullist{
+	float: left;
+}
 .shop-ullist, .shop-ullist-red{
 	width: 100%;
 }
@@ -105,7 +108,8 @@ i{
 	margin-right: 16px;
 	color: #b22420;
 	height: 24px;
-	line-height: 24px;
+	line-height: 28px;
+	float: left;
 }
 .shop-ullist-red span{
 	margin-right: 10px;
