@@ -2,7 +2,7 @@
 	<view class="content" id="app">
 		<view class="text-area">
 			<view class="main-header-wrap">
-				<input type="text" />
+				<input type="text" style="display: none;"/>
 				<img src="static/images/news.png" alt="" class="main-header-news-icon" />
 			</view>
 			
@@ -44,581 +44,213 @@
 					<view :class="['inv-h',Inv==1?'inv-h-se':'']" @click="Inv=1">私存(20)</view>
 					<view :class="['inv-h',Inv==2?'inv-h-se':'']" @click="Inv=2">待审(20)</view>
 					<view :class="['inv-h',Inv==3?'inv-h-se':'']" @click="Inv=3">拒绝(20)</view>
-					<view :class="['inv-h',Inv==4?'inv-h-se':'']" @click="Inv=4">停止(20)</view>
                 </view>
                 <view class="" v-show="Inv == 0">
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<view class="main-tb-title">
-								<span>2019-09-19</span>
-								<label>私存</label>
+					<view class="small-tab" v-for="(item , index) in gongkai">
+						<navigator :url="'../shop/shop?id=' + item.Id">
+							<view class="main-tab-nr">
+								<view class="main-tb-title">
+									<span>{{ item.CreateTime }}</span>
+									<label @click="gongkaiClick(e)" :data-id="item.Id" :data-Status="item.Status">私存</label>
+								</view>
+								<img :src="item.ShopPic" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">{{ item.ShopTitle }}</span>
+									<label class="main-tab-r-ddd">{{ item.ShopRemark }}</label>
+									<ul class="main-four-ul">
+										<li>{{ item.ChannelName }}</li>
+										<li>{{ item.TypeName }}</li>
+										<li>{{ item.ClassName }}</li>
+										<li>{{ item.City }} {{ item.Area }}</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>{{ item.JoinWay }}</li>
+										<li>推广（{{ item.IsAd }}）</li>
+										<li>红包（{{ item.HasReward }}）</li>
+									</ul>
+								</view>
+								<view class="main-tab-r-b">
+									<span>成员待审（120）</span>
+									<span>投稿待审（120）</span>
+									<span>商链待审（120）</span>
+								</view>
 							</view>
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-							<view class="main-tab-r-b">
-								<span>成员待审（120）</span>
-								<span>投稿待审（120）</span>
-								<span>商链待审（120）</span>
-							</view>
-						</view>
+						</navigator>
 					</view>
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<view class="main-tb-title">
-								<span>2019-09-19</span>
-								<label>私存</label>
-							</view>
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-							<view class="main-tab-r-b">
-								<span>成员待审（120）</span>
-								<span>投稿待审（120）</span>
-								<span>商链待审（120）</span>
-							</view>
-						</view>
-					</view>
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<view class="main-tb-title">
-								<span>2019-09-19</span>
-								<label>私存</label>
-							</view>
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-							<view class="main-tab-r-b">
-								<span>成员待审（120）</span>
-								<span>投稿待审（120）</span>
-								<span>商链待审（120）</span>
-							</view>
-						</view>
-					</view>
-					
                 </view>
                 <view class="" v-show="Inv == 1">
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<view class="main-tb-title">
-								<span>2019-09-19</span>
-								<label>公开</label>
+					<view class="small-tab" v-for="(item , index) in sicun">
+						<navigator :url="'../shop/shop?id=' + item.Id">
+							<view class="main-tab-nr">
+								<view class="main-tb-title">
+									<span>{{ item.CreateTime }}</span>
+									<label @click="sicunClick(e)" :data-id="item.Id" :data-Status="item.Status">公开</label>
+								</view>
+								<img :src="item.ShopPic" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">{{ item.ShopTitle }}</span>
+									<label class="main-tab-r-ddd">{{ item.ShopRemark }}</label>
+									<ul class="main-four-ul">
+										<li>{{ item.ChannelName }}</li>
+										<li>{{ item.TypeName }}</li>
+										<li>{{ item.ClassName }}</li>
+										<li>{{ item.City }} {{ item.Area }}</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>{{ item.JoinWay }}</li>
+									</ul>
+								</view>
 							</view>
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-								</ul>
-							</view>
-						</view>
+						</navigator>
 					</view>
                 </view>
-				<view class="" v-show="Inv == 2">
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-								</ul>
+				<view class="" v-show="Inv == 2" v-for="(item , index) in daishen">
+					<navigator :url="'../shop/shop?id=' + item.Id">
+						<view class="small-tab">
+							<view class="main-tab-nr">
+								<img :src="item.ShopPic" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">{{ item.ShopTitle }}</span>
+									<label class="main-tab-r-ddd">{{ item.ShopRemark }}</label>
+									<ul class="main-four-ul">
+										<li>{{ item.ChannelName }}</li>
+										<li>{{ item.TypeName }}</li>
+										<li>{{ item.ClassName }}</li>
+										<li>{{ item.City }} {{ item.Area }}</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>{{ item.JoinWay }}</li>
+									</ul>
+								</view>
 							</view>
 						</view>
-					</view>
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-								</ul>
-							</view>
-						</view>
-					</view>
+					</navigator>
 				</view>
-				<view class="" v-show="Inv == 3">
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-								</ul>
+				<view class="" v-show="Inv == 3" v-for="(item , index) in jujue">
+					<navigator :url="'../shop/shop?id=' + item.Id">
+						<view class="small-tab">
+							<view class="main-tab-nr">
+								<img :src="item.ShopPic" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">{{ item.ShopTitle }}</span>
+									<label class="main-tab-r-ddd">{{ item.ShopRemark }}</label>
+									<ul class="main-four-ul">
+										<li>{{ item.ChannelName }}</li>
+										<li>{{ item.TypeName }}</li>
+										<li>{{ item.ClassName }}</li>
+										<li>{{ item.City }} {{ item.Area }}</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>{{ item.JoinWay }}</li>
+									</ul>
+								</view>
 							</view>
 						</view>
-					</view>
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-								</ul>
-							</view>
-						</view>
-					</view>
+					</navigator>
 				</view>
-				<view class="" v-show="Inv == 4">
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-					<view class="small-tab">
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
+				
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 1">
 				<!-- {{ item.state }} -->
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
+				<view class="main-tab-list-wrap" v-for="(item,index) in guanli">
+					<navigator :url="'../shop/shop?id=' + item.Id">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">{{ item.CreateTime }}</span>
+								<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
+									{{content}}
+								</button>
+							</view>
+							<view class="main-tab-nr">
+								<img :src="item.SubjectPic" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">{{ item.ShopTitle }}</span>
+									<label class="main-tab-r-ddd">{{ item.ShopRemark }}</label>
+									<ul class="main-four-ul">
+										<li>{{ item.ChannelName }}</li>
+										<li>{{ item.TypeName }}</li>
+										<li>{{ item.ClassName }}</li>
+										<li>{{ item.City }} {{ item.Area }}</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>免费加入</li>
+										<li>推广（{{ item.IsAd }}）</li>
+										<li>红包（{{ item.HasReward }}）</li>
+									</ul>
+								</view>
 							</view>
 						</view>
-					</view>
-				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-						</view>
-					</view>
+					</navigator>
 				</view>
 				
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 2">
 				<!-- {{ item.state }} -->
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
+				<view class="main-tab-list-wrap" v-for="(item,index) in jiaru">
+					<navigator :url="'../shop/shop?id=' + item.Id">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">{{ item.CreateTime }}</span>
+								<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
+									{{content}}
+								</button>
+							</view>
+							<view class="main-tab-nr">
+								<img :src="item.ShopPic" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">{{ item.ShopTitle }}</span>
+									<label class="main-tab-r-ddd">{{ item.ShopRemark }}</label>
+									<ul class="main-four-ul">
+										<li>{{ item.ChannelName }}</li>
+										<li>{{ item.TypeName }}</li>
+										<li>{{ item.ClassName }}</li>
+										<li>{{ item.City }} {{ item.Area }}</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>{{ item.JoinWay }}</li>
+										<li>推广（{{ item.IsAd }}）</li>
+										<li>红包（{{ item.HasReward }}）</li>
+									</ul>
+								</view>
 							</view>
 						</view>
-					</view>
+					</navigator>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
-				
 			</view>
 			<view class="list" v-show="tabCurrentIndex === 3">
 				<!-- {{ item.state }} -->
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
+				<view class="main-tab-list-wrap" v-for="(item,index) in guanzhu">
+					<navigator :url="'../shop/shop?id=' + item.Id">
+						<view class="main-tab-list-cont">
+							<view class="main-tab-title">
+								<span class="main-tab-time">{{ item.CreateTime }}</span>
+								<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
+									{{content}}
+								</button>
+							</view>
+							<view class="main-tab-nr">
+								<img :src="item.SubjectPic" alt="" class="main-tab-img" />
+								<view class="main-tab-right">
+									<span class="main-tab-r-title">{{ item.SubjectTitle }}</span>
+									<label class="main-tab-r-ddd">{{ item.SubjectRemark }}</label>
+									<ul class="main-four-ul">
+										<li>{{ item.ChannelName }}</li>
+										<li>{{ item.TypeName }}</li>
+										<li>{{ item.ClassName }}</li>
+										<li>{{ item.City }} {{ item.Area }}</li>
+									</ul>
+									<ul class="main-three-ul">
+										<li>{{ item.JoinWay }}</li>
+										<li>推广（{{ item.IsAd }}）</li>
+										<li>红包（{{ item.HasReward }}）</li>
+									</ul>
+								</view>
 							</view>
 						</view>
-					</view>
+					</navigator>
 				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
-				<view class="main-tab-list-wrap">
-					<view class="main-tab-list-cont">
-						<view class="main-tab-title">
-							<span class="main-tab-time">2019-09-25</span>
-							<button   @click="favor" class="my_button" :style="{backgroundColor:bg_color, color: ft_color,}" @mouseenter="change()" @mouseleave="goback()">
-								{{content}}
-							</button>
-						</view>
-						<view class="main-tab-nr">
-							<img src="static/images/shangqu-img.png" alt="" class="main-tab-img" />
-							<view class="main-tab-right">
-								<span class="main-tab-r-title">黑乎乎的返回拉萨觉得浪费精力是大家</span>
-								<label class="main-tab-r-ddd">是多久啊来开发时间浪费精力撒旦解放了吉了吉了吉解放了吉</label>
-								<ul class="main-four-ul">
-									<li>身份</li>
-									<li>类型</li>
-									<li>行业</li>
-									<li>区域</li>
-								</ul>
-								<ul class="main-three-ul">
-									<li>免费加入</li>
-									<li>推广（有）</li>
-									<li>红包（无）</li>
-								</ul>
-							</view>
-						</view>
-					</view>
-				</view>
+			
+				
 				
 			</view>
 		</view>
@@ -636,6 +268,14 @@
 		data() {
 			return {
 				rotate: false,
+				gongkai:[],
+				sicun:[],
+				daishen:[],
+				jujue:[],
+				guanli:[],
+				jiaru:[],
+				e:[],
+				guanzhu:[],
 				toLearnList:[
 					'1.会员可根据需要创建多个商号，用于商家经营推广、创业、接活；做自媒与内容。',
 					'2.商号为创新社群模式，内置“商讯、',
@@ -690,6 +330,7 @@
 			// 页面显示是默认选中第一个
 			this.tabCurrentIndex = 0;
 			this.tabCurrentIndex1 = 0;
+			this.getDataList();
 		},
 		computed:{
 			showList:function(){
@@ -717,9 +358,151 @@
 		 },
 
 		methods: {
-			 changeTab(Inv){
+			
+			getDataList(){
+				//我名下的
+				uni.request({
+					url:this.$serverUrl + '/Shop/Dev_Shop/GetDataList?userId=1133345545746780160',
+					method:'POST',
+					data:{
+						 
+					},
+					success: (res) =>{
+						var gongkai = res.data.rows.filter(function (e) { return e.Status == '2'; });
+						var sicun = res.data.rows.filter(function (e) { return e.Status == '4'; });
+						var daishen = res.data.rows.filter(function (e) { return e.Status == '1'; });
+						var jujue = res.data.rows.filter(function (e) { return e.Status == '3'; });
+						this.gongkai = gongkai;
+						this.sicun = sicun;
+						this.daishen = daishen;
+						this.jujue = jujue;
+						
+						for( var i = 0; i < res.data.rows.length; i++ ) {
+							if ( res.data.rows[i].JoinWay == 1 || res.data.rows[i].HasReward == 1 || res.data.rows[i].IsAd == 1){
+								res.data.rows[i].JoinWay = '开放加入';
+								res.data.rows[i].HasReward = '是';
+								res.data.rows[i].IsAd = '是';
+							} else if ( res.data.rows[i].JoinWay == 2 || res.data.rows[i].HasReward == 2 || res.data.rows[i].IsAd == 2) {
+								res.data.rows[i].JoinWay = '审核加入'
+								res.data.rows[i].HasReward = '无';
+								res.data.rows[i].IsAd = '否';
+							} else if ( res.data.rows[i].JoinWay == 3 ) {
+								res.data.rows[i].JoinWay = '付费加入';
+							};
+							
+						}
+			
+					}
+				});
+				
+				
+				//查询某个用户所加入的所有商号
+				uni.request({
+					url:this.$serverUrl + '/Shop/Dev_ShopMember/GetDataList?userId=1133345545746780160',
+					success: (res) =>{
+						this.jiaru = res.data.rows
+						for( var i = 0; i < res.data.rows.length; i++ ) {
+							if ( res.data.rows[i].JoinWay == 1 || res.data.rows[i].HasReward == 1 || res.data.rows[i].IsAd == 1){
+								res.data.rows[i].JoinWay = '开放加入';
+								res.data.rows[i].HasReward = '是';
+								res.data.rows[i].IsAd = '是';
+							} else if ( res.data.rows[i].JoinWay == 2 || res.data.rows[i].HasReward == 2 || res.data.rows[i].IsAd == 2) {
+								res.data.rows[i].JoinWay = '审核加入'
+								res.data.rows[i].HasReward = '无';
+								res.data.rows[i].IsAd = '否';
+							} else if ( res.data.rows[i].JoinWay == 3 ) {
+								res.data.rows[i].JoinWay = '付费加入';
+							};
+							
+						}	
+					}
+				})
+				// 查询某个用户所关注的所有商号
+				uni.request({
+					url:this.$serverUrl + '/OtherManage/Dev_Collection/GetDataList?userId=1133345545746780160&collectionType=商号关注',
+					success: (res) =>{
+						this.guanzhu = res.data.rows
+						for( var i = 0; i < res.data.rows.length; i++ ) {
+							if ( res.data.rows[i].JoinWay == 1 || res.data.rows[i].HasReward == 1 || res.data.rows[i].IsAd == 1){
+								res.data.rows[i].JoinWay = '开放加入';
+								res.data.rows[i].HasReward = '是';
+								res.data.rows[i].IsAd = '是';
+							} else if ( res.data.rows[i].JoinWay == 2 || res.data.rows[i].HasReward == 2 || res.data.rows[i].IsAd == 2) {
+								res.data.rows[i].JoinWay = '审核加入'
+								res.data.rows[i].HasReward = '无';
+								res.data.rows[i].IsAd = '否';
+							} else if ( res.data.rows[i].JoinWay == 3 ) {
+								res.data.rows[i].JoinWay = '付费加入';
+							};
+							
+						}	
+					}
+				})
+				
+				
+				
+			},
+			gongkaiClick: function(e) {
+				//获取点击对象      
+			    var el = event.currentTarget;
+				var datasetId = el.dataset.id,
+				    datasetStatus = el.dataset.status;
+				uni.request({
+					url:this.$serverUrl + '/Shop/Dev_Shop/UpdateData',
+					method:'POST',
+					data: {
+						id:datasetId,
+						status:4
+					},
+					success: (res) =>{
+						uni.showModal({
+						    title: '提示',
+						    content: '操作成功',
+						    success: function (res) {
+						        if (res.confirm) {
+						            // console.log('用户点击确定');
+									window.location.reload()
+						        } else if (res.cancel) {
+						            // console.log('用户点击取消');
+						        }
+						    }
+						});
+					}
+				})	
+				
+			},
+			sicunClick: function(e) {
+				//获取点击对象      
+			    var el = event.currentTarget;
+				var datasetId = el.dataset.id,
+				    datasetStatus = el.dataset.status;
+				uni.request({
+					url:this.$serverUrl + '/Shop/Dev_Shop/UpdateData',
+					method:'POST',
+					data: {
+						id:datasetId,
+						status:1
+					},
+					success: (res) =>{
+						uni.showModal({
+						    title: '提示',
+						    content: '操作成功',
+						    success: function (res) {
+						        if (res.confirm) {
+						            // console.log('用户点击确定');
+									window.location.reload()
+						        } else if (res.cancel) {
+						            // console.log('用户点击取消');
+						        }
+						    }
+						});
+						
+					}
+				})	
+				
+			},
+			changeTab(Inv){
 				that.navIdx = Inv;
-					 
 			},
 			changeTab(e) {
 				this.tabCurrentIndex = e.target.current;
