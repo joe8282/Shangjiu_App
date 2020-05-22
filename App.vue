@@ -13,6 +13,7 @@
 			} else {
 				console.log('是浏览器端')
 				console.log(userid)
+				uni.setStorageSync('userid', userid)
 			}
 			//#endif
 		},
