@@ -4,7 +4,7 @@
 			<view class="main-header-wrap">
 				<view class="uni-form-item uni-column">
 					<img src="static/images/search.png" alt="" class="search-icon-img" />
-					<input class="uni-input"  placeholder="      输入商号相关信息" />
+					<input class="uni-input" placeholder="      输入商号相关信息" />
 				</view>
 				<img src="static/images/news.png" alt="" class="main-header-news-icon" />
 			</view>
@@ -21,7 +21,7 @@
 			</view>
 			<view class="productList-slider-wrap">
 				<view class="productList-slider-three">
-					<view class="productList-ssthree">
+					<view class="productList-ssthree" @click="to">
 						<img src="static/images/all1.png" alt="" />
 						<span>全部</span>
 					</view>
@@ -44,7 +44,7 @@
 						<ms-dropdown-item v-model="value1" :list="lxlist"></ms-dropdown-item>
 						<ms-dropdown-item v-model="value1" :list="hylist"></ms-dropdown-item>
 						<ms-dropdown-item v-model="value1" :list="pxlist"></ms-dropdown-item>
-						
+
 					</ms-dropdown-menu>
 				</view>
 			</view>
@@ -70,17 +70,17 @@
 					</navigator>
 				</view>
 			</view>
-			
-			
+
+
 		</view>
-		
-	
+
+
 	</view>
-	
+
 </template>
 
 <script>
-	import 'pages/shopList/shopList.css';
+	// import 'pages/shopList/shopList.css';
 	import uniSection from '@/components/uni-section/uni-section.vue';
 	import uniSwiperDot from "@/components/uni-swiper-dot/uni-swiper-dot.vue";
 	import uniFav from "@/components/uni-fav/uni-fav.vue"
@@ -96,26 +96,19 @@
 		},
 		data() {
 			return {
-				sflist: [
-					{
-						text: '111',
-						value: 0
-					}
-				],
-				lxlist: [
-					{
-						text: '111',
-						value: 0
-					}
-				],
-				hylist: [
-					{
-						text: '111',
-						value: 0
-					}
-				],
-				pxlist: [
-					{
+				sflist: [{
+					text: '111',
+					value: 0
+				}],
+				lxlist: [{
+					text: '111',
+					value: 0
+				}],
+				hylist: [{
+					text: '111',
+					value: 0
+				}],
+				pxlist: [{
 						text: '升序',
 						value: 0
 					},
@@ -131,12 +124,12 @@
 				value1: 0,
 				value2: 1,
 				value3: 'init',
-				
-				shopList:[],
-				shenfen:[],
-				hangye:[],
-				leixing:[],
-				sss:false,
+
+				shopList: [],
+				shenfen: [],
+				hangye: [],
+				leixing: [],
+				sss: false,
 				rotate: false,
 				rotate1: false,
 				rotate2: false,
@@ -184,8 +177,8 @@
 				current: 0,
 				mode: 'default',
 				dotsStyles: {}
-				　
-				
+
+
 
 			}
 		},
@@ -194,6 +187,11 @@
 			this.getShopAddData();
 		},
 		methods: {
+			to() {
+				uni.navigateTo({
+					url: '../login/register'
+				});
+			},
 			choose() {
 				let obj = {
 					value: 'Name'
@@ -203,17 +201,17 @@
 			close() {
 				this.$refs.dropdownItem.closePopup()
 			},
-			
-			
-			
-			getShopAddData(){
+
+
+
+			getShopAddData() {
 				uni.request({
-					url:this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1206262951519064064',
-					success: (res) =>{
-						var arr = ['a','b','c','d'];
-						arr.splice(1,1);
+					url: this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1206262951519064064',
+					success: (res) => {
+						var arr = ['a', 'b', 'c', 'd'];
+						arr.splice(1, 1);
 						console.log(arr)
-						for( var i = 0; i <res.data.length; i++ ){
+						for (var i = 0; i < res.data.length; i++) {
 							this.shenfen = res.data;
 							var sfName = res.data[i].Name;
 							var sfId = res.data[i].Id;
@@ -222,16 +220,16 @@
 								text: sfName,
 								value: sfId
 							})
-							
-							
+
+
 						}
 					}
 				});
-				
+
 				uni.request({
-					url:this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1204236610573570048',
-					success: (res) =>{
-						for( var h = 0; h <res.data.length; h++ ){
+					url: this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1204236610573570048',
+					success: (res) => {
+						for (var h = 0; h < res.data.length; h++) {
 							this.hangye = res.data
 							var hyName = res.data[h].Name;
 							var hyId = res.data[h].Id;
@@ -244,9 +242,9 @@
 					}
 				});
 				uni.request({
-					url:this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1204236075598483456',
-					success: (res) =>{
-						for( var l = 0; l <res.data.length; l++ ){
+					url: this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1204236075598483456',
+					success: (res) => {
+						for (var l = 0; l < res.data.length; l++) {
 							this.leixing = res.data
 							var lxName = res.data[l].Name;
 							var lxId = res.data[l].Id;
@@ -259,33 +257,33 @@
 					}
 				});
 			},
-			getShopListData(){
+			getShopListData() {
 				var desc = desc
 				uni.request({
-					url:this.$serverUrl + '/Shop/Dev_Shop/GetDataList',
+					url: this.$serverUrl + '/Shop/Dev_Shop/GetDataList',
 					data: {
 						// SortType: desc
-						
+
 					},
-					success: (res) =>{
+					success: (res) => {
 						this.shopList = res.data.rows;
-						for ( var j = 0; j < this.shopList.length; j ++ ) {
-							if( res.data.rows[j].JoinWay == 1 ) {
+						for (var j = 0; j < this.shopList.length; j++) {
+							if (res.data.rows[j].JoinWay == 1) {
 								this.shopList[j].JoinWay = '开放加入'
-							} else if( res.data.rows[j].JoinWay == 2 ) {
+							} else if (res.data.rows[j].JoinWay == 2) {
 								this.shopList[j].JoinWay = '审核加入'
-							} else if ( res.data.rows[j].JoinWay == 3 ){
+							} else if (res.data.rows[j].JoinWay == 3) {
 								this.shopList[j].JoinWay = '付费加入'
 							}
 						}
-						
-						
+
+
 					},
-					
+
 				})
 			},
-			
-			
+
+
 			change(e) {
 				this.current = e.detail.current
 			},
@@ -300,72 +298,420 @@
 				this.dotsStyles = this.dotStyle[0]
 			},
 			sliderToggle() {
-			    if(this.rotate == false){
-			        document.getElementById("hideshow-slider").style.height="auto"
+				if (this.rotate == false) {
+					document.getElementById("hideshow-slider").style.height = "auto"
 					this.rotate = !this.rotate;
-			    }else{
-			        document.getElementById("hideshow-slider").style.height="24px"
+				} else {
+					document.getElementById("hideshow-slider").style.height = "24px"
 					this.rotate = !this.rotate;
-			    }
+				}
 			},
 			sliderToggle1() {
-			    if(this.rotate1 == false){
-			        document.getElementById("hideshow-slider1").style.height="auto"
+				if (this.rotate1 == false) {
+					document.getElementById("hideshow-slider1").style.height = "auto"
 					this.rotate1 = !this.rotate1;
-			    }else{
-			        document.getElementById("hideshow-slider1").style.height="24px"
+				} else {
+					document.getElementById("hideshow-slider1").style.height = "24px"
 					this.rotate1 = !this.rotate1;
-			    }
+				}
 			},
 			sliderToggle2() {
-			    if(this.rotate2 == false){
-			        document.getElementById("hideshow-slider2").style.height="auto"
+				if (this.rotate2 == false) {
+					document.getElementById("hideshow-slider2").style.height = "auto"
 					this.rotate2 = !this.rotate2;
-			    }else{
-			        document.getElementById("hideshow-slider2").style.height="24px"
+				} else {
+					document.getElementById("hideshow-slider2").style.height = "24px"
 					this.rotate2 = !this.rotate2;
-			    }
+				}
 			},
 			sliderToggle3() {
-			    if(this.rotate3 == false){
-			        document.getElementById("hideshow-slider3").style.height="auto"
+				if (this.rotate3 == false) {
+					document.getElementById("hideshow-slider3").style.height = "auto"
 					this.rotate3 = !this.rotate3;
-			    }else{
-			        document.getElementById("hideshow-slider3").style.height="24px"
+				} else {
+					document.getElementById("hideshow-slider3").style.height = "24px"
 					this.rotate3 = !this.rotate3;
-			    }
+				}
 			}
 		}
 	}
 </script>
 <style lang="scss">
-.dropdown-item-content {
-	padding: 20rpx;
-}
-.dropdown-item-content .btn{
-	background: #F00000;
-	background: #007aff;
-	color: #fff;
-	padding: 20rpx;
-	display: inline-block;
-	border-radius: 10rpx;
-}
-.dropdown-item-title {
-	display: flex;
-	
-}
-.dropdown-item-title .title {
-	color: red;
-}
-.dropdown-item-title .btn {
-	font-size: 24rpx;
-	background: #F00000;
-	background: #007aff;
-	color: #fff;
-	padding: 10rpx;
-	display: inline-block;
-	border-radius: 10rpx;
-}
-	
-</style>
+	// css start
+	* {
+		margin: 0;
+		padding: 0;
+		touch-action: pan-y;
+	}
 
+	body {
+		background-color: #F6F6F6;
+	}
+
+	ul,
+	li {
+		list-style: none;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	img {
+		max-width: 100%;
+		vertical-align: middle;
+	}
+
+	em {
+		font-style: normal;
+	}
+
+	i {
+		font-style: normal;
+	}
+
+	.main-header-wrap {
+		width: 100%;
+		height: 40px;
+		display: flex;
+		justify-content: center;
+		background: url(/static/images/index-header-bg.png) no-repeat center;
+		background-size: 100%;
+		position: relative;
+	}
+
+	.main-header-news-icon {
+		position: absolute;
+		right: 12px;
+		height: 24px;
+		top: 8px;
+	}
+
+	.list .inv-h-se {
+		color: #B22420;
+	}
+
+	.xisisi {
+		color: blue;
+		display: flex;
+		justify-content: center;
+		vertical-align: middle;
+	}
+
+	.main-header-wrap .uni-input-input {
+		background: #efefef !important;
+		border-radius: 4px;
+		font-size: 14px;
+		text-indent: 26px;
+
+
+	}
+
+	.uni-input-placeholder {
+		background: #efefef !important;
+		border-radius: 4px;
+		font-size: 14px;
+	}
+
+	.uni-form-item {
+		width: 56%;
+		position: relative;
+	}
+
+	.search-icon-img {
+		position: absolute;
+		height: 54%;
+		z-index: 99999999;
+		top: 25%;
+		left: 2%;
+	}
+
+	.uni-input {
+		border-radius: 4px;
+		margin-top: 9px;
+	}
+
+	.swiper-wrap {
+		width: 92%;
+		float: left;
+		margin-left: 4%;
+		margin-top: 10px;
+		border-radius: 4px;
+		overflow: hidden;
+	}
+
+	.swiper-wrap uni-image {
+		width: 100% !important;
+		border-radius: 4px;
+	}
+
+	.productlist-hh-list {
+		margin-top: 10px;
+		width: 100%;
+		float: left;
+		border-bottom: 1px solid #ececec;
+	}
+
+	.small-tab {
+		width: 92%;
+		margin-left: 4%;
+		padding-bottom: 10px;
+		float: left;
+	}
+
+	.main-tb-title {
+		width: 100%;
+		float: left;
+	}
+
+	.main-tb-title span {
+		font-size: 12px;
+		color: #646464;
+		float: left;
+		line-height: 14px;
+	}
+
+	.main-tb-title label {
+		float: right;
+		font-size: 12px;
+		color: #b22420;
+		border: 1px solid #b22420;
+		height: 20px;
+		line-height: 20px;
+		padding: 0 10px;
+		border-radius: 4px;
+	}
+
+	.main-tab-r-b {
+		width: 100%;
+		float: left;
+	}
+
+	.main-tab-r-b span {
+		font-size: 12px;
+		width: 33%;
+		display: inline-flex;
+		color: #999999;
+	}
+
+	.main-tab-nr {
+		width: 100%;
+		float: left;
+	}
+
+	.main-tab-right {
+		width: 80%;
+		float: left;
+	}
+
+	.main-tab-r-title {
+		display: inline-block;
+		white-space: nowrap;
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		float: left;
+		font-size: 14px;
+		line-height: 20px;
+	}
+
+	.main-tab-img {
+		float: right !important;
+		width: 18%;
+	}
+
+	.main-tab-r-ddd {
+		display: inline-block;
+		white-space: nowrap;
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		float: left;
+		font-size: 12px;
+		color: #646464;
+		height: 20px;
+	}
+
+	.main-four-ul,
+	.main-three-ul {
+		float: left;
+		display: inline-block;
+		width: 100%;
+		padding: 0;
+	}
+
+	.main-four-ul li {
+		float: left;
+		color: #999999;
+		margin-right: 14px;
+		font-size: 12px;
+	}
+
+	.main-three-ul li {
+		width: 33%;
+		float: left;
+		color: #b22420;
+		font-size: 12px;
+	}
+
+	.productlist-hh-wrap {
+		width: 100%;
+		float: left;
+	}
+
+	.dysf-style {
+		font-size: 12px;
+		float: left;
+		color: #b22420;
+	}
+
+	.productList-slider-wrap {
+		width: 92%;
+		margin-left: 4%;
+		float: left;
+		margin-top: 10px;
+	}
+
+	.productList-ssthree {
+		width: 25%;
+		height: 60px;
+		float: left;
+		position: relative;
+		margin-bottom: 10px;
+	}
+
+	.productList-ssthree img {
+		width: 30px;
+		position: absolute;
+		left: 50%;
+		top: 10px;
+		margin-left: -15px;
+	}
+
+	.productList-ssthree span {
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		top: 44px;
+		left: 0;
+		font-size: 14px;
+		color: #646464;
+	}
+
+	.ps-toggle-list {
+		width: 100%;
+		float: left;
+		position: relative;
+	}
+
+	.productList-slider-toggle {
+		width: 100%;
+		float: left;
+	}
+
+	.pstoggle-list-left {
+		width: 14%;
+		float: left;
+		height: 100%;
+		font-size: 14px;
+		line-height: 28px;
+		color: #2c2c2c;
+	}
+
+	.stoggle-list-right {
+		width: 86%;
+		float: right;
+		height: 24px;
+		overflow: hidden;
+	}
+
+	.stoggle-list-right span {
+		display: inline-block;
+		width: 20%;
+		font-size: 14px;
+		color: #646464;
+		text-align: left;
+	}
+
+	.slider-down-icon1 {
+		width: 20px;
+		position: absolute;
+		right: 0;
+		top: 6px;
+	}
+
+	p {
+		height: 200px;
+		overflow: hidden;
+	}
+
+	.rotatetop {
+		transform: rotate(180deg);
+	}
+
+	.rotatebottom {
+		transform: rotate(0deg);
+	}
+
+	.dropdown-item {
+		width: 14% !important;
+		float: left;
+	}
+
+	.dropdown-item .list__option {
+		font-size: 14px !important;
+	}
+
+	.dropdown-item .list__option:first-child {
+		display: none !important;
+	}
+
+	.dropdown-item__selected[data-v-2978376e] {
+		background: #FFFFFF !important;
+		padding: 6px !important;
+	}
+
+	.dropdown-item__selected .selected__name[data-v-2978376e] {
+		font-size: 14px !important;
+	}
+
+	// css end
+
+	.dropdown-item-content {
+		padding: 20rpx;
+	}
+
+	.dropdown-item-content .btn {
+		background: #F00000;
+		background: #007aff;
+		color: #fff;
+		padding: 20rpx;
+		display: inline-block;
+		border-radius: 10rpx;
+	}
+
+	.dropdown-item-title {
+		display: flex;
+
+	}
+
+	.dropdown-item-title .title {
+		color: red;
+	}
+
+	.dropdown-item-title .btn {
+		font-size: 24rpx;
+		background: #F00000;
+		background: #007aff;
+		color: #fff;
+		padding: 10rpx;
+		display: inline-block;
+		border-radius: 10rpx;
+	}
+</style>

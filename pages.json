@@ -222,6 +222,18 @@
 			"style": {
 				"navigationBarTitleText":"商号详情"
 			}
+		},
+		{
+			"path": "pages/login/register",
+			"style": {
+				"navigationBarTitleText": "注册账号",
+				"navigationBarBackgroundColor":"#B22420",
+				"navigationBarTextStyle":"white",
+				"app-plus": {
+				    "bounce": "none" ,//关闭窗口回弹效果
+					"softinputNavBar":"none"
+				}
+			}
 		}
 	],
 	"globalStyle": {
