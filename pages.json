@@ -234,6 +234,12 @@
 					"softinputNavBar":"none"
 				}
 			}
+		},
+		{
+			"path": "pages/my/setting",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
 		}
 	],
 	"globalStyle": {

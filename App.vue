@@ -1,4 +1,5 @@
 <script>
+	import uniIcons from "@/components/uni-icons/uni-icons.vue"
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
