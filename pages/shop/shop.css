@@ -491,7 +491,7 @@ i{
 	float: left;
 	
 }
-.fbsx-button-wrap span{
+.fbsx-button-wrap span, .fbsx-button-wrap a{
 	color: #ed7070;
 	border: 1px solid #ed7070;
 	font-size: 14px;

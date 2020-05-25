@@ -95,15 +95,15 @@
 			
 					<view v-show="nowIndex === 1" class="content">
 						<view class="nowindex-list">
-							<span>填写价格</span>
-							<input type="text" value="" />
+							<span style="width: 22%;">填写价格</span>
+							<input type="text" value="" v-model="PayFee"/>
 						</view>
 					</view>
 			
 					<view v-show="nowIndex === 2" class="content">
 						<view class="nowindex-list">
-							<span>填写价格</span>
-							<input type="text" value="" />
+							<span style="width: 22%;">填写价格</span>
+							<input type="text" value="" v-model="PayFee"/>
 						</view>
 					</view>
 			
@@ -122,7 +122,7 @@
 						</view>
 						
 					</view>
-					<view class="productAdd-ff-list">
+					<!-- <view class="productAdd-ff-list">
 						<span>是否公开：</span>
 						<view class="pdt-rr">
 							<view v-for="(item , index5) in sfgk" @click="changSfgk(index5)" :key="index5"
@@ -131,7 +131,7 @@
 							</view>
 						</view>
 						
-					</view>
+					</view> -->
 				</view>
 			</view>
 			<view class="shopAdd-cont-wrap">
@@ -139,17 +139,18 @@
 					<view class="shopAdd-cont-title">
 						<span>内容作者：</span>
 					</view>
-					<input class="uni-input" placeholder="请填写内容作者(可选填)" />
+					<input class="uni-input" placeholder="请填写内容作者(可选填)" v-model="proAuthor"/>
 					<view class="shopAdd-cont-title">
 						<span>内容出处：</span>
 					</view>
-					<input class="uni-input" placeholder="请填写内容出处(可选填)" />
+					<input class="uni-input" placeholder="请填写内容出处(可选填)" v-model="proSource" />
 				</view>
 			</view>
 			
 			
 			<view class="next-bottomfixed">
-				<span>下一步</span>
+				<span @click="clickeditor">下一步</span>
+				<!-- <span @click="getCreatShopAdd">下一步</span> -->
 			</view>
 		</view>	
 
@@ -163,6 +164,7 @@
 
 <script>
 	import 'pages/productAdd/productAdd.css';
+	import 'pages/shopAdd/shopAdd.css';
 	import pickerAddress from '@/components/wangding-pickerAddress/wangding-pickerAddress.vue';
 	import simpleAddress from "@/components/simple-address/simple-address.nvue"
 	export default {
@@ -195,9 +197,12 @@
 				Contact:'',
 				ContactTel:'',
 				ContactAddress:'',
+				PayFee:'',
 				shenfen: [],
 				hangye: [],
 				leixing: [],
+				proAuthor: '',
+				proSource: '',
 				a: 0,
 				b: 0,
 				c: 0,
@@ -364,56 +369,64 @@
 				fail:(res)=>{
 				}
 				});
+				var getLocaUrl = document.location.href;
+				var jqId = getLocaUrl.indexOf('1');
+				var newId = getLocaUrl.substr(jqId);
+				var newIds = newId.substring(0,19);
+				// console.log(newIds)
 				// console.log(this.imageSrc)
-				var ShopTitle = this.notedata,
-					shenfen = this.shenfen[this.a].Name,
-					leixing = this.leixing[this.b].Name,
-					hangye = this.hangye[this.c].Name,
+				if( this.d == 0) {
+					var FromWays = '原创'
+				} else if ( this.d == 1 ) {
+					var FromWays = '转载'
+				}
+				var productId = newIds,
+					ProductTitle = this.notedata,
+					ProductPic = this.imageSrc,
+					ProductRemark = this.ShopRemark,
+					ProductContent = this.ShopContent,
 					Provice = this.Provice,
 					City = this.City,
 					Area = this.Area,
-					JoinWay = this.nowIndex,
-					JoinDemand = this.JoinDemand,
-					JoinFeeOnce = this.JoinFeeOnce,
-					JoinFeeMonth = this.JoinFeeMonth,
-					JoinFeeYear = this.JoinFeeYear,
-					JoinFeeUnlimited = this.JoinFeeUnlimited,
-					Contact = this.Contact,
-					ContactTel = this.ContactTel,
-					ContactAddress = this.ContactAddress,
-					ShopContent = this.ShopContent,
-					ShopRemark = this.ShopRemark;
-					console.log(ShopRemark)
+					FeeWay = this.nowIndex + 1,
+					PayFee = this.PayFee,
+					FromWay = FromWays,
+					Author = this.proAuthor,
+					Source = this.proSource;
+					
+					
 				uni.request({
-					url:this.$serverUrl + '/Shop/Dev_Shop/SaveData',
+					url:this.$serverUrl + '/Product/Dev_Product/SaveData',
 					method:"POST",
+					// header:{
+					// 	'content-type': 'application/x-www-form-urlencoded'
+					// },
 					data:{
-						ShopTitle: ShopTitle,
-						ShopPic: this.imageSrc,
+						id: '',
+						ProductTitle: ProductTitle,
+						ProductPic: ProductPic,
+						ProductRemark: ProductRemark,
+						ProductContent: ProductContent,
+						// ProductContent: ProductContent,
+						ShopId: productId,
 						UserId: 1133345545746780160,
-						TypeId: 1204236075598483456,
-						ClassId: 1204236610573570048,
-						ChannelId: 1206262951519064064,
+						TypeId: 1206263002597298176,
+						ClassId: 1207231304286998528,
+						ChannelId: 1209655228291485696,
 						Provice: Provice,
 						City: City,
 						Area: Area,
-						Contact: Contact,
-						ContactTel: ContactTel,
-						ContactAddress: ContactAddress,
-						JoinWay: JoinWay,
-						JoinDemand: JoinDemand,
-						JoinFeeOnce: JoinFeeOnce,
-						JoinFeeMonth: JoinFeeMonth,
-						JoinFeeYear: JoinFeeYear,
-						JoinFeeUnlimited: JoinFeeUnlimited,
-						ShopContent: ShopContent,
-						ShopRemark: ShopRemark
-						
-						
+						FeeWay: FeeWay,
+						PayFee: PayFee,
+						FromWay: FromWay,
+						Author: Author,
+						Source: Source
 					},
 					success: (res) =>{
 						console.log(res)
-					}
+						
+					},
+					
 				});
 			},
 			
@@ -457,6 +470,12 @@
 			},
 			changHangye(index2) {
 				this.c = index2;
+			},
+			changNrly(index4) {
+				this.d = index4;
+			},
+			changSfgk(index5) {
+				this.e = index5;
 			},
 			change(data) {
 				var Provice = data.data[0],

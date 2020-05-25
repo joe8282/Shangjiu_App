@@ -116,7 +116,9 @@
 			</button> -->
 			<view class="list" v-show="tabCurrentIndex === 0">
 				<view class="fbsx-button-wrap">
+					<navigator :url="'../productAdd/productAdd?id=' + this.proId">
 					<span>发布商讯</span>
+					</navigator>
 				</view>
 				<view class="inv-h-w sx-bigtab" style="margin-bottom: -10px;">
 					<view :class="['inv-h',Invx1==0?'inv-h-se':'']" @click="Invx1=0">我的商讯(120)</view>
@@ -807,6 +809,7 @@
 				Invxs1:0,   //商讯大tab
 				Invxs2:0,   //商讯大tab
 				e:[],
+				proId:'',
 				ShopPic:[],
 				ShopTitle:[],
 				UserName:[],
@@ -946,6 +949,7 @@
 				var jqId = getLocaUrl.indexOf('1');
 				var newId = getLocaUrl.substr(jqId);
 				var newIds = newId.substring(0,19);
+				this.proId = newIds
 				uni.request({
 					// 详情信息
 					url:this.$serverUrl + '/Shop/Dev_Shop/GetDataDetail?id=' + newIds,
