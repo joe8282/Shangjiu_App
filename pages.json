@@ -38,24 +38,6 @@
 			}
 		},
 		{
-			"path": "pages/myAccount/myAccount",
-			"style": {
-				"navigationBarTitleText": "我的账户"
-			}
-		},
-		{
-			"path": "pages/businessNews/businessNews",
-			"style": {
-				"navigationBarTitleText": "我的商讯收藏"
-			}
-		},
-		{
-			"path": "pages/procurationBusiness/procurationBusiness",
-			"style": {
-				"navigationBarTitleText": "我的代理业务"
-			}
-		},
-		{
 			"path": "pages/rechargeRecord/rechargeRecord",
 			"style": {
 				"navigationBarTitleText": "充值记录"
@@ -125,12 +107,6 @@
 			"path": "pages/myAgent_ywy/myAgent_ywy",
 			"style": {
 				"navigationBarTitleText": "我的代理业务——业务员"
-			}
-		},
-		{
-			"path": "pages/tgtk/tgtk",
-			"style": {
-				"navigationBarTitleText": "我的推广拓客"
 			}
 		},
 		{
@@ -240,8 +216,32 @@
 			"style": {
 				"navigationBarTitleText": "设置"
 			}
+		},
+		{
+			"path": "pages/my/myAccount",
+			"style": {
+				"navigationBarTitleText": "我的账户"
+			}
+		},
+		{
+			"path": "pages/my/myShopIncome",
+			"style": {
+				"navigationBarTitleText": "我的商号收入"
+			}
+		},
+		{
+			"path": "pages/my/myCollectProduct",
+			"style": {
+				"navigationBarTitleText": "我的商讯收藏"
+			}
+		},
+		{
+			"path": "pages/my/myUser",
+			"style": {
+				"navigationBarTitleText": "我的推广拓客"
+			}
 		}
-	],
+    ],
 	"globalStyle": {
 	"navigationBarTextStyle": "black",
 	"navigationBarTitleText": "uni-app",
