@@ -4,99 +4,139 @@
 			<view class="bg">
 				<view class="user">
 					<view class="username">
-						<span>爱吃面包的猫</span>
-						<span>广东省广州市</span>
+						<span>{{ UserName }}</span>
+						<span>{{ DepartmentName }}</span>
 					</view>
 					<view class="pic">
 						<view>
-							<image class="head_pic" src="../../static/images/hy_tx.png"></image>
+							<img class="head_pic" :src="HeadPic" />
 						</view>
 					</view>
 				</view>
 				<view class="text">
-					<span>我叫张冲，是一名进城务工的农民工，今天我中午吃了一个馒头，太好吃了。但是我喜欢吃肉，我家里还有一只爱吃面包的猫</span>
+					<span>{{ Introduce }}</span>
 				</view>
 			</view>
 		</view>
 		<view class="content">
 			<h3>商号</h3>
-			<view class="list">
+			<view class="list" v-for="(item,index) in userList">
 				<view class="content_area">
 					<view class="pic_bg">
 						<view class="c_pic">
-							<image src="../../static/images/fx_pl.png"></image>
+							<image :src="item.HeadPic"></image>
 						</view>
 					</view>
 					<view class="c_text">
-						<span>这是一条标题啦啦啦啦啦啦</span>
-						<span>这是一条内容啦啦啦啦啦啦213213213213123123123132213123123</span>
+						<span>{{ item.ShopTitle }}</span>
+						<span>{{ item.ShopRemark }}</span>
 						<span>
-							<label>身份</label>
-							<label>类型</label>
-							<label>行业</label>
-							<label>区域</label>
+							<label>{{ item.ChannelName }}</label>
+							<label>{{ item.TypeName }}</label>
+							<label>{{ item.ClassName }}</label>
+							<label>{{ item.City }} {{ item.Area }}</label>
 						</span>
 						<span>
-							<label>免费加入</label>
-							<label>红包（无）</label>
+							<label>{{ item.JoinWay }}</label>
+							<label>红包（{{ item.HasReward }}）</label>
 							<label>体验￥10000</label>
 						</span>
 					</view>
 				</view>
 			</view>
-			<view class="list">
-				<view class="content_area">
-					<view class="pic_bg">
-						<view class="c_pic">
-							<image src="../../static/images/fx_pl.png"></image>
-						</view>
-					</view>
-					<view class="c_text">
-						<span>这是一条标题啦啦啦啦啦啦</span>
-						<span>这是一条内容啦啦啦啦啦啦213213213213123123123132213123123</span>
-						<span>
-							<label>身份</label>
-							<label>类型</label>
-							<label>行业</label>
-							<label>区域</label>
-						</span>
-						<span>
-							<label>免费加入</label>
-							<label>红包（无）</label>
-							<label>体验￥10000</label>
-						</span>
-					</view>
-				</view>
-			</view>
-			<view class="list">
-				<view class="content_area">
-					<view class="pic_bg">
-						<view class="c_pic">
-							<image src="../../static/images/fx_pl.png"></image>
-						</view>
-					</view>
-					<view class="c_text">
-						<span>这是一条标题啦啦啦啦啦啦</span>
-						<span>这是一条内容啦啦啦啦啦啦213213213213123123123132213123123</span>
-						<span>
-							<label>身份</label>
-							<label>类型</label>
-							<label>行业</label>
-							<label>区域</label>
-						</span>
-						<span>
-							<label>免费加入</label>
-							<label>红包（无）</label>
-							<label>体验￥10000</label>
-						</span>
-					</view>
-				</view>
-			</view>
+			
+			
 		</view>
 	</view>
 </template>
 <script>
-	
+	export default {
+		data(){
+			return{
+				userList:[],
+				pagesize: 10,
+				UserName:'',
+				DepartmentName:'',
+				Introduce:'',
+				HeadPic:[],
+			}
+		},
+		onLoad(){
+			this.getUserData();
+		},
+		methods:{
+			// 加载
+			onReachBottom(){
+				var newPageSize = this.pagesize += 8;
+				var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+					// console.log(scrollTop);
+					//可视区的高度
+					var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+					// console.log(windowHeight);
+					//滚动条的总高度
+					var scrollHeight = (document.documentElement.scrollHeight||document.body.scrollHeight)-200;
+					// console.log(scrollHeight);
+				   //滚动条到底部的条件
+				   if(scrollTop+windowHeight > scrollHeight){
+					  
+				
+						//页数增加
+						this.pagenum ++;
+						
+						uni.request({
+							url:this.$serverUrl + '/Shop/Dev_Shop/GetDataList?Status=1&pageSize='+newPageSize+'&pageNumber=' + this.pagenum,
+							success: (res) =>{
+								this.getUserData();
+								if(newPageSize > this.userList.length){
+									this.loadingText = '没有更多了'
+								}else{
+									this.loadingText = '正在加载中......'
+								}
+								
+							},
+							
+						})
+					};
+				
+			},
+			getUserData(){
+				var getLocaUrl = document.location.href;
+				var jqId = getLocaUrl.indexOf('1');
+				var newId = getLocaUrl.substr(jqId);
+				var newIds = newId.substring(0,19);
+				uni.request({
+					// url:this.$serverUrl + '/Base_SysManage/Base_User/GetDataDetail?Id=1133345545746780160',
+					url:this.$serverUrl + '/Base_SysManage/Base_User/GetDataDetail?Id=' + newIds,
+					success: (res) =>{
+						this.UserName = res.data.UserName;
+						this.DepartmentName = res.data.DepartmentName;
+						this.Introduce = res.data.Introduce;
+						this.HeadPic = res.data.HeadPic;
+					}
+				});
+				uni.request({
+					url:this.$serverUrl + '/Shop/Dev_Shop/GetDataList?Status=1&pageSize='+ this.pagesize+'&pageNumber=' + this.pagenum,
+					success: (res) =>{
+						this.userList = res.data.rows;
+						for ( var s = 0; s < res.data.rows.length; s ++ ) {
+							if( res.data.rows[s].IsAd == 1 || res.data.rows[s].HasReward == 1 || res.data.rows[s].JoinWay == 1) {
+								this.userList[s].IsAd = '是';
+								this.userList[s].HasReward = '有';
+								this.userList[s].JoinWay = '开放加入';
+							} else if( res.data.rows[s].IsAd == 2 || res.data.rows[s].HasReward == 2 || res.data.rows[s].JoinWay == 2 ) {
+								this.userList[s].IsAd = '否';
+								this.userList[s].HasReward = '无';
+								this.userList[s].JoinWay = '审核加入';
+							} else if( res.data.rows[s].JoinWay == 3 ) {
+								this.userList[s].JoinWay = '付费加入';
+							}
+						}
+					}
+				});
+				
+			}
+		}
+	}
 </script>
 
 <style>
@@ -213,7 +253,7 @@
 		/* align-items: center; */
 	}
 	.c_text span:first-child{
-		font-size: 36rpx;
+		font-size: 28rpx;
 		color: #2C2C2C;
 		font-weight: 500;
 	}
@@ -225,16 +265,16 @@
 		white-space: nowrap;
 	}
 	.c_text span:nth-child(3){
-		font-size: 28rpx;
+		font-size: 24rpx;
 		color: #999999;
 	}
 	.c_text span:nth-child(3) label{
 		padding-right: 50rpx;
 	}
 	.c_text span:nth-child(4){
-		font-size: 28rpx;
+		font-size: 24rpx;
 		color: #B22420;
-		font-weight: 700;
+		font-weight: bold;
 	}
 	.c_text span:nth-child(4) label{
 		display: inline-block;

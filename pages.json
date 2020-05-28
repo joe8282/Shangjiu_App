@@ -240,6 +240,12 @@
 			"style": {
 				"navigationBarTitleText": "设置"
 			}
+		},
+		{
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "信息"
+			}
 		}
 	],
 	"globalStyle": {

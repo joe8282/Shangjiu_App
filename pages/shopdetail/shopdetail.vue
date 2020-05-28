@@ -7,7 +7,9 @@
 			<view class="shop-title-cont">
 				<view class="shop-title-ctitle">{{ShopTitle}}</view>
 				<view class="shop-tx-time-cont">
-					<img src="static/images/my-tx.png" alt="" width="23"/>
+					<navigator :url="'../user/user?id=' + this.userId">
+						<img src="static/images/my-tx.png" alt="" width="23"/>
+					</navigator>
 					<span>{{UserName}}</span>
 					<label>{{CreateTime}}</label>
 				</view>
@@ -429,7 +431,7 @@
 				
 				ssPlList:[],
 				lyPlList:[],
-				
+				userId:'',
 				
 				
 				　
@@ -486,6 +488,11 @@
 			this.getOtherManage();
 			// 页面显示是默认选中第一个
 			this.tabCurrentIndex = 0;
+			var getLocaUrl = document.location.href;
+			var jqId = getLocaUrl.indexOf('1');
+			var newId = getLocaUrl.substr(jqId);
+			var newIds = newId.substring(0,19);
+			this.userId = newIds;
 		},
 		computed:{
 			showList:function(){

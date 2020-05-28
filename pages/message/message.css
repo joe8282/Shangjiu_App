@@ -1,0 +1,122 @@
+.fx-navbar{
+	display: flex;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 80rpx;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: fixed;
+	top: 44px;
+	z-index: 9999;
+	left: 0;
+}
+.fx-navbar .nav-item{
+	color: #000000;
+	font-size: 32rpx;
+	width: 50%;
+}
+.fx-navbar .current span{
+	font-weight: bold;
+	color: #B22420;
+	border-bottom: 4rpx solid #B22420;
+	padding-bottom: 6rpx;
+}
+.showArea{
+	position: absolute;
+	top: 44px;
+	left: 0;
+	margin-bottom: 50px;
+	width: 100%;
+	height: 100%;
+	background: #f8f4f4;
+}
+.list{
+	width: 100%;
+	border-bottom: 1px solid gainsboro;
+}
+.list_content{
+	width: 90%;
+	height: 180rpx;
+	margin: 0 auto;
+	display: flex;
+}
+.word{
+	width: 70%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+.word p{
+	width: 100%;
+	height: 65%;
+	font-size: 28rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.word span{
+	font-size: 26rpx;
+	color: gray;
+	display: inline-block;
+}
+.word span b{
+	padding-right: 30rpx;
+	font-weight: normal;
+}
+.pic-imgs{
+	width: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.pic-imgs img{
+	display: flex;
+	width: 80%;
+	height: 80%;
+	/* background: url(../../static/images/tuboshu.jpg) no-repeat center center; */
+}
+.loading_text{
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+	font-size: 14px;
+	color: rgb(102, 204, 255);
+}
+.allarr-list{
+	width: 90%;
+	margin-left: 4%;
+	float: left;
+	background: #FFFFFF;
+	border-radius: 4px;
+	margin-top: 10px;
+	padding: 2% 2%;
+}
+.allar-title{
+	width: 100%;
+	float: left;
+	height: 24px;
+	line-height: 24px;
+}
+.allar-title span{
+	float: left;
+	font-size: 16px;
+	color: #999999;
+}
+.allar-title label{
+	float: right;
+	font-size: 14px;
+	color: #999999;
+}
+.allar-cont{
+	width: 94%;
+	margin-left: 1%;
+	float: left;
+	background: #f8f4f4;
+	padding: 2% 2%;
+	color: #999999;
+	font-size: 14px;
+	border-radius: 4px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
