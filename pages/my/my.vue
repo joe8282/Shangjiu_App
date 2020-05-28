@@ -93,14 +93,39 @@
 					<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
 					<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
 				</view>
-				<view class="my-dl-three">
-					<ul class="my-one-ul">
-						<li>
-							<span>{{ShopNum}}</span>
-							<label>我的商号</label>
-						</li>
-					</ul>
-				</view>
+			</view>
+			<view class="my-cont-wrap">
+				<navigator url="/pages/index/index" open-type="switchTab">
+					<view class="my-cont-title">
+						<label></label>
+						<span>我的商号管理</span>
+						<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
+						<!-- <i class="my-cont-title-i">{{ShopNum}}</i> -->
+						<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
+					</view>
+				</navigator>
+			</view>
+			<view class="my-cont-wrap">
+				<navigator url="/pages/my/myUser">
+					<view class="my-cont-title">
+						<label></label>
+						<span>我的推广拓客</span>
+						<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
+						<!-- <i class="my-cont-title-i">{{UserNum}}</i> -->
+						<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
+					</view>
+				</navigator>
+			</view>
+			<view class="my-cont-wrap">
+				<navigator url="/pages/my/myCollectProduct">
+					<view class="my-cont-title">
+						<label></label>
+						<span>我的商讯收藏</span>
+						<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
+						<!-- <i class="my-cont-title-i">{{ProductNum}}</i> -->
+						<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
+					</view>
+				</navigator>
 			</view>
 			<view class="my-cont-wrap">
 				<view class="my-cont-title">
@@ -121,28 +146,6 @@
 					</li>
 				</ul>
 			</view> -->
-			</view>
-			<view class="my-cont-wrap">
-				<view class="my-cont-title">
-					<label></label>
-					<span>我的推广拓客</span>
-
-					<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
-					<i class="my-cont-title-i">{{UserNum}}</i>
-					<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
-				</view>
-
-			</view>
-			<view class="my-cont-wrap">
-				<view class="my-cont-title">
-					<label></label>
-					<span>我的商讯收藏</span>
-
-					<img src="static/images/right-arrow.png" alt="" class="right-arrow" />
-					<i class="my-cont-title-i">{{ProductNum}}</i>
-					<img src="static/images/my-wen.png" alt="" class="my-wen-icon-rr" />
-				</view>
-
 			</view>
 			<!-- <view class="my-cont-wrap">
 			<view class="my-cont-title">
