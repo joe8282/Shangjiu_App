@@ -236,10 +236,13 @@
                 "navigationBarTitleText" : "我的推广拓客"
             }
         },
-        {
-            "path" : "App",
-            "style" : {}
-        }
+		{
+		
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "信息"
+			}
+		}
     ],
     "globalStyle" : {
         "navigationBarTextStyle" : "black",
