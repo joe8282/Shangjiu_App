@@ -1,288 +1,288 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
-		{
-			"path": "pages/my/my",
-			"style": {
-				"navigationBarTitleText": "我的"
-			}
-		},
-		{
-			"path": "pages/helplist/helplist",
-			"style": {
-				"navigationBarTitleText": "发现",
-				"enablePullDownRefresh": true
-			}
-		},
-		{
-			"path": "pages/help/help",
-			"style": {
-				"navigationBarTitleText": "发现详情"
-			}
-		},
-		{
-			"path": "pages/shopAdd/shopAdd",
-			"style": {
-				"navigationBarTitleText": "创建商号"
-			}
-		},
-		{
-			"path": "pages/user/user",
-			"style": {
-				"navigationBarTitleText": "会员专区"
-			}
-		},
-		{
-			"path": "pages/rechargeRecord/rechargeRecord",
-			"style": {
-				"navigationBarTitleText": "充值记录"
-			}
-		},
-		{
-			"path": "pages/shop/shop",
-			"style": {
-				"navigationBarTitleText": "商管详情"
-			}
-		},
-		{
-			"path": "pages/shop/shopxq",
-			"style": {
-				"navigationBarTitleText": "商讯详情"
-			}
-		},
-		{
-			"path": "pages/shanghaodaili/shanghaodaili",
-			"style": {
-				"navigationBarTitleText": "商号代理"
-			}
-		},
-		{
-			"path": "pages/myAgent/myAgent",
-			"style": {
-				"navigationBarTitleText": "我的代理业务"
-			}
-		},
-		{
-			"path": "pages/myAgentShop/myAgentShop",
-			"style": {
-				"navigationBarTitleText": "区域商号"
-			}
-		},
-		{
-			"path": "pages/myAgentReward/myAgentReward",
-			"style": {
-				"navigationBarTitleText": "代理分利"
-			}
-		},
-		{
-			"path": "pages/ywyqysh/ywyqysh",
-			"style": {
-				"navigationBarTitleText": "业务员——区域商号"
-			}
-		},
-		{
-			"path": "pages/myAgentCustomer/myAgentCustomer",
-			"style": {
-				"navigationBarTitleText": "代理客户"
-			}
-		},
-		{
-			"path": "pages/myAgentWorker/myAgentWorker",
-			"style": {
-				"navigationBarTitleText": "业务员"
-			}
-		},
-		{
-			"path": "pages/wdzc/wdzc",
-			"style": {
-				"navigationBarTitleText": "我的支出"
-			}
-		},
-		{
-			"path": "pages/myAgent_ywy/myAgent_ywy",
-			"style": {
-				"navigationBarTitleText": "我的代理业务——业务员"
-			}
-		},
-		{
-			"path": "pages/shanghaodashang/shanghaodashang",
-			"style": {
-				"navigationBarTitleText": "商号打赏"
-			}
-		},
-		{
-			"path": "pages/mybankcard/mybankcard",
-			"style": {
-				"navigationBarTitleText": "我的银行卡"
-			}
-		},
-		{
-			"path": "pages/hongbaoshouru/hongbaoshouru",
-			"style": {
-				"navigationBarTitleText": "红包收入"
-			}
-		},
-		{
-			"path": "pages/jiesuanjilu/jiesuanjilu",
-			"style": {
-				"navigationBarTitleText": "结算记录"
-			}
-		},
-		{
-			"path":"pages/shopAdd/editor",
-			"style": {
-				"navigationBarTitleText":"文本编辑器"
-			}
-		},
-		{
-			"path":"pages/productAdd/productAdd",
-			"style": {
-				"navigationBarTitleText":"发布商讯"
-			}
-		},
-		{
-			"path":"pages/productList/productList",
-			"style": {
-				"navigationBarTitleText":"商讯主页"
-			}
-		},
-		{
-			"path":"pages/product/product",
-			"style": {
-				"navigationBarTitleText":"商讯详情"
-			}
-		},
-		{
-			"path":"pages/AdRecord/AdRecord",
-			"style": {
-				"navigationBarTitleText":"推广记录管理"
-			}
-		},
-		{
-			"path":"pages/AdOperation/AdOperation",
-			"style": {
-				"navigationBarTitleText":"置顶"
-			}
-		},
-		{
-			"path":"pages/AdAdd/AdAdd",
-			"style": {
-				"navigationBarTitleText":"商号推广"
-			}
-		},
-		{
-			"path":"pages/test/test",
-			"style": {
-				"navigationBarTitleText":"测试"
-			}
-		},
-		{
-			"path":"pages/myAgentReg/myAgentReg",
-			"style": {
-				"navigationBarTitleText":"申请代理"
-			}
-		},
-		{
-			"path":"pages/shopList/shopList",
-			"style": {
-				"navigationBarTitleText":"商号主页"
-			}
-		},
-		{
-			"path":"pages/shopdetail/shopdetail",
-			"style": {
-				"navigationBarTitleText":"商号详情"
-			}
-		},
-		{
-			"path": "pages/login/register",
-			"style": {
-				"navigationBarTitleText": "注册账号",
-				"navigationBarBackgroundColor":"#B22420",
-				"navigationBarTextStyle":"white",
-				"app-plus": {
-				    "bounce": "none" ,//关闭窗口回弹效果
-					"softinputNavBar":"none"
-				}
-			}
-		},
-		{
-			"path": "pages/my/setting",
-			"style": {
-				"navigationBarTitleText": "设置"
-			}
-		},
-		{
-			"path": "pages/my/myAccount",
-			"style": {
-				"navigationBarTitleText": "我的账户"
-			}
-		},
-		{
-			"path": "pages/my/myShopIncome",
-			"style": {
-				"navigationBarTitleText": "我的商号收入"
-			}
-		},
-		{
-			"path": "pages/my/myCollectProduct",
-			"style": {
-				"navigationBarTitleText": "我的商讯收藏"
-			}
-		},
-		{
-			"path": "pages/my/myUser",
-			"style": {
-				"navigationBarTitleText": "我的推广拓客"
-			}
-		}
+    "pages" : [
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+            "path" : "pages/index/index",
+            "style" : {
+                "navigationBarTitleText" : "首页"
+            }
+        },
+        {
+            "path" : "pages/my/my",
+            "style" : {
+                "navigationBarTitleText" : "我的"
+            }
+        },
+        {
+            "path" : "pages/helplist/helplist",
+            "style" : {
+                "navigationBarTitleText" : "发现",
+                "enablePullDownRefresh" : true
+            }
+        },
+        {
+            "path" : "pages/help/help",
+            "style" : {
+                "navigationBarTitleText" : "发现详情"
+            }
+        },
+        {
+            "path" : "pages/shopAdd/shopAdd",
+            "style" : {
+                "navigationBarTitleText" : "创建商号"
+            }
+        },
+        {
+            "path" : "pages/user/user",
+            "style" : {
+                "navigationBarTitleText" : "会员专区"
+            }
+        },
+        {
+            "path" : "pages/rechargeRecord/rechargeRecord",
+            "style" : {
+                "navigationBarTitleText" : "充值记录"
+            }
+        },
+        {
+            "path" : "pages/shop/shop",
+            "style" : {
+                "navigationBarTitleText" : "商管详情"
+            }
+        },
+        {
+            "path" : "pages/shop/shopxq",
+            "style" : {
+                "navigationBarTitleText" : "商讯详情"
+            }
+        },
+        {
+            "path" : "pages/shanghaodaili/shanghaodaili",
+            "style" : {
+                "navigationBarTitleText" : "商号代理"
+            }
+        },
+        {
+            "path" : "pages/myAgent/myAgent",
+            "style" : {
+                "navigationBarTitleText" : "我的代理业务"
+            }
+        },
+        {
+            "path" : "pages/myAgentShop/myAgentShop",
+            "style" : {
+                "navigationBarTitleText" : "区域商号"
+            }
+        },
+        {
+            "path" : "pages/myAgentReward/myAgentReward",
+            "style" : {
+                "navigationBarTitleText" : "代理分利"
+            }
+        },
+        {
+            "path" : "pages/ywyqysh/ywyqysh",
+            "style" : {
+                "navigationBarTitleText" : "业务员——区域商号"
+            }
+        },
+        {
+            "path" : "pages/myAgentCustomer/myAgentCustomer",
+            "style" : {
+                "navigationBarTitleText" : "代理客户"
+            }
+        },
+        {
+            "path" : "pages/myAgentWorker/myAgentWorker",
+            "style" : {
+                "navigationBarTitleText" : "业务员"
+            }
+        },
+        {
+            "path" : "pages/wdzc/wdzc",
+            "style" : {
+                "navigationBarTitleText" : "我的支出"
+            }
+        },
+        {
+            "path" : "pages/myAgent_ywy/myAgent_ywy",
+            "style" : {
+                "navigationBarTitleText" : "我的代理业务——业务员"
+            }
+        },
+        {
+            "path" : "pages/shanghaodashang/shanghaodashang",
+            "style" : {
+                "navigationBarTitleText" : "商号打赏"
+            }
+        },
+        {
+            "path" : "pages/mybankcard/mybankcard",
+            "style" : {
+                "navigationBarTitleText" : "我的银行卡"
+            }
+        },
+        {
+            "path" : "pages/hongbaoshouru/hongbaoshouru",
+            "style" : {
+                "navigationBarTitleText" : "红包收入"
+            }
+        },
+        {
+            "path" : "pages/jiesuanjilu/jiesuanjilu",
+            "style" : {
+                "navigationBarTitleText" : "结算记录"
+            }
+        },
+        {
+            "path" : "pages/productAdd/productAdd",
+            "style" : {
+                "navigationBarTitleText" : "发布商讯"
+            }
+        },
+        {
+            "path" : "pages/productList/productList",
+            "style" : {
+                "navigationBarTitleText" : "商讯主页"
+            }
+        },
+        {
+            "path" : "pages/product/product",
+            "style" : {
+                "navigationBarTitleText" : "商讯详情"
+            }
+        },
+        {
+            "path" : "pages/AdRecord/AdRecord",
+            "style" : {
+                "navigationBarTitleText" : "推广记录管理"
+            }
+        },
+        {
+            "path" : "pages/AdOperation/AdOperation",
+            "style" : {
+                "navigationBarTitleText" : "置顶"
+            }
+        },
+        {
+            "path" : "pages/AdAdd/AdAdd",
+            "style" : {
+                "navigationBarTitleText" : "商号推广"
+            }
+        },
+        {
+            "path" : "pages/test/test",
+            "style" : {
+                "navigationBarTitleText" : "测试"
+            }
+        },
+        {
+            "path" : "pages/myAgentReg/myAgentReg",
+            "style" : {
+                "navigationBarTitleText" : "申请代理"
+            }
+        },
+        {
+            "path" : "pages/shopList/shopList",
+            "style" : {
+                "navigationBarTitleText" : "商号主页"
+            }
+        },
+        {
+            "path" : "pages/shopdetail/shopdetail",
+            "style" : {
+                "navigationBarTitleText" : "商号详情"
+            }
+        },
+        {
+            "path" : "pages/login/register",
+            "style" : {
+                "navigationBarTitleText" : "注册账号",
+                "navigationBarBackgroundColor" : "#B22420",
+                "navigationBarTextStyle" : "white",
+                "app-plus" : {
+                    "bounce" : "none", //关闭窗口回弹效果
+                    "softinputNavBar" : "none"
+                }
+            }
+        },
+        {
+            "path" : "pages/my/setting",
+            "style" : {
+                "navigationBarTitleText" : "设置"
+            }
+        },
+        {
+            "path" : "pages/my/myAccount",
+            "style" : {
+                "navigationBarTitleText" : "我的账户"
+            }
+        },
+        {
+            "path" : "pages/my/myShopIncome",
+            "style" : {
+                "navigationBarTitleText" : "我的商号收入"
+            }
+        },
+        {
+            "path" : "pages/my/myCollectProduct",
+            "style" : {
+                "navigationBarTitleText" : "我的商讯收藏"
+            }
+        },
+        {
+            "path" : "pages/my/myUser",
+            "style" : {
+                "navigationBarTitleText" : "我的推广拓客"
+            }
+        },
+        {
+            "path" : "App",
+            "style" : {}
+        }
     ],
-	"globalStyle": {
-	"navigationBarTextStyle": "black",
-	"navigationBarTitleText": "uni-app",
-	"navigationBarBackgroundColor": "#F8F8F8",
-	"backgroundColor": "#F8F8F8"
-},
- 
-    "tabBar": {
-        "color": "#999999",
-        "selectedColor": "#b22420",
-        "borderStyle": "black",
-        "backgroundColor": "#ffffff",
-        "list": [{
-                "pagePath": "pages/index/index",
-                "iconPath": "static/images/index-nav11.png",
-                "selectedIconPath": "static/images/index-nav1.png",
-                "text": "首页"
-            }, {
-                "pagePath": "pages/shanghao",
-                "iconPath": "static/images/index-nav22.png",
-                "selectedIconPath": "static/images/index-nav2.png",
-                "text": "商号"
+    "globalStyle" : {
+        "navigationBarTextStyle" : "black",
+        "navigationBarTitleText" : "uni-app",
+        "navigationBarBackgroundColor" : "#F8F8F8",
+        "backgroundColor" : "#F8F8F8"
+    },
+    "tabBar" : {
+        "color" : "#999999",
+        "selectedColor" : "#b22420",
+        "borderStyle" : "black",
+        "backgroundColor" : "#ffffff",
+        "list" : [
+            {
+                "pagePath" : "pages/index/index",
+                "iconPath" : "static/images/index-nav11.png",
+                "selectedIconPath" : "static/images/index-nav1.png",
+                "text" : "首页"
             },
             {
-                "pagePath": "pages/productList/productList",
-                "iconPath": "static/images/index-nav33.png",
-                "selectedIconPath": "static/images/index-nav3.png",
-                "text": "商讯"
-            }, 
-			{
-                "pagePath": "pages/helplist/helplist",
-                "iconPath": "static/images/index-nav44.png",
-                "selectedIconPath": "static/images/index-nav4.png",
-                "text": "发现"
+                "pagePath" : "pages/shopList/shopList",
+                "iconPath" : "static/images/index-nav22.png",
+                "selectedIconPath" : "static/images/index-nav2.png",
+                "text" : "商号"
             },
-			{
-			   "pagePath": "pages/my/my",
-			   "iconPath": "static/images/index-nav55.png",
-			   "selectedIconPath": "static/images/index-nav5.png",
-			   "text": "我的"
-			}
+            {
+                "pagePath" : "pages/productList/productList",
+                "iconPath" : "static/images/index-nav33.png",
+                "selectedIconPath" : "static/images/index-nav3.png",
+                "text" : "商讯"
+            },
+            {
+                "pagePath" : "pages/helplist/helplist",
+                "iconPath" : "static/images/index-nav44.png",
+                "selectedIconPath" : "static/images/index-nav4.png",
+                "text" : "发现"
+            },
+            {
+                "pagePath" : "pages/my/my",
+                "iconPath" : "static/images/index-nav55.png",
+                "selectedIconPath" : "static/images/index-nav5.png",
+                "text" : "我的"
+            }
         ]
     }
 }

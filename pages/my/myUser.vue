@@ -81,7 +81,7 @@
 			this.showLoadMore = true;
 			setTimeout(() => {
 				this.initData();
-			}, 800);	
+			}, 1000);	
 		},
 		computed: {
 			startDate() {

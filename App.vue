@@ -88,7 +88,6 @@
 
 <style>
 	/*每个页面公共css */
-	
 	/* loadmore */
 	.uni-loadmore{
 		font-size: 30rpx;
@@ -96,5 +95,10 @@
 		line-height:80rpx;
 		text-align:center;
 		padding-bottom:30rpx;
+	}
+	.bottom{
+		display: flex;
+		width: 100%;
+		height: 100rpx;
 	}
 </style>

@@ -70,7 +70,7 @@
 					uni.request({
 						url: this.$serverUrl + '/Base_SysManage/Common/SendMessage?phone=' + this.phoneNumber,
 						success: (res) => {
-							//console.log(res)
+							console.log(res)
 							if (res.data.Status == 'OK') {
 								this.sendcode = res.data.Data;
 							} else {

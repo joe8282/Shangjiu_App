@@ -74,6 +74,7 @@ i{
 	font-size: 16px;
 	color: #2c2c2c;
 	padding-top: 10px;
+	font-weight: bold;
 }
 .shop-tx-time-cont{
 	width: 100%;
@@ -112,7 +113,7 @@ i{
 	float: left;
 }
 .shop-ullist-red span{
-	margin-right: 10px;
+	margin-right: 20px;
 }
 .shop-ullist-ten{
 	width: 100%;
@@ -301,6 +302,7 @@ i{
 	float: left;
 	font-size: 12px;
 	color: #646464;
+	margin: 5px 0;
 }
 .main-four-ul, .main-three-ul{
 	float: left;
@@ -314,6 +316,9 @@ i{
 	margin-right: 14px;
 	font-size: 12px;
 }
+	.dysf-style {
+		color: #b22420;
+	}
 .main-three-ul li{
 	width: 33%;
 	float: left;
@@ -447,6 +452,7 @@ i{
 }
 .smtab-five img{
 	width: 18%;
+	margin: 4px 6px 4px 0;
 }
 .small-tab-timeer{
 	width: 100%;

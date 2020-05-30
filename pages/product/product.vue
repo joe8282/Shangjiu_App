@@ -5,7 +5,7 @@
 		</view>
 		<view class="shop-title-wrap">
 			<view class="shop-title-cont">
-				<view class="shop-title-ctitle">{{ProductTitle}}<span style="opacity: 0;" id="shopIDs">{{shopIDs}}</span></view>
+				<view class="shop-title-ctitle">{{ProductTitle}}</view>
 				<view class="shop-tx-time-cont">
 					<img src="static/images/my-tx.png" alt="" width="23"/>
 					<span>{{UserName}}</span>
@@ -15,13 +15,12 @@
 					<span>{{ChannelName}}</span>
 					<span>{{TypeName}}</span>
 					<span>{{ClassName}}</span>
-					<span>{{City}}-{{Area}}</span>
+					<span>{{Provice}}{{City}}{{Area}}</span>
 					
 				</view>
 				<view class="shop-ullist-red">
-					<span>{{JoinWay}}</span>
+					<span>{{FeeWay}}</span>
 					<span>推广（{{IsAd}}）</span>
-					<span>红包（{{HasReward}}）</span>
 				</view>
 				<view class="shop-ullist-ten">
 					<view class="shop-ullist-ll">
@@ -60,41 +59,17 @@
 					<img :src="aaShopPic" alt="" class="main-tab-img" />
 					<view class="main-tab-right">
 						<span class="main-tab-r-title">{{ aaShopTitle }}</span>
-						<label class="main-tab-r-ddd">{{ aaShopContent }}</label>
+						<label class="main-tab-r-ddd">{{ aaShopRemark }}</label>
 						<ul class="main-four-ul">
 							<li>{{ aaChannelName }}</li>
 							<li>{{ aaTypeName }}</li>
 							<li>{{ aaClassName }}</li>
-							<li>{{ aaCity }}-{{ aaArea }}</li>
-						</ul>
-						<ul class="main-three-ul">
-							<li>{{ aaJoinWay }}</li>
-							<li>红包（{{ aaHasReward }}）</li>
-							<li>体验￥10000</li>
+							<li>{{ aaCity }}{{ aaArea }}</li>
+							<li><span class="dysf-style">{{ aaJoinWay }}</span></li>
 						</ul>
 					</view>
 				</view>
 			</view>
-			<!-- <view class="main-tab-list-cont" v-for="(item,index) in shopDetailJk">
-				<view class="main-tab-nr">
-					<img :src="item.ShopPic" alt="" class="main-tab-img" />
-					<view class="main-tab-right">
-						<span class="main-tab-r-title">{{ item.ShopTitle }}</span>
-						<label class="main-tab-r-ddd">{{ item.ShopContent }}</label>
-						<ul class="main-four-ul">
-							<li>{{ item.ChannelName }}</li>
-							<li>{{ item.TypeName }}</li>
-							<li>{{ item.ClassName }}</li>
-							<li>{{ item.City }}-{{ item.Area }}</li>
-						</ul>
-						<ul class="main-three-ul">
-							<li>{{ item.JoinWay }}</li>
-							<li>红包（{{ item.HasReward }}）</li>
-							<li>体验￥10000</li>
-						</ul>
-					</view>
-				</view>
-			</view> -->
 		</view>
 		<view class="sssh-xq-listwrap">
 			<view class="sssh-xq-list">
@@ -102,39 +77,34 @@
 					<span>{{ProductContent}}</span>
 				</view>
 			</view>
-			
 		</view>
 		
 		<view class="sypj-pj-wrap">
 			<view class="sypj-title">
 				<span>所有评论</span>
-				<label>12358</label>
+				<label>{{CommentNum}}</label>
 			</view>
 			<view class="small-tab small-tab-borderb" v-for="(item,index) in productPl">
 				<view class="stabl-title-cont">
 					<img :src="item.HeadPic" alt="" height="100%" />
-					<span>{{ item.RealName }}</span>
+					<span>{{ item.UserName }}</span>
 				</view>
 				<view class="stable-dl">
-					{{ item.CommentContent }}
+					<rich-text :nodes="item.CommentContent"></rich-text>
 				</view>
-				<view class="smtab-imgs smtab-imgs smtab-five">
-					<img :src="plPics1" alt="">
-					<img :src="plPics2" alt="">
-					<img :src="plPics3" alt="">
-					<img :src="plPics4" alt="">
-					<img :src="plPics5" alt="">
+				<view class="smtab-five">
+					<img :src="item1" v-for="(item1,index1) in item.CommentPic.split(';')" alt="" />
 				</view>
 				<view class="small-tab-timeer">
 					<i>{{ item.CreateTime }}</i>
-					<view class="small-tab-icons">
+<!-- 					<view class="small-tab-icons">
 						<span class="icon iconfont">&#xe68b;</span>
 						<label>12580</label>
 					</view>
 					<view class="small-tab-icons">
 						<span class="icon iconfont">&#xe600;</span>
 						<label>12580</label>
-					</view>
+					</view> -->
 					
 				</view>
 			</view>
@@ -159,7 +129,9 @@
 			uniFav
 		},
 		data() {
-			return {				　
+			return {
+				Id: '',
+				　
 				ProductPic:[],
 				ProductTitle:[],
 				UserName:[],
@@ -167,9 +139,11 @@
 				ChannelName:[],
 				TypeName:[],
 				ClassName:[],
+				Provice: [],
 				City:[],
 				Area:[],
-				JoinWay:[],
+				FeeWay:'',
+				PayFee:0,
 				IsAd:[],
 				HasReward:[],
 				CommentNum:[],
@@ -178,18 +152,12 @@
 				GetRewardFee:[],
 				GoodNum:[],
 				ProductContent:[],
-				shopIDs:[],
+				
 				productPl:[], //评论
-				plPics1:[], //评论图片1
-				plPics2:[], //评论图片2
-				plPics3:[], //评论图片3
-				plPics4:[], //评论图片4
-				plPics5:[], //评论图片5
-				shopDetailJk: [], // 中间商号信息
 				
 				aaShopPic:[],
 				aaShopTitle:[],
-				aaShopContent:[],
+				aaShopRemark:[],
 				aaChannelName:[],
 				aaTypeName:[],
 				aaClassName:[],
@@ -201,7 +169,8 @@
 			
 			
 		},
-		onLoad() {
+		onLoad(options) {
+			this.Id = options.id;
 			this.getDataList();
 			// this.getShopProduct();
 			setTimeout(() => {
@@ -212,40 +181,48 @@
 			getDataList(){
 				
 				//  商讯内容
-				var getLocaUrl = document.location.href;
-				var jqId = getLocaUrl.indexOf('1');
-				var newId = getLocaUrl.substr(jqId);
 				uni.request({
-					url:this.$serverUrl + '/Product/Dev_Product/GetDataDetail?id=' + newId,
+					url:this.$serverUrl + '/Product/Dev_Product/GetDataDetail?id=' + this.Id,
 					success: (res) =>{
 						this.ProductPic = res.data.ProductPic;
 						this.ProductTitle = res.data.ProductTitle;
 						this.UserName = res.data.UserName;
-						this.CreateTime = res.data.CreateTime;
+						this.CreateTime = res.data.CreateTime.split(' ')[0];;
 						this.ChannelName = res.data.ChannelName;
 						this.TypeName = res.data.TypeName;
 						this.ClassName = res.data.ClassName;
+						this.Provice = res.data.Provice;
 						this.City = res.data.City;
 						this.Area = res.data.Area;
-						this.JoinWay = res.data.JoinWay;
+						this.PayFee = res.data.PayFee;
 						this.IsAd = res.data.IsAd;
-						this.HasReward = res.data.HasReward;
 						this.CommentNum = res.data.CommentNum;
 						this.ClickNum = res.data.ClickNum;
 						this.CollectionNum = res.data.CollectionNum;
 						this.GetRewardFee = res.data.GetRewardFee;
 						this.GoodNum = res.data.GoodNum;
 						this.ProductContent = res.data.ProductContent;
-						this.shopIDs = res.data.ShopId;
-						var shShopIds = this.shopIDs;
+						if ( res.data.FeeWay == 1 ){
+							this.FeeWay = '免费'
+						} else if ( res.data.FeeWay == 2 ) {
+							this.FeeWay = '订阅收费（'+ this.PayFee + '）'
+						} else if ( res.data.FeeWay == 3 ) {
+							this.FeeWay = '项目收费（'+ this.PayFee + '）'
+						};
+						if (res.data.IsAd == 1) {
+							this.IsAd = '是';
+						} else {
+							this.IsAd = '否';
+						};
+						var shopId = res.data.ShopId;
 						// 中间商号信息
 						uni.request({
-							url:this.$serverUrl + '/Shop/Dev_Shop/GetDataDetail?id=' + shShopIds,
+							url:this.$serverUrl + '/Shop/Dev_Shop/GetDataDetail?id=' + shopId,
 							success: (resdata) =>{
 								console.log(resdata)
 								this.aaShopPic = resdata.data.ShopPic;
 								this.aaShopTitle = resdata.data.ShopTitle;
-								this.aaShopContent = resdata.data.ShopContent;
+								this.aaShopRemark = resdata.data.ShopRemark;
 								this.aaChannelName = resdata.data.ChannelName ;
 								this.aaTypeName = resdata.data.TypeName;
 								this.aaClassName = resdata.data.ClassName;
@@ -253,16 +230,16 @@
 								this.aaArea = resdata.data.Area;
 								this.aaJoinWay = resdata.data.JoinWay;
 								this.aaHasReward = resdata.data.HasReward;
-								if ( this.aaJoinWay == 1 ){
+								if ( resdata.data.JoinWay == 1 ){
 									this.aaJoinWay = '开放加入'
-								} else if ( this.aaJoinWay == 2 ) {
+								} else if ( resdata.data.JoinWay == 2 ) {
 									this.aaJoinWay = '审核加入'
-								} else if ( this.aaJoinWay == 3 ) {
+								} else if ( resdata.data.JoinWay == 3 ) {
 									this.aaJoinWay = '付费加入'
 								};
-								if( this.aaHasReward == 1 ) {
+								if( resdata.data.HasReward == 1 ) {
 									this.aaHasReward = '是';
-								} else if ( this.aaHasReward == 2 ) {
+								} else if ( resdata.data.HasReward == 2 ) {
 									this.aaHasReward = '否';
 								}
 								
@@ -291,20 +268,20 @@
 				})
 				// 商讯下面的评论
 				uni.request({
-					url:this.$serverUrl + '/OtherManage/Dev_Comment/GetDataList?CommentType=商讯评论&Status=1&SubjectId=' + newId,
+					url:this.$serverUrl + '/OtherManage/Dev_Comment/GetDataList?CommentType=商讯评论&Status=1&SubjectId=' + this.Id,
 					success: (res) =>{
 						this.productPl = res.data.rows;
-						for ( var o = 0; o < res.data.rows.length; o ++ ){
-							console.log(res)
-							var morePic = res.data.rows[o].CommentPic;
-							var newPics = morePic.split(';');
-							this.plPics1 = newPics[0];
-							this.plPics2 = newPics[1];
-							this.plPics3 = newPics[2];
-							this.plPics4 = newPics[3];
-							this.plPics5 = newPics[4];
+						// for ( var o = 0; o < res.data.rows.length; o ++ ){
+						// 	console.log(res)
+						// 	var morePic = res.data.rows[o].CommentPic;
+						// 	var newPics = morePic.split(';');
+						// 	this.plPics1 = newPics[0];
+						// 	this.plPics2 = newPics[1];
+						// 	this.plPics3 = newPics[2];
+						// 	this.plPics4 = newPics[3];
+						// 	this.plPics5 = newPics[4];
 							
-						}
+						// }
 					}
 				})
 			},

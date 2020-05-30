@@ -164,7 +164,7 @@
 
 <script>
 	import 'pages/productAdd/productAdd.css';
-	import 'pages/shopAdd/shopAdd.css';
+	// import 'pages/shopAdd/shopAdd.css';
 	import pickerAddress from '@/components/wangding-pickerAddress/wangding-pickerAddress.vue';
 	import simpleAddress from "@/components/simple-address/simple-address.nvue"
 	export default {
@@ -505,7 +505,273 @@
 </script>
 
 <style>
-	.text-area {
+	*{
+		margin: 0;
+		padding: 0;
+		touch-action: pan-y;
+	}
+	/* body{
+		background-color: #F6F6F6;
+	} */
+	ul,li{
+		list-style: none;
+	}
+	ul{ 
+		margin: 0;
+		padding: 0;
+	}
+	a{
+		text-decoration:none;
+	}
+	img{
+		max-width:100%;
+		vertical-align:middle;
+	}
+	em{
+		font-style:normal;
+	}
+	i{
+		font-style: normal;
+	}
+	.content{
+		display: flex;
+		flex-direction: column;
+		background-color: #F6F6F6;
+	}
+	.shopAdd-commit-img-wrap{
+		width: 100%;
+		padding: 20px 0px;
+		min-height: 100px;
+		text-align: center;
+	/* 	justify-content: center;
+		vertical-align: middle; */
+		font-size: 14px;
+		/* line-height: 60px; */
+		background: #FFFFFF;
+		float: left;
+	}
+	.delimg-icon{
+		position: absolute;
+		height: 30px;
+		width: 30px;
+		display: inline-block;
+		line-height: 30px;
+		background: #cccccc;
+		color: #999;
+		border-radius: 4px;
+		margin-left: 5px;
+	}
+	.shopAdd-cont-wrap{
+		width: 100%;
+		background: #FFFFFF;
+		margin-top: 10px;
+		float: left;
+		padding-bottom: 10px;
+	}
+	.shopAdd-cont-cc{
+		width: 92%;
+		margin-left: 4%;
+	}
+	.shopAdd-cont-title{
+		width: 100%;
+		font-size: 14px;
+		height: 34px;
+		line-height: 34px;
+	}
+	.shopAdd-cont-title span{
+		display: inline-block;
+		width: 100%;
+	}
+	.shopAdd-textarea{
+		width: 95%;
+		font-size: 14px;
+		min-height: 80px;
+		float: left;
+		background: #f6f6f6;
+		/* text-indent: 10px; */
+		padding: 10px;
+		border-radius: 4px;
+	}
+	.shopAdd-cont-list{
+		width: 14%;
+		display: flex;
+		flex-wrap: wrap; 
+		float: left;
+		margin: 4px 1%;
+		align-content:center;
+		border: 1px solid #999999;
+		color: #999999;
+		height: 22px;
+		line-height: 22px;
+		border-radius: 4px;
+	}
+	.shopAdd-cont-list span{
+		width: 100%;
+		display: inline-flex;
+		justify-content: center;
+		text-align: center;
+		font-size: 14px;
+		align-content:center;
+		
+	}
+	.shopAdd-cont-list-three{
+		width: 30%;
+		display: flex;
+		flex-wrap: wrap; 
+		float: left;
+		margin: 4px 1%;
+		align-content:center;
+		background: #ffffff;
+		border: 1px solid #000000;
+		color: #000000;
+		border-radius: 5px;
+		background: url(../../static/images/ygou.png) no-repeat right top;
+		height: 22px;
+		line-height: 22px;
+		border-radius: 5px;
+		display: inline-flex;
+		justify-content: center;
+		text-align: center;
+		font-size: 14px;
+		align-content:center;
+	}
+	.active1{
+		border: 1px solid #999999 !important;
+		color: #999999 !important;
+		background: none !important;
+	}
+	.active{
+		background: #ffffff;
+		border: 1px solid #000000 !important;
+		color: #000000 !important;
+		border-radius: 5px;
+		background: url(../../static/images/ygou.png) no-repeat right top;
+		/* background-size: 50%; */
+	}
+	.Classification {
+		background: #ffffff;
+	}
+	.blue {
+		color: blue;
+	}
+	.shopAdd-cont-cc .uni-input{
+		font-size: 14px;
+		background: #f6f6f6;
+		height: 30px;
+		line-height: 30px;
+		padding-left: 10px;
+		border-radius: 4px;
+	}
+	.pickers-select{
+		font-size: 12px;
+	}
+	.pickers-select-span{
+		border: 1px solid #000000;
+		font-size: 14px;
+		height: 22px;
+		line-height: 22px;
+		display: inline-flex;
+		padding: 0 30px;
+	}
+	.select-city{
+		font-size: 14px;
+	}
+	
+	.next-bottomfixed{
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		background: #FFFFFF;
+		justify-content: center;
+		text-align: center;
+		float: left;
+		margin-top: 10px;
+		font-size: 14px;
+		color: #b22420;
+	}
+	.nowindex-list{
+		width: 92%;
+		float: left;
+		margin-left: 4%;
+		height: 30px;
+		line-height: 30px;
+		margin-top: 10px;
+	}
+	.nowindex-list span{
+		display: inline-flex;
+		float: left;
+		font-size: 14px;
+		width: 14%;
+		font-weight: bold;
+	}
+	.nowindex-list input{
+		border: 1px solid #c1c1c1;
+		float: left;
+		height: 22px;
+		width: 60%;
+		margin-top: 2px;
+		border-radius: 3px;
+	}
+	.nowindex-list label{
+		float: right;
+		color: #c1c1c1;
+		font-size: 14px;
+		width: 20%;
+	}
+	.disnone{
+		display: none;
+	}
+	
+	
+	/* #editor{
+		font-size: 14px;
+	} */
+	
+	.next-btn-editor{
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		background: #FFFFFF;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+		text-align: center;
+		float: left;
+		margin-top: 10px;
+		font-size: 14px;
+		color: #b22420;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		border-top: 1px solid #F1F1F1;
+	}
+	.insertimg{
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		background: #FFFFFF;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+		text-align: center;
+		color: #b22420;
+		font-size: 14px;
+		position: fixed;
+		bottom: 50px;
+		left: 0;
+		border-top: 1px solid #F1F1F1;
+	}
+	
+	/* .editor-topinput{
+		width: 100%;
+		height: 60px;
+		line-height: 60px;
+		background: #FFFFFF;
+		text-indent: 12px;
+	} */
+	
+	
+/* 	.text-area {
 		display: flex;
 		justify-content: center;
 	}
@@ -513,5 +779,5 @@
 	.title {
 		font-size: 36px;
 		color: #8f8f94;
-	}
+	} */
 </style>
