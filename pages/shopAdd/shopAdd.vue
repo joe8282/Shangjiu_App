@@ -24,8 +24,8 @@
 					<view class="shopAdd-cont-title">
 						<span>商号所有者身份：</span>
 					</view>
-					<view v-for="(item , index) in shenfen" @click="changShenfen(index)" :key="index"
-						 :class="{active:a === index}" class="shopAdd-cont-list">
+					<view v-for="(item , index) in channelList" @click="changChannel(item.Id)" :key="index"
+						 :class="{active:channelId === item.Id}" class="shopAdd-cont-list">
 						<span>{{ item.Name }}</span>
 						<!-- <i class="disnone">{{ item.ParentId }}</i> -->	
 					</view>
@@ -36,8 +36,8 @@
 					<view class="shopAdd-cont-title">
 						<span>商号类型：</span>
 					</view>
-					<view v-for="(item , index1) in leixing" @click="changLeixing(index1)" :key="index1"
-						 :class="{active:b === index1}" class="shopAdd-cont-list">
+					<view v-for="(item , index1) in typeList" @click="changType(item.Id)" :key="index1"
+						 :class="{active:typeId === item.Id}" class="shopAdd-cont-list">
 						<span>{{ item.Name }}</span>
 					</view>
 				</view>
@@ -47,8 +47,8 @@
 					<view class="shopAdd-cont-title">
 						<span>商号行业：</span>
 					</view>
-					<view v-for="(item , index2) in hangye" @click="changHangye(index2)" :key="index2"
-						 :class="{active:c === index2}" class="shopAdd-cont-list">
+					<view v-for="(item , index2) in classList" @click="changClass(item.Id)" :key="index2"
+						 :class="{active:classId === item.Id}" class="shopAdd-cont-list">
 						<span>{{ item.Name }}</span>
 					</view>
 				</view>
@@ -58,7 +58,7 @@
 					<view class="shopAdd-cont-title">
 						<span>商号区域：</span>
 					</view>
-					<pickerAddress @change="change" class="select-city">{{txt}}</pickerAddress>
+					<pickerAddress @change="change" class="select-city">{{Region}}</pickerAddress>
 				</view>
 			</view>
 			<view class="shopAdd-cont-wrap">
@@ -70,16 +70,16 @@
 						 :class="{active:c === index2}" class="shopAdd-cont-list-three">
 						<span>{{ item.name }}</span>
 					</view> -->
-					<view class="shopAdd-cont-list-three" @click="addbg(i,item)" v-for="(item,i) in text" :class="{active1:i!=nowIndex}">{{item}}</view>
+					<view class="shopAdd-cont-list-three" @click="addbg(item.Id)" v-for="(item,i) in JoinWayList" :class="{active:JoinWay === item.Id}"><span>{{ item.Name }}</span></view>
 
-					<view v-show="nowIndex === 0" class="content">
+					<view v-show="JoinWay === 1">
 					</view>
 
-					<view v-show="nowIndex === 1" class="content">
+					<view v-show="JoinWay === 2">
 						<textarea @blur="bindTextAreaBlur" style="margin-top: 10px;" auto-height placeholder="请输入加入条件" class="shopAdd-textarea" v-model="JoinDemand" />
 					</view>
 
-					<view v-show="nowIndex === 2" class="content">
+					<view v-show="JoinWay === 3">
 						<view class="nowindex-list">
 							<span>次费</span>
 							<input type="text" value="" v-model="JoinFeeOnce"/>
@@ -214,63 +214,82 @@
 	import 'common/editor-icon.css';
 	// import 'pages/shopAdd/shopAdd.css';
 	import pickerAddress from '@/components/wangding-pickerAddress/wangding-pickerAddress.vue';
-	import simpleAddress from "@/components/simple-address/simple-address.nvue"
+	// import simpleAddress from "@/components/simple-address/simple-address.nvue"
 	export default {
 		components:{
             pickerAddress
         },
 		data() {
 			return {
-				//
+				Id: '',
+				
                 readOnly: false,
 				formats: {},
 				//
 				show: true,
 				edittt: true,
-				title: 'uploadFile',
-				nowIndex: 0,
-				active_text:'开放加入',
-				text: ['开放加入', '审核加入', '付费加入'],
-				txt: '请选择区域',
+				// title: 'uploadFile',
+				// nowIndex: 0,
+				// active_text:'开放加入',
+				JoinWayList: [{
+					Id: 1,
+					Name: '开放加入'
+				}, {
+					Id: 2,
+					Name: '审核加入'
+				}, {
+					Id: 3,
+					Name: '付费加入'
+				}],
+				Region: '请选择区域',
 				ShopTitle:'',
 				ShopRemark:'',
 				ShopContent:'',
 				imageSrc: '',
+				JoinWay:1,
 				JoinDemand:'',
-				JoinFeeOnce:'',
-				JoinFeeMonth:'',
-				JoinFeeYear:'',
-				JoinFeeUnlimited:'',
+				JoinFeeOnce:0,
+				JoinFeeMonth:0,
+				JoinFeeYear:0,
+				JoinFeeUnlimited:0,
 				Provice:'',
 				City:'',
 				Area:'',
 				Contact:'',
 				ContactTel:'',
 				ContactAddress:'',
-				shenfen: [],
-				hangye: [],
-				leixing: [],
-				a: 0,
-				b: 0,
-				c: 0
+				channelList: [],
+				typeList: [],
+				classList: [],
+				channelId: '',
+			    typeId: '',
+			    classId: ''
+				// a: 0,
+				// b: 0,
+				// c: 0
 		
 			}
 				
 		},
-		onLoad() {
+		onLoad(options) {
+			this.Id = options.Id;
+			if(this.Id!=null){
+				this.initData();
+			}
 			this.getShopTypeData();
 			// this.getCreatShopAdd();
-			uni.loadFontFace({
-				family: 'Pacifico',
-				source: 'url("https://sungd.github.io/Pacifico.ttf")'
-			});
+			
+			// uni.loadFontFace({
+			// 	family: 'Pacifico',
+			// 	source: 'url("https://sungd.github.io/Pacifico.ttf")'
+			// });
 			
 		},
 		onUnload() {
 			this.imageSrc = '';
 		},
 		methods: {
-			//
+			//编辑器
 			readOnlyChange() {
 				this.readOnly = !this.readOnly
 			},
@@ -278,6 +297,8 @@
 				uni.createSelectorQuery().select('#editor').context((res) => {
 					this.editorCtx = res.context
 				}).exec()
+				// console.log(this.ShopContent)
+				this.editorCtx.setContents({html:this.ShopContent})
 			},
 			undo() {
 				this.editorCtx.undo()
@@ -349,7 +370,41 @@
 					}
 				})
 			},
-			//
+			//编辑器
+			
+			initData(){
+				// console.log(this.Id)
+				uni.request({
+					url: this.$serverUrl + '/Shop/Dev_Shop/GetDataDetail?id=' + this.Id,
+					success: (res) => {
+						this.imageSrc = res.data.ShopPic;
+						this.ShopTitle = res.data.ShopTitle;
+						this.ShopRemark = res.data.ShopRemark;
+						this.ShopContent = res.data.ShopContent;
+						this.UserName = res.data.UserName;
+						this.CreateTime = res.data.CreateTime.split(' ')[0];
+						this.Provice = res.data.Provice;
+						this.City = res.data.City;
+						this.Area = res.data.Area;
+						this.Region = res.data.Provice + '-' + res.data.City + '-' + res.data.Area
+						this.JoinWay = res.data.JoinWay;
+						this.JoinDemand = res.data.JoinDemand;
+						this.JoinFeeOnce = res.data.JoinFeeOnce;
+						this.JoinFeeMonth = res.data.JoinFeeMonth;
+						this.JoinFeeYear = res.data.JoinFeeYear;
+						this.JoinFeeUnlimited = res.data.JoinFeeUnlimited;
+						this.Contact = res.data.Contact;
+						this.ContactTel = res.data.ContactTel;
+						this.ContactAddress = res.data.ContactAddress;
+						
+						this.channelId = res.data.ChannelId;
+						this.typeId = res.data.TypeId;
+						this.classId = res.data.ClassId;
+
+					},
+				
+				})
+			},
 			delimg: function(){
 				this.imageSrc = ''
 			},
@@ -420,13 +475,13 @@
 				});
 				// console.log(this.imageSrc)
 				var ShopTitle = this.ShopTitle,
-					shenfen = this.shenfen[this.a].Id,
-					leixing = this.leixing[this.b].Id,
-					hangye = this.hangye[this.c].Id,
+					// shenfen = this.shenfen[this.a].Id,
+					// leixing = this.leixing[this.b].Id,
+					// hangye = this.hangye[this.c].Id,
 					Provice = this.Provice,
 					City = this.City,
 					Area = this.Area,
-					JoinWay = this.nowIndex,
+					JoinWay = this.JoinWay,
 					JoinDemand = this.JoinDemand,
 					JoinFeeOnce = this.JoinFeeOnce,
 					JoinFeeMonth = this.JoinFeeMonth,
@@ -461,12 +516,13 @@
 						url:this.$serverUrl + '/Shop/Dev_Shop/SaveData',
 						method:"POST",
 						data:{
+							Id:this.Id,
 							ShopTitle: ShopTitle,
 							ShopPic: this.imageSrc,
 							UserId: uni.getStorageSync('userid'),
-							TypeId: leixing,
-							ClassId: hangye,
-							ChannelId: shenfen,
+							TypeId: this.typeId,
+							ClassId: this.classId,
+							ChannelId: this.channelId,
 							Provice: Provice,
 							City: City,
 							Area: Area,
@@ -485,16 +541,27 @@
 							
 						},
 						success: (res) =>{
-							uni.showToast({
-								title: '商号创建成功！',
-								icon: 'success',
-								duration: 2000
-							})
-							this.Timer = setInterval(() => {
-								uni.switchTab({
-									url: '/pages/index/index'
-								});
-							}, 2000)
+							if(this.Id==null){
+								uni.showToast({
+									title: '商号创建成功！',
+									icon: 'success',
+									duration: 2000
+								})
+								this.Timer = setInterval(() => {
+									uni.switchTab({
+										url: '/pages/index/index'
+									});
+								}, 2000)
+							}else{
+								uni.showToast({
+									title: '商号修改成功！',
+									icon: 'success',
+									duration: 2000
+								})
+								this.Timer = setInterval(() => {
+									uni.navigateBack()
+								}, 2000)
+							}
 
 						}
 					});
@@ -507,8 +574,10 @@
 					url:this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1206262951519064064',
 					success: (res) =>{
 						for( var i = 0; i <res.data.length; i++ ){
-							this.shenfen = res.data
-							
+							this.channelList = res.data
+						}
+						if(this.Id==null){
+							this.channelId=res.data[0].Id
 						}
 					}
 				});
@@ -516,8 +585,10 @@
 					url:this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1204236610573570048',
 					success: (res) =>{
 						for( var h = 0; h <res.data.length; h++ ){
-							this.hangye = res.data
-							
+							this.classList = res.data
+						}
+						if(this.Id==null){
+							this.classId = res.data[0].Id
 						}
 					}
 				});
@@ -525,23 +596,26 @@
 					url:this.$serverUrl + '/SystemManage/Dev_Type/GetDataList_NoPagin?parentId=1204236075598483456',
 					success: (res) =>{
 						for( var l = 0; l <res.data.length; l++ ){
-							this.leixing = res.data
-							
+							this.typeList = res.data
+						}
+						if(this.Id==null){
+							this.typeId = res.data[0].Id
 						}
 					}
 				});
 			},
 			
 			
-			changShenfen(index) {
-				this.a = index;
+			changChannel(Id) {
+				this.channelId = Id;
+				console.log(this.channelId)
 				
 			},
-			changLeixing(index1) {
-				this.b = index1;
+			changType(Id) {
+				this.typeId = Id;
 			},
-			changHangye(index2) {
-				this.c = index2;
+			changClass(Id) {
+				this.classId = Id;
 			},
 			change(data) {
 				var Provice = data.data[0],
@@ -551,13 +625,13 @@
 					this.City = data.data[1],
 					this.Area = data.data[2];
 				
-                this.txt = Provice + '-' + City + '-' + Area
+                this.Region = Provice + '-' + City + '-' + Area
                 
                 // console.log(data.data)
             },
-			addbg(index, active_text) {
-				this.nowIndex = index;
-				this.active_text= active_text;
+			addbg(Id) {
+				this.JoinWay = Id
+				// console.log(this.JoinWay)
 			},
 			bindTextAreaBlur: function (e) {
 				// console.log(e.detail.value)
@@ -684,6 +758,18 @@
 		float: left;
 		margin: 4px 1%;
 		align-content:center;
+		border: 1px solid #999999;
+		color: #999999;
+		height: 22px;
+		line-height: 22px;
+		border-radius: 4px;
+		
+/* 		width: 30%;
+		display: flex;
+		flex-wrap: wrap; 
+		float: left;
+		margin: 4px 1%;
+		align-content:center;
 		background: #ffffff;
 		border: 1px solid #000000;
 		color: #000000;
@@ -696,7 +782,16 @@
 		justify-content: center;
 		text-align: center;
 		font-size: 14px;
+		align-content:center; */
+	}
+	.shopAdd-cont-list-three span{
+		width: 100%;
+		display: inline-flex;
+		justify-content: center;
+		text-align: center;
+		font-size: 14px;
 		align-content:center;
+		
 	}
 	.active1{
 		border: 1px solid #999999 !important;

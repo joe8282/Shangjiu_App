@@ -9,7 +9,7 @@
 		</view>
 		<view class="main-toggle-wrap">
 			<view class="main-toggle-cont">
-				<span class="main-cjsh-btn">+ 创建商号</span>
+				<navigator url="../shopAdd/shopAdd?Id=2311"><span class="main-cjsh-btn">+ 创建商号</span></navigator>
 				<!-- <ul class="main-toggle-ul">
 					<li>1．会员可根据需要创建多个商号，用于商家经营推广、创业、接活；做自媒与内容。</li>
 					<li>2．商号为创新社群模式，内置“商讯、</li>
